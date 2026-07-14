@@ -20,3 +20,18 @@ body {
   color: #242222;      /* brand-dark */
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
 }
+
+/* ─── CSS-only fade-up reveal ─────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fadeUp 0.7s ease both;
+}
+.animate-fade-up-d1 { animation-delay: 0.1s; }
+.animate-fade-up-d2 { animation-delay: 0.2s; }
+.animate-fade-up-d3 { animation-delay: 0.3s; }
+.animate-fade-up-d4 { animation-delay: 0.4s; }
+.animate-fade-up-d5 { animation-delay: 0.5s; }
+
