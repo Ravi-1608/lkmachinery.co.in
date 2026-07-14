@@ -1,1 +1,303 @@
-[]
+{
+  "dcm": {
+    "categoryLabel": "DCM",
+    "categoryName": "Die Casting Machine",
+    "categoryDescription": "LK Group is a world-leading die casting machine manufacturer. According to statistics, since 2007, the sales volume of LK die casting machines has accounted for 50% of the sales volume of die casting machines in China, Brazil and Southeast Asia for many consecutive years. The group has been continuously selected as one of the \"Top 500 Chinese Machinery Enterprises\" since 2006.",
+    "models": [
+      {
+        "slug": "aviss-ii",
+        "name": "AVISS II",
+        "chamberType": "Hot Chamber",
+        "tonnage": "30-400",
+        "description": "Since the launch of the first AVIS machine in 1994, the hot chamber machine AVIS has become a representative of professional, high-quality and high-efficiency die casting machines. The newly launched AVIS-II series has a higher level of standard equipment and uses the latest servo energy-saving technology at present, with significant energy-saving effects. Currently, the AVIS-II series is a world-class hot chamber die casting machine.",
+        "highlights": ["Rapid die change system", "Control system", "Automatic feeding system", "World-famous brand servo motor pump system", "New fully enclosed sheet metal structure"],
+        "applicableIndustries": ["Household Appliance", "Transportation", "Smart 3C-5G Communication", "Daily Necessities"],
+        "image": "/images/products/dcm/aviss-ii.png",
+        "sourceVerified": "lk.world/en/product/detail/1194"
+      },
+      {
+        "slug": "classic-v",
+        "name": "Classic V",
+        "chamberType": "Hot Chamber",
+        "tonnage": "30-400",
+        "description": "The new CLASSIC-V series is a perfect masterpiece that combines mature die casting machine design technology and manufacturing processes with modern advanced touch control technology and precise hydraulic control technology. Its intelligent design is convenient for operation, easy to monitor, and has a fast and agile response, which is conducive to achieving high-quality fully automated production.",
+        "highlights": ["High Efficiency and Energy Saving", "Intelligent Large Screen", "Electric Furnace"],
+        "applicableIndustries": ["Household Appliance", "Transportation", "Smart 3C-5G Communication", "Daily Necessities"],
+        "image": "/images/products/dcm/classic-v.png",
+        "sourceVerified": "lk.world/en/product/detail/1200"
+      },
+      {
+        "slug": "d-series",
+        "name": "D Series",
+        "chamberType": "Cold Chamber",
+        "tonnage": "160-900",
+        "description": "The most distinctive design of the LK D series die casting machines is that its injection mechanism adopts a highly stable and high-strength D-shaped structure design. The high-strength integrated casting D-shaped frame structure has strong rigidity, small platen deformation, balanced force, and effectively avoids stress concentration. The injection process is more stable and reliable. At the same time, the installation holes of the injection cylinder and the shot sleeve are processed at one time, with high coaxiality accuracy, stable and reliable product accuracy, and the injection speed is 9m/s. The standard servo energy-saving system is equipped, with fast die closing speed, high efficiency and strong rigidity.",
+        "highlights": ["Intelligent Die Height Adjustment", "User-friendly and Easy to Use", "Safe and Reliable", "Rapid die change system", "Intelligent Injection", "Precise and Efficient"],
+        "applicableIndustries": ["Household Appliance", "Transportation", "Smart 3C-5G Communication", "Daily Necessities"],
+        "image": "/images/products/dcm/d-series.png",
+        "sourceVerified": "lk.world/en/product/detail/1188"
+      },
+      {
+        "slug": "impress-iii",
+        "name": "IMPRESS III",
+        "chamberType": "Cold Chamber",
+        "tonnage": "280-6000",
+        "description": "The third-generation high-performance IMPRESS-III series cold chamber die casting machines are designed based on inheriting the traditional design advantages, rich manufacturing experience and mature application technology of LK die casting machines, incorporating the world's cutting-edge new technologies, new processes and new concepts. It is a new generation of die casting machines with faster speed, more stable performance, energy conservation and environmental protection.",
+        "highlights": ["Stable response of pressure charging system", "High repeatability accuracy", "CAE optimized design", "Rapid integration of control system", "Dual proportional control"],
+        "applicableIndustries": ["Household Appliance", "Transportation", "Smart 3C-5G Communication", "Daily Necessities"],
+        "image": "/images/products/dcm/impress-iii.png",
+        "sourceVerified": "lk.world/en/product/detail/1176"
+      },
+      {
+        "slug": "impress-plus",
+        "name": "IMPRESS PLUS",
+        "chamberType": "Cold Chamber",
+        "tonnage": "6000-9000",
+        "description": "The IMPRESS-PLUS series die casting machines inherit the advantages of high yield, high efficiency, stability and durability of the IMPRESS-III series. Combined with new-era die casting process trends and production management requirements, it integrates intelligent injection control technology, casting quality control technology, efficient die closing transmission technology, intelligent die height adjustment technology and servo energy-saving technology.",
+        "highlights": ["Intelligent die casting unit", "Servo energy-saving control system", "Platen surface hardening technology", "Rapid die change system", "LK-NET network management system", "Intelligent die height adjustment system"],
+        "applicableIndustries": ["Household Appliance", "Transportation", "Smart 3C-5G Communication", "Daily Necessities"],
+        "image": "/images/products/dcm/impress-plus.png",
+        "sourceVerified": "lk.world/en/product/detail/1179"
+      }
+    ]
+  },
+  "imm": {
+    "categoryLabel": "IMM",
+    "categoryName": "Injection Molding Machine",
+    "categoryDescription": "LK Group applies the die-casting technology accumulated over many years to injection molding machinery, enabling comprehensive improvements in aspects such as machinery, hydraulics, and electrical control. It perfectly combines the power and speed of pressure casting with the precision of injection molding.",
+    "models": [
+      {
+        "slug": "potenza-v",
+        "name": "Potenza V",
+        "machineType": "Toggle Type",
+        "tonnage": "80-850",
+        "description": "The POTENZA-V series servo precision injection molding machine is a new series of servo energy-saving precision injection molding machines designed and developed based on the R&D concepts of \"energy saving\", \"efficiency\" and \"stability\". On the basis of the various original advantages of the POTENZA-III series, the mechanical part design is further upgraded and strengthened to improve reliability and stability. This series adopts modular design for more convenient personalized customization.",
+        "highlights": [],
+        "applicableIndustries": ["Transportation", "Smart 3C", "Home Appliance"],
+        "image": "/images/products/imm/potenza-v.png",
+        "sourceVerified": "lk.world/en/product/detail/1201"
+      },
+      {
+        "slug": "potenza-iii",
+        "name": "Potenza III",
+        "machineType": "Toggle Type",
+        "tonnage": "80-1480",
+        "description": "The POTENZA series, with production technologies developed and verified repeatedly over many years, has good stability and high precision. It offers clamping force ranging from 800 to 14,800 KN, and is an ideal basic equipment suitable for various injection molding technologies and process applications, creating higher value for customers.",
+        "highlights": [],
+        "applicableIndustries": ["Transportation", "Smart 3C", "Home Appliance"],
+        "image": "/images/products/imm/potenza-iii.png",
+        "sourceVerified": "lk.world/en/product/detail/1195"
+      },
+      {
+        "slug": "potenza-a",
+        "name": "Potenza A",
+        "machineType": "Toggle Type",
+        "tonnage": "80-850",
+        "description": "The LK POTENZA-A servo injection molding machine incorporates new technologies, new processes and new concepts on the basis of inheriting LK's traditional design concepts, making the overall performance of the machine more advanced and perfect. The user-friendly appearance and safety design in line with national standards make the machine operation safer and more reliable; the professional injection molding machine computer control system has a fast response cycle and is easy to operate.",
+        "highlights": ["High-Performance Clamping Unit", "High-Precision Injection Unit", "Intelligent Electronic Control Unit", "High-Efficiency Power Unit", "Cloud Injection Molding Networking Interface", "Brand-new Appearance and UI Design"],
+        "applicableIndustries": ["Transportation", "Smart 3C", "Home Appliance"],
+        "image": "/images/products/imm/potenza-a.png",
+        "sourceVerified": "lk.world/en/product/detail/1189",
+        "note": "CORRECTED: Figma mockup showed erroneous Tonnage 6000-9000 (leftover placeholder data). Real value from lk.world is 80-850."
+      },
+      {
+        "slug": "forza",
+        "name": "FORZA",
+        "machineType": "Two-platen",
+        "tonnage": "450-7000",
+        "description": "The FORZA series adopts a single-cylinder injection system, which has a fast response and high injection accuracy. The whole machine has a compact structure, a small floor area, a large mold space, and the clamping force ranges from 4500 to 70000 KN. It can excellently meet the requirements for components with high surface quality in the home appliance industry, high-precision parts in the automotive industry, garbage classification sanitation bins, pallets and turnover boxes in the logistics industry, and civilian industries.",
+        "highlights": [],
+        "applicableIndustries": ["Home Appliance", "Automotive", "Logistics (bins/pallets/crates)", "Civilian industries"],
+        "image": "/images/products/imm/froza.png",
+        "sourceVerified": "lk.world/en/product/detail/1192",
+        "note": "Spelling confirmed as 'FORZA' (not 'Froza' as in original Figma filename) per founder decision."
+      },
+      {
+        "slug": "elettrica",
+        "name": "Elettrica",
+        "machineType": "Electric",
+        "tonnage": "100-550",
+        "description": "The ELETTRICA series adopts a brand-new high-drive system, combined with a professional control system, flexibly achieving precise and efficient injection molding. It has strong scalability, is equipped with a high-performance computer with an Intel X86 processor, and has an open international interface. The clamping force ranges from 1000 to 5500 KN.",
+        "highlights": [],
+        "applicableIndustries": ["Electronic Communication", "Medical Consumables", "Auto Parts", "Packaging Products", "Toys"],
+        "image": "/images/products/imm/electrica.png",
+        "sourceVerified": "lk.world/en/product/detail/1177",
+        "note": "India sells base ELETTRICA only. ELETTRICA-E and ELETTRICA-S sub-series NOT offered in India (confirmed by founder)."
+      },
+      {
+        "slug": "lena",
+        "name": "Lena",
+        "machineType": "Multi-component",
+        "tonnage": "30-400",
+        "clampingForce": "500-4000 KN",
+        "description": "The LENA series adopts a direct press clamping unit, with platen sliding in linear guides and high-precision closed-loop servo valves. It has a fast response, stable operation and higher efficiency.",
+        "highlights": ["Direct-press clamping unit", "High repeat accuracy", "Energy saving"],
+        "applicableIndustries": ["Industrial Supplies-Logistics Products", "Household Appliance", "Daily Necessities-Furniture", "Daily Necessities-Lifestyle Products"],
+        "image": "/images/products/imm/lena.png",
+        "sourceVerified": "Figma export (not found under this name on lk.world)",
+        "note": "IMPORTANT: Lena is a DIFFERENT series from VARIA (lk.world's Multi-component model). VARIA is NOT sold in India. Content sourced from Figma export only, not cross-verified against lk.world."
+      }
+    ]
+  },
+  "cnc": {
+    "categoryLabel": "CNC",
+    "categoryName": "CNC Machining Center",
+    "categoryDescription": "LK Group established a computer numerical control machining center in Taiwan. It has developed more than ten products such as vertical and horizontal drilling and milling machines. A number of technologies have obtained patents in the Chinese mainland, Taiwan, China and the United States. The products have successfully passed the strict certification of Foxconn Group's Apple products and qualified production equipment.",
+    "note": "No tonnage/clamping-force specs shown for CNC on lk.world -- consistent with our decision not to publish detailed specs (CNC uses different spec measures like table size/spindle speed anyway).",
+    "models": [
+      {
+        "slug": "mv-series",
+        "name": "MV Series",
+        "machineType": "Vertical Machining Center",
+        "description": "Primarily designed for high-precision small and medium-sized parts processing, it employs high-torque motors to achieve high-performance cutting capabilities, widely used in mass production of aluminum and iron castings.",
+        "applicableIndustries": ["Transportation", "Smart 3C", "Home Appliance"],
+        "image": "/images/products/cnc/mv.png",
+        "sourceVerified": "lk.world/en/product/detail/1181"
+      },
+      {
+        "slug": "vm-series",
+        "name": "VM Series",
+        "machineType": "Vertical Machining Center",
+        "description": "Primarily designed for high-precision small and medium-sized parts processing, it employs high-torque motors to achieve high-performance cutting capabilities, widely used in mass production of aluminum and iron castings.",
+        "applicableIndustries": ["Transportation", "Smart 3C", "Home Appliance"],
+        "image": "/images/products/cnc/vm.png",
+        "sourceVerified": "lk.world/en/product/detail/1187"
+      },
+      {
+        "slug": "vc-series",
+        "name": "VC Series",
+        "machineType": "Vertical Machining Center",
+        "description": "The high-rigidity frame structure is designed with a robust base to ensure stable structural characteristics. The advanced spindle design utilizes high-rigidity bearings to deliver exceptional cutting performance and low thermal temperature rise. The chip removal system is configured for either front or rear discharge, facilitating rapid and smooth tool changes.",
+        "applicableIndustries": ["Transportation", "Smart 3C", "Home Appliance"],
+        "image": "/images/products/cnc/vc.png",
+        "sourceVerified": "lk.world/en/product/detail/1269"
+      },
+      {
+        "slug": "tc-series",
+        "name": "TC Series",
+        "machineType": "High-speed Drilling and Tapping Center",
+        "description": "Fast, space-saving, and easy to operate, especially for drilling and tapping processes, where its rapid and efficient characteristics are even more pronounced.",
+        "applicableIndustries": ["Transportation", "Smart 3C", "Home Appliance"],
+        "image": "/images/products/cnc/tc.png",
+        "sourceVerified": "lk.world/en/product/detail/1175"
+      },
+      {
+        "slug": "lh-series",
+        "name": "LH Series",
+        "machineType": "Horizontal Machining Center",
+        "description": "Featuring high rigidity and high-speed processing, the LH-500 is lightweight. Its rapid feed speed is over 20% faster than traditional models, and the machine structure utilizes a rear-wall high-rigidity bed. From low-speed casting processing to high-speed aluminum alloy processing, it meets the diverse needs of various industries, led by the automotive industry.",
+        "applicableIndustries": ["Transportation", "Smart 3C", "Home Appliance"],
+        "image": "/images/products/cnc/lh.png",
+        "sourceVerified": "lk.world/en/product/detail/1178"
+      },
+      {
+        "slug": "ht-series",
+        "name": "HT Series",
+        "machineType": "Horizontal Machining Center",
+        "description": "The interchangeable worktable can support up to 600kg. Coupled with the overhead crane-style structural design, it enhances repeat positioning accuracy and stability during rapid worktable exchange, facilitating maintenance and service.",
+        "applicableIndustries": ["Transportation", "Smart 3C", "Home Appliance"],
+        "image": "/images/products/cnc/ht.png",
+        "sourceVerified": "lk.world/en/product/detail/1185"
+      },
+      {
+        "slug": "gs-series",
+        "name": "GS Series",
+        "machineType": "High-speed Gantry Machining Center",
+        "description": "The GS series of compact machining centers combines the ultra-large strokes of large vertical machining centers with the high efficiency of drilling and tapping centers into a new type of machining center.",
+        "applicableIndustries": ["Transportation", "Smart 3C", "Home Appliance"],
+        "image": "/images/products/cnc/gs.png",
+        "sourceVerified": "lk.world/en/product/detail/1199"
+      },
+      {
+        "slug": "eu-series",
+        "name": "EU Series",
+        "machineType": "High-speed Gantry Machining Center",
+        "description": "The high-speed gantry machining center fully adopts European craftsmanship's high-specification technical indicators and assembly quality. It boasts exceptionally high cutting feed rates while maintaining superior precision levels.",
+        "applicableIndustries": ["Transportation", "Smart 3C", "Home Appliance"],
+        "image": "/images/products/cnc/eu.png",
+        "sourceVerified": "lk.world/en/product/detail/1205"
+      },
+      {
+        "slug": "gm-series",
+        "name": "GM Series",
+        "machineType": "High-speed Gantry Machining Center",
+        "description": "The GM series of CNC gantry machining centers inherit the advantages of traditional gantry machine tool processing, with high rigidity and dynamic characteristics to meet high power and torque cutting requirements. Suitable for ferrous metals, cast iron, and steel, and complex multi-angle five-surface parts, catering to shipbuilding, mold making, engineering equipment, and rail transit.",
+        "applicableIndustries": ["Shipbuilding", "Mold Making", "Engineering Equipment", "Rail Transit"],
+        "image": "/images/products/cnc/gm.png",
+        "sourceVerified": "lk.world/en/product/detail/1209"
+      },
+      {
+        "slug": "mcg5-series",
+        "name": "MCG5 Series",
+        "machineType": "Five-axis Machining Center",
+        "description": "Efficient processing solutions for large integrated structural components of new energy vehicles. Through digital twinning, precise verification of machine tool processing is achieved, significantly enhancing processing efficiency and safety. Specifically designed for aluminum die-casting processing of large and complex vehicle bodies.",
+        "applicableIndustries": ["New Energy Vehicles", "Automotive"],
+        "image": "/images/products/cnc/mcg5.png",
+        "sourceVerified": "lk.world/en/product/detail/1207"
+      },
+      {
+        "slug": "lt-series",
+        "name": "LT Series",
+        "machineType": "Horizontal Lathe",
+        "description": "The LT series of CNC horizontal lathes adopt an integral bed structure with the X-axis inclined at a 30-degree angle, offering a small footprint, compact layout, smooth chip evacuation, and convenient operation. Suitable for processing complex-shaped axles, sleeves, and disks.",
+        "applicableIndustries": ["Transportation", "Smart 3C", "Home Appliance"],
+        "image": "/images/products/cnc/lt.png",
+        "sourceVerified": "lk.world/en/product/detail/1190"
+      },
+      {
+        "slug": "ltr-series",
+        "name": "LTR Series",
+        "machineType": "Horizontal Lathe",
+        "description": "The LTR series of CNC horizontal lathes adopt an integral 45-degree inclined bed structure, occupying a small footprint with structural compactness, high rigidity, smooth chip evacuation, and convenient operation.",
+        "applicableIndustries": ["Transportation", "Smart 3C", "Home Appliance"],
+        "image": "/images/products/cnc/ltr.png",
+        "sourceVerified": "lk.world/en/product/detail/1196"
+      },
+      {
+        "slug": "ltr-m-series",
+        "name": "LTR-M Series",
+        "machineType": "Horizontal Lathe",
+        "description": "The LTR-M series adopts an integral 45-degree inclined bed structure with structural compactness, high rigidity, smooth chip evacuation. Adds milling squares and milling keyways capability beyond the standard LTR series.",
+        "applicableIndustries": ["Transportation", "Smart 3C", "Home Appliance"],
+        "image": "/images/products/cnc/ltrm.png",
+        "sourceVerified": "lk.world/en/product/detail/1202"
+      }
+    ]
+  },
+  "automation": {
+    "categoryLabel": "Automation",
+    "categoryName": "Robot Automation",
+    "categoryDescription": "Provide injection molding and intelligent die-casting users with a full range of automation services, such as whole plant scheme planning, intelligent facilities, centralized feeding, robot design and production, whole plant virtual simulation and project control, and workshop digitization.",
+    "models": [
+      {
+        "slug": "lt04n",
+        "name": "LT04N",
+        "family": "LK Robot Arms",
+        "description": "Equipped with a top-brand planetary gear reducer, reaching a back clearance of 0.05° for high precision of servo motor at maximum extension. High-precision linear guideways offer better abrasion resistance, longer service life, faster speed and lower noise. Internationally renowned synchronous belts provide better abrasion resistance, lower noise, longer service life, and better anti-corrosion/oil resistance.",
+        "applicableIndustries": ["Transportation", "Smart 3C", "Home Appliance"],
+        "image": "/images/products/automation/lt04n.png",
+        "sourceVerified": "lk.world/en/product/detail/1151"
+      },
+      {
+        "slug": "lr-100-dp",
+        "name": "LR 100 DP",
+        "family": "LK Industrial Robots",
+        "description": "In low-load applications, the LR series of multi-functional six-axis industrial robots offer advantages such as higher precision, shorter cycle times, and compact design. They require minimal floor space and offer flexible installation options, along with a low failure rate. Capable of agile operation in confined spaces, enhancing production efficiency and product quality while reducing labor costs.",
+        "applicableIndustries": ["Transportation", "Smart 3C", "Home Appliance"],
+        "image": "/images/products/automation/lr-100-dp.png",
+        "sourceVerified": "lk.world/en/product/detail/1164",
+        "note": "Description is shared/identical across all LR-series variants on lk.world (LR20D/50D/100DP/165D/165Z) -- likely differentiated by payload/reach spec sheets not available to us, per our no-public-specs decision this is not a blocker."
+      },
+      {
+        "slug": "lr-50-d",
+        "name": "LR 50 D",
+        "family": "LK Industrial Robots",
+        "description": "In low-load applications, the LR series of multi-functional six-axis industrial robots offer advantages such as higher precision, shorter cycle times, and compact design. They require minimal floor space and offer flexible installation options, along with a low failure rate. Capable of agile operation in confined spaces, enhancing production efficiency and product quality while reducing labor costs.",
+        "applicableIndustries": ["Transportation", "Smart 3C", "Home Appliance"],
+        "image": "/images/products/automation/lr-50-d.png",
+        "sourceVerified": "lk.world/en/product/detail/1168",
+        "note": "Same shared LR-series description as LR 100 DP -- see note above."
+      }
+    ]
+  }
+}
