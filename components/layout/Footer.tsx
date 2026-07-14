@@ -67,7 +67,7 @@ const SOCIAL_LINKS = [
   },
   {
     label: "WhatsApp",
-    href: "https://wa.me/911234567890",
+    href: "https://wa.me/918888718587",
     Icon: WhatsAppIcon,
   },
 ] as const;
@@ -160,11 +160,11 @@ export default function Footer() {
           {/* Col 5 — Contact + Join */}
           <div>
             <FooterHeading>Contact Us</FooterHeading>
-            <FooterLink href="mailto:info@lkmachinery.com">
-              info@lkmachinery.com
+            <FooterLink href="mailto:avinash@lkmachinery.co.in">
+              avinash@lkmachinery.co.in
             </FooterLink>
-            <FooterLink href="tel:+911234567890">
-              +91 12345 67890
+            <FooterLink href="tel:+918888718587">
+              +91 8888718587
             </FooterLink>
 
             <div className="mt-6">

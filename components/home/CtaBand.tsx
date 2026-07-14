@@ -56,7 +56,7 @@ export default function CtaBand() {
             </Link>
 
             <a
-              href="tel:+911234567890"
+              href="tel:+918888718587"
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/15 text-white
                          font-semibold rounded-full border border-white/30 hover:bg-white/25
                          active:scale-95 transition-all duration-200 font-body backdrop-blur-sm"
