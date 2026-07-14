@@ -26,7 +26,7 @@ const TIMELINE = [
   { year: "2006", event: "LK Group joins China's Top 500 Machinery Enterprises list (retained every year since)." },
   { year: "2007", event: "LK die casting machines account for 50% of market sales in China, Brazil, and Southeast Asia." },
   { year: "2015", event: "CNC division established in Taiwan; Apple supply-chain certification achieved." },
-  { year: "2008", event: "LK Machinery India Pvt. Ltd. incorporated — dedicated operations for the Indian subcontinent." },
+  { year: "2012", event: "LK Machinery India Pvt. Ltd. incorporated — dedicated operations for the Indian subcontinent." },
   { year: "Today", event: "27 machine models, 3 automation product lines, and a Chakan MIDC base serving customers across India." },
 ] as const;
 
@@ -202,7 +202,7 @@ export default function AboutPage() {
                 ["Headquarters", "Pune, Maharashtra"],
                 ["Coverage", "Pan-India sales & service"],
                 ["Parent Company", "LK Technology Holdings (HK: 00558)"],
-                ["Incorporated", "2008"],
+                ["Incorporated", "2012"],
               ].map(([k, v]) => (
                 <div key={k} className="border-b border-white/10 pb-5 last:border-0 last:pb-0">
                   <p className="text-white/40 text-xs font-body uppercase tracking-widest mb-1">{k}</p>
