@@ -56,8 +56,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col font-body bg-brand-offwhite text-brand-dark">
         <Header />
-        {/* pt-16 offsets the fixed header height (h-16 on mobile, lg:h-18 on desktop) */}
-        <main className="flex-1 pt-16 lg:pt-18">{children}</main>
+        <main className="flex-1">{children}</main>
         <Footer />
       </body>
     </html>
