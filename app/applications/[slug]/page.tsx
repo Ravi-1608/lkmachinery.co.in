@@ -66,7 +66,7 @@ export default async function ApplicationPage({ params }: Props) {
       <section className="relative min-h-[55vh] flex items-end overflow-hidden bg-brand-dark">
         <Image
           src={app.image}
-          alt={app.name}
+          alt={`${app.name} application`}
           fill
           priority
           className="object-cover opacity-35"
@@ -147,7 +147,7 @@ export default async function ApplicationPage({ params }: Props) {
                 href={`/applications/${a.slug}`}
                 className="group relative rounded-xl overflow-hidden aspect-[3/2]"
               >
-                <Image src={a.image} alt={a.name} fill
+                <Image src={a.image} alt={`${a.name} application`} fill
                        className="object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent" />
                 <span className="absolute bottom-4 left-4 font-heading text-white text-lg">

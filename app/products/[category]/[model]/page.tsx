@@ -147,7 +147,7 @@ export default async function ProductModelPage({ params }: Props) {
             <div className="relative w-full aspect-square max-w-lg mx-auto lg:mx-0 lg:ml-auto">
               <Image
                 src={model.image}
-                alt={model.name}
+                alt={`${model.name} ${model.chamberType || model.machineType || model.family || ""} ${cat.categoryName}`.replace(/\s+/g, " ").trim()}
                 fill
                 priority
                 className="object-contain drop-shadow-2xl"

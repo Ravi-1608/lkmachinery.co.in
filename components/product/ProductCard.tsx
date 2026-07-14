@@ -14,6 +14,7 @@ export default function ProductCard({ model, categorySlug, badge }: ProductCardP
   const href = `/products/${categorySlug}/${model.slug}`;
   const typeBadge = badge ?? model.chamberType ?? model.machineType ?? model.family;
   const teaser = firstSentence(model.description);
+  const altText = `${model.name} ${model.chamberType || model.machineType || model.family || ""} ${categorySlug.toUpperCase()} machine`.replace(/\s+/g, " ").trim();
 
   return (
     <Link
@@ -25,7 +26,7 @@ export default function ProductCard({ model, categorySlug, badge }: ProductCardP
       <div className="relative w-full aspect-[4/3] bg-brand-offwhite overflow-hidden">
         <Image
           src={model.image}
-          alt={model.name}
+          alt={altText}
           fill
           className="object-contain p-6 group-hover:scale-105 transition-transform duration-500"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
