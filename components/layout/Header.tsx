@@ -1,3 +1,201 @@
+"use client";
+
+import { useEffect, useState, useCallback } from "react";
+import Link from "next/link";
+
+const NAV_LINKS = [
+  { label: "About Us",            href: "/about" },
+  { label: "Application",         href: "/applications" },
+  { label: "Products",            href: "/products" },
+  { label: "Investor Relations",  href: "/investor-relations" },
+  { label: "Blogs",               href: "/blogs" },
+] as const;
+
+const CTA_LINK = { label: "Contact Us", href: "/contact" };
+
+// ─── Logo ──────────────────────────────────────────────────────────────────
+function LKLogo() {
+  return (
+    <Link href="/" className="flex items-center gap-3 group" aria-label="LK Group — home">
+      {/* Red rounded-square mark */}
+      <span
+        className="flex items-center justify-center w-10 h-10 rounded-lg bg-brand-red text-white font-heading text-lg select-none
+                   group-hover:bg-brand-redDark transition-colors duration-200"
+        aria-hidden="true"
+      >
+        LK
+      </span>
+      {/* Wordmark */}
+      <span className="font-heading text-white text-xl tracking-wide leading-none">
+        LK GROUP
+      </span>
+    </Link>
+  );
+}
+
+// ─── Desktop Nav ────────────────────────────────────────────────────────────
+function DesktopNav() {
+  return (
+    <nav aria-label="Primary navigation" className="hidden lg:flex items-center gap-1">
+      {NAV_LINKS.map(({ label, href }) => (
+        <Link
+          key={href}
+          href={href}
+          className="px-4 py-2 text-sm text-white/80 hover:text-white rounded-lg
+                     hover:bg-white/10 transition-all duration-200 font-body"
+        >
+          {label}
+        </Link>
+      ))}
+      {/* CTA pill */}
+      <Link
+        href={CTA_LINK.href}
+        className="ml-3 px-5 py-2 text-sm font-semibold text-white bg-brand-red rounded-full
+                   hover:bg-brand-redDark active:scale-95 transition-all duration-200 font-body"
+      >
+        {CTA_LINK.label}
+      </Link>
+    </nav>
+  );
+}
+
+// ─── Hamburger button ────────────────────────────────────────────────────────
+function HamburgerButton({
+  open,
+  onClick,
+}: {
+  open: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={open ? "Close menu" : "Open menu"}
+      aria-expanded={open}
+      className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5
+                 rounded-lg hover:bg-white/10 transition-colors duration-200"
+    >
+      {/* Three bars — top & bottom rotate to × when open */}
+      <span
+        className={`block w-5 h-0.5 bg-white rounded-full transition-all duration-300 origin-center
+                    ${open ? "rotate-45 translate-y-2" : ""}`}
+      />
+      <span
+        className={`block w-5 h-0.5 bg-white rounded-full transition-all duration-300
+                    ${open ? "opacity-0 scale-x-0" : ""}`}
+      />
+      <span
+        className={`block w-5 h-0.5 bg-white rounded-full transition-all duration-300 origin-center
+                    ${open ? "-rotate-45 -translate-y-2" : ""}`}
+      />
+    </button>
+  );
+}
+
+// ─── Mobile Drawer ───────────────────────────────────────────────────────────
+function MobileDrawer({
+  open,
+  onClose,
+}: {
+  open: boolean;
+  onClose: () => void;
+}) {
+  return (
+    <>
+      {/* Backdrop */}
+      <div
+        onClick={onClose}
+        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden
+                    ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        aria-hidden="true"
+      />
+
+      {/* Slide-in panel */}
+      <div
+        className={`fixed top-0 right-0 z-50 h-full w-72 bg-brand-dark flex flex-col pt-20 pb-8 px-6
+                    transform transition-transform duration-300 ease-in-out lg:hidden
+                    ${open ? "translate-x-0" : "translate-x-full"}`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobile navigation"
+      >
+        <nav className="flex flex-col gap-1">
+          {NAV_LINKS.map(({ label, href }) => (
+            <Link
+              key={href}
+              href={href}
+              onClick={onClose}
+              className="px-4 py-3 text-base text-white/80 hover:text-white hover:bg-white/10
+                         rounded-lg transition-all duration-200 font-body"
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="mt-6 border-t border-white/10 pt-6">
+          <Link
+            href={CTA_LINK.href}
+            onClick={onClose}
+            className="block w-full text-center px-5 py-3 text-sm font-semibold text-white
+                       bg-brand-red rounded-full hover:bg-brand-redDark transition-all duration-200 font-body"
+          >
+            {CTA_LINK.label}
+          </Link>
+        </div>
+      </div>
+    </>
+  );
+}
+
+// ─── Header ──────────────────────────────────────────────────────────────────
 export default function Header() {
-  return <header />;
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const handleScroll = useCallback(() => {
+    setScrolled(window.scrollY > 40);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    // Run once on mount in case the page is already scrolled (e.g. browser restores position)
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
+  // Close drawer when viewport widens past mobile breakpoint
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const close = (e: MediaQueryListEvent) => { if (e.matches) setMobileOpen(false); };
+    mq.addEventListener("change", close);
+    return () => mq.removeEventListener("change", close);
+  }, [mobileOpen]);
+
+  return (
+    <>
+      <header
+        className={`fixed top-0 inset-x-0 z-30 transition-all duration-300
+          ${scrolled
+            ? "bg-brand-dark/[0.92] backdrop-blur-md shadow-lg shadow-black/20"
+            : "bg-transparent"
+          }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 lg:h-18">
+            <LKLogo />
+            <DesktopNav />
+            <HamburgerButton
+              open={mobileOpen}
+              onClick={() => setMobileOpen((prev) => !prev)}
+            />
+          </div>
+        </div>
+      </header>
+
+      <MobileDrawer open={mobileOpen} onClose={() => setMobileOpen(false)} />
+    </>
+  );
 }

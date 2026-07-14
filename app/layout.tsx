@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Archivo_Black, Inter } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 const archivoBlack = Archivo_Black({
   variable: "--font-archivo-black",
@@ -13,9 +15,33 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+// ─── Site-wide default metadata ───────────────────────────────────────────────
+// Per-page metadata (milestones M2+) should export their own `metadata` object
+// or call `generateMetadata()` from lib/seo.ts — Next.js merges with this template.
 export const metadata: Metadata = {
-  title: "LK Machinery",
-  description: "LK Machinery – Industrial Equipment & Solutions",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://lkmachinery.co.in"
+  ),
+  title: {
+    // Per-page: "Products | LK Machinery"  — root fallback: "LK Machinery"
+    template: "%s | LK Machinery",
+    default: "LK Machinery — Industrial Equipment & Solutions",
+  },
+  description:
+    "LK Machinery India Pvt. Ltd. — precision industrial equipment and end-to-end engineering solutions trusted across industries.",
+  openGraph: {
+    siteName: "LK Machinery",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  // Robots: allow indexing by default; per-page overrides where needed
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -28,7 +54,12 @@ export default function RootLayout({
       lang="en"
       className={`${archivoBlack.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-body">{children}</body>
+      <body className="min-h-full flex flex-col font-body bg-brand-offwhite text-brand-dark">
+        <Header />
+        {/* pt-16 offsets the fixed header height (h-16 on mobile, lg:h-18 on desktop) */}
+        <main className="flex-1 pt-16 lg:pt-18">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
