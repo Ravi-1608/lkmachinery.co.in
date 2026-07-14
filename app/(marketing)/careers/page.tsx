@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import ApplicationForm from "@/components/forms/ApplicationForm";
 
 export const metadata: Metadata = {
   title: "Careers",
@@ -48,14 +47,7 @@ export default function CareersPage() {
             an even bigger addressable market. We&apos;re looking for people who want to
             grow alongside us.
           </p>
-          {/* No specific openings — generic copy, flagged for founder content review before launch */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full
-                          bg-amber-500/20 border border-amber-400/30 text-amber-300 text-sm font-body">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-              <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1Zm.75 4a.75.75 0 0 0-1.5 0v3.5a.75.75 0 0 0 1.5 0V5Zm0 6a.75.75 0 0 0-1.5 0v.5a.75.75 0 0 0 1.5 0V11Z"/>
-            </svg>
-            No specific openings listed yet — express interest below and we&apos;ll reach out.
-          </div>
+
         </div>
       </section>
 
@@ -86,24 +78,34 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* ── Section 3: Application form (client component) ───────────────── */}
-      <section className="py-16 lg:py-20 bg-brand-dark" aria-labelledby="apply-heading">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-2">
-              Express Interest
-            </p>
-            <h2 id="apply-heading" className="font-heading text-white text-3xl sm:text-4xl">
-              Tell us about yourself
-            </h2>
-            <p className="text-white/50 font-body text-base mt-3">
-              No specific roles listed yet. Send your profile and we&apos;ll keep you in mind
-              for openings that match your background.
-            </p>
-          </div>
-          <div className="bg-brand-offwhite rounded-2xl p-8 shadow-xl">
-            <ApplicationForm />
-          </div>
+      {/* ── Section 3: Open Roles (ATS Redirect) ─────────────────────────── */}
+      <section className="py-16 lg:py-24 bg-brand-dark" aria-labelledby="apply-heading">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-3">
+            Open Roles
+          </p>
+          <h2 id="apply-heading" className="font-heading text-white text-3xl sm:text-4xl mb-6">
+            Ready to join us?
+          </h2>
+          <p className="text-white/60 font-body text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+            We manage all our job postings and applications through LinkedIn. View our current openings and apply directly via our company page.
+          </p>
+          
+          {/* TODO: Confirm final LinkedIn URL with founder */}
+          <a
+            href="https://www.linkedin.com/company/lk-machinery-india-pvt-ltd/jobs/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-red text-white
+                       font-semibold rounded-full hover:bg-brand-redDark active:scale-95
+                       transition-all duration-200 font-body text-lg shadow-lg shadow-brand-red/20"
+          >
+            View open roles on LinkedIn
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2"
+                    strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </a>
         </div>
       </section>
     </>
