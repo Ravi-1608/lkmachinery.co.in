@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   description:
     "Join LK Machinery India — a growing team of engineers and sales professionals building the machines that power Indian manufacturing. Express your interest today.",
   openGraph: { url: "/careers" },
+  alternates: { canonical: "/careers" },
 };
 
 const CULTURE_PILLARS = [

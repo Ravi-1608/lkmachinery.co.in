@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   description:
     "LK Machinery India is a subsidiary of LK Technology Holdings Ltd (HK: 00558), a Hong Kong-listed precision machinery group. Contact us for investor and corporate relations enquiries.",
   openGraph: { url: "/investor-relations" },
+  alternates: { canonical: "/investor-relations" },
 };
 
 // ─── No financial data is shown on this page. ─────────────────────────────

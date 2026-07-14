@@ -7,6 +7,7 @@ import {
   getModel,
   getAllModelParams,
 } from "@/lib/products";
+import { getProductSchema, getBreadcrumbSchema } from "@/lib/seo";
 import EnquiryForm from "@/components/forms/EnquiryForm";
 
 // ─── Static generation ────────────────────────────────────────────────────────
@@ -38,6 +39,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `/products/${category}/${modelSlug}`,
       images: [{ url: model.image, alt: model.name }],
     },
+    alternates: {
+      canonical: `/products/${category}/${modelSlug}`,
+    },
   };
 }
 
@@ -58,8 +62,27 @@ export default async function ProductModelPage({ params }: Props) {
   const typeLabel = model.chamberType ?? model.machineType ?? model.family;
   const hasHighlights = model.highlights && model.highlights.length > 0;
 
+  const jsonLd = [
+    getProductSchema({
+      name: model.name,
+      description: model.description,
+      image: model.image,
+      category: cat.categoryName,
+    }),
+    getBreadcrumbSchema([
+      { name: "Home", item: "/" },
+      { name: "Products", item: "/products" },
+      { name: cat.categoryName, item: `/products/${category}` },
+      { name: model.name, item: `/products/${category}/${modelSlug}` },
+    ]),
+  ];
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative bg-brand-dark overflow-hidden">
         {/* Subtle background gradient accent */}

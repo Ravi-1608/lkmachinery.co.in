@@ -15,6 +15,9 @@ export const metadata: Metadata = {
       "Precision industrial equipment — DCM, IMM, CNC, and Automation — engineered to perform.",
     url: "/",
   },
+  alternates: {
+    canonical: "/",
+  },
 };
 
 // ─── Category band data ───────────────────────────────────────────────────────

@@ -8,6 +8,7 @@ import {
   getRelatedContent,
   type ContentItem,
 } from "@/lib/content";
+import { getBreadcrumbSchema } from "@/lib/seo";
 
 // ─── Static generation ─────────────────────────────────────────────────────
 export function generateStaticParams() {
@@ -32,6 +33,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `/blogs/${slug}`,
       images: [{ url: item.image, alt: item.title }],
     },
+    alternates: {
+      canonical: `/blogs/${slug}`,
+    },
   };
 }
 
@@ -42,8 +46,18 @@ export default async function ContentDetailPage({ params }: Props) {
 
   const related = getRelatedContent(slug, 3);
 
+  const jsonLd = getBreadcrumbSchema([
+    { name: "Home", item: "/" },
+    { name: "News & Insights", item: "/blogs" },
+    { name: item.title, item: `/blogs/${slug}` },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ── Hero ───────────────────────────────────────────────────────── */}
       <section className="relative min-h-[55vh] flex flex-col justify-end overflow-hidden bg-brand-dark pt-32 pb-16">
         <Image

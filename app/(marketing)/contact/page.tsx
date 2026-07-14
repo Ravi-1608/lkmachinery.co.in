@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description:
     "Get in touch with LK Machinery India. Visit us at Chakan MIDC, Pune, call +91 8888718587, or submit an enquiry and our team will respond within one business day.",
   openGraph: { url: "/contact" },
+  alternates: { canonical: "/contact" },
 };
 
 // ─── Contact detail cards ──────────────────────────────────────────────────

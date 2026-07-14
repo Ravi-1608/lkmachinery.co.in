@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "News & Insights",
   description: "Stay up to date with the latest machine launches, company news, and learning articles from LK Machinery India.",
   openGraph: { url: "/blogs" },
+  alternates: { canonical: "/blogs" },
 };
 
 function ContentCard({ item }: { item: ContentItem }) {

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   description:
     "LK Machinery India Pvt. Ltd. — part of LK Group, a global precision machinery leader founded in 1979 with 300+ patents, 60+ service centres, and 50%+ die-casting market share across Asia.",
   openGraph: { url: "/about" },
+  alternates: { canonical: "/about" },
 };
 
 // ─── Data ─────────────────────────────────────────────────────────────────

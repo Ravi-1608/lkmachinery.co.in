@@ -7,6 +7,7 @@ import {
   getApplication,
   getApplicationSlugs,
 } from "@/lib/applications";
+import { getBreadcrumbSchema } from "@/lib/seo";
 import EnquiryForm from "@/components/forms/EnquiryForm";
 
 // ─── Static generation ─────────────────────────────────────────────────────
@@ -27,6 +28,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${app.name} Applications`,
     description: app.description.slice(0, 155) + "…",
     openGraph: { url: `/applications/${slug}` },
+    alternates: {
+      canonical: `/applications/${slug}`,
+    },
   };
 }
 
@@ -46,8 +50,18 @@ export default async function ApplicationPage({ params }: Props) {
   const allApps = getAllApplications();
   const relatedApps = allApps.filter((a) => a.slug !== slug).slice(0, 3);
 
+  const jsonLd = getBreadcrumbSchema([
+    { name: "Home", item: "/" },
+    { name: "Applications", item: "/applications" },
+    { name: app.name, item: `/applications/${slug}` },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ── Hero ───────────────────────────────────────────────────────── */}
       <section className="relative min-h-[55vh] flex items-end overflow-hidden bg-brand-dark">
         <Image

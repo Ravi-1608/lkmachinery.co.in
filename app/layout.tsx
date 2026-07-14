@@ -3,6 +3,7 @@ import { Archivo_Black, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { getOrganizationSchema } from "@/lib/seo";
 
 const archivoBlack = Archivo_Black({
   variable: "--font-archivo-black",
@@ -58,6 +59,12 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getOrganizationSchema()),
+          }}
+        />
       </body>
     </html>
   );
