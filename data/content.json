@@ -1,1 +1,159 @@
-[]
+[
+  {
+    "slug": "aviss-ii-launch-2026",
+    "type": "launch",
+    "title": "LK Machinery Launches Next-Gen AVISS II Hot Chamber Machine",
+    "excerpt": "The newly launched AVISS-II series brings world-class hot chamber die casting technology to the Indian market.",
+    "date": "March 2026",
+    "location": "Pune, India",
+    "relatedProductSlug": "dcm/aviss-ii",
+    "image": "/images/products/dcm/aviss-ii.png",
+    "body": [
+      {
+        "heading": "Overview",
+        "paragraphs": [
+          "Since the launch of the first AVIS machine in 1994, the hot chamber machine AVIS has become a representative of professional, high-quality and high-efficiency die casting machines. Today, LK Machinery India is proud to announce the next generation: the AVISS II series.",
+          "This new machine sets a higher standard for equipment and uses the latest servo energy-saving technology, delivering significant energy-saving effects for die casters across the subcontinent."
+        ]
+      },
+      {
+        "heading": "Key Highlights",
+        "paragraphs": [
+          "• Rapid die change system: Designed for fast tool changeovers to increase overall equipment effectiveness (OEE).",
+          "• Automatic feeding system: Ensures consistent material delivery and reduces manual handling.",
+          "• Servo motor pump system: World-famous brand servo technology reduces energy consumption by up to 50% compared to traditional hydraulic systems."
+        ]
+      }
+    ],
+    "isExample": true
+  },
+  {
+    "slug": "mcg5-series-launch",
+    "type": "launch",
+    "title": "Introducing the MCG5 Five-Axis Machining Center for EV Components",
+    "excerpt": "Efficient processing solutions for large integrated structural components of new energy vehicles are now available with the MCG5.",
+    "date": "January 2026",
+    "location": "New Delhi, India",
+    "relatedProductSlug": "cnc/mcg5-series",
+    "image": "/images/products/cnc/mcg5.png",
+    "body": [
+      {
+        "heading": "Meeting the EV Challenge",
+        "paragraphs": [
+          "The rapid growth of the New Energy Vehicle (NEV) sector demands new machining capabilities. Large, complex, and integrated structural components like battery trays and subframes require unprecedented precision and reach.",
+          "The new MCG5 series answers this call. Specifically designed for aluminum die-casting processing of large vehicle bodies, it brings digital twinning technology to the factory floor, allowing for precise verification of machine tool processing."
+        ]
+      }
+    ],
+    "isExample": true
+  },
+  {
+    "slug": "lk-india-expands-chakan-facility",
+    "type": "news",
+    "title": "LK Machinery India Expands Chakan MIDC Facility",
+    "excerpt": "To meet growing demand in the automotive sector, LK India is expanding its service and spare parts center in Pune.",
+    "date": "February 2026",
+    "location": "Pune, Maharashtra",
+    "readTime": "3 min read",
+    "image": "/images/hero/hero.png",
+    "body": [
+      {
+        "heading": "Facility Expansion",
+        "paragraphs": [
+          "LK Machinery India Pvt. Ltd. has announced a significant expansion of its Chakan MIDC facility. The expansion will add 20,000 sq ft of dedicated space for spare parts inventory and a new training center for customer operators.",
+          "\"This expansion reinforces our commitment to the Indian market and our 'Customer Proximity' philosophy,\" said the Managing Director of LK India. \"By holding more spare parts locally, we can further reduce lead times and ensure maximum uptime for our customers.\""
+        ]
+      },
+      {
+        "heading": "New Training Center",
+        "paragraphs": [
+          "A key feature of the expansion is the new state-of-the-art training center. It will provide hands-on experience with the latest LK control systems, helping customers upskill their workforce and get the most out of their machine investments."
+        ]
+      }
+    ],
+    "isExample": true
+  },
+  {
+    "slug": "lk-india-at-die-casting-expo-2025",
+    "type": "news",
+    "title": "LK Machinery Showcases Innovations at ALUCAST India",
+    "excerpt": "Highlights from our recent participation in India's premier die casting exhibition.",
+    "date": "December 2025",
+    "location": "Chennai, India",
+    "readTime": "4 min read",
+    "image": "/images/hero/hero.png",
+    "body": [
+      {
+        "heading": "A Successful Exhibition",
+        "paragraphs": [
+          "The LK Machinery India team successfully concluded its participation at ALUCAST, showcasing our latest Impress Plus cold chamber series and the new Elettrica all-electric injection molding machine.",
+          "The booth saw record footfall, with keen interest from automotive tier-1 suppliers looking to upgrade their facilities for structural component manufacturing."
+        ]
+      }
+    ],
+    "isExample": true
+  },
+  {
+    "slug": "understanding-hpdc-fundamentals",
+    "type": "article",
+    "title": "Understanding High-Pressure Die Casting Process Fundamentals",
+    "excerpt": "A deep dive into the mechanics, parameters, and advantages of high-pressure die casting (HPDC).",
+    "date": "April 2026",
+    "readTime": "8 min read",
+    "image": "/images/hero/hero.png",
+    "body": [
+      {
+        "heading": "What is High-Pressure Die Casting?",
+        "paragraphs": [
+          "High-Pressure Die Casting (HPDC) is a metal casting process that is characterized by forcing molten metal under high pressure into a mold cavity. The mold cavity is created using two hardened tool steel dies which have been machined into shape.",
+          "It is particularly suited for applications that require high volume production of complex, tight-tolerance parts with excellent surface finish."
+        ]
+      },
+      {
+        "heading": "Key Process Parameters",
+        "paragraphs": [
+          "Success in HPDC relies on the precise control of several key parameters: injection speed, intensification pressure, die temperature, and metal temperature.",
+          "Modern LK machines, such as the Impress series, utilize advanced closed-loop control systems to monitor and adjust these parameters in real-time, ensuring shot-to-shot consistency and minimizing porosity."
+        ]
+      },
+      {
+        "heading": "Conclusion",
+        "paragraphs": [
+          "Mastering HPDC requires both deep metallurgical understanding and reliable machinery. As components become larger and more complex, investing in machines with advanced control capabilities becomes essential."
+        ]
+      }
+    ],
+    "isExample": true
+  },
+  {
+    "slug": "optimizing-injection-molding-cycle-times",
+    "type": "article",
+    "title": "5 Ways to Optimize Injection Molding Cycle Times",
+    "excerpt": "Practical tips for reducing cycle time without compromising part quality in injection molding.",
+    "date": "May 2026",
+    "readTime": "6 min read",
+    "image": "/images/hero/hero.png",
+    "body": [
+      {
+        "heading": "The Importance of Cycle Time",
+        "paragraphs": [
+          "In injection molding, cycle time is directly tied to profitability. Reducing cycle time by even a few seconds can significantly increase daily output and reduce the unit cost of production.",
+          "However, optimization must be balanced with quality requirements to avoid defects such as warpage, sink marks, or short shots."
+        ]
+      },
+      {
+        "heading": "Cooling Time Optimization",
+        "paragraphs": [
+          "Cooling time typically represents the largest portion of the total cycle time. Optimizing mold cooling channel design (such as conformal cooling) and ensuring adequate chiller capacity can dramatically reduce the time required for the part to solidify."
+        ]
+      },
+      {
+        "heading": "Machine Upgrades",
+        "paragraphs": [
+          "Upgrading to all-electric machines, like the LK Elettrica series, allows for parallel movements (e.g., ejecting while the mold is opening or plasticizing while cooling), which can shave valuable seconds off every cycle."
+        ]
+      }
+    ],
+    "isExample": true
+  }
+]
