@@ -48,46 +48,46 @@
     "isExample": true
   },
   {
-    "slug": "lk-india-expands-chakan-facility",
+    "slug": "sample-facility-announcement",
     "type": "news",
-    "title": "LK Machinery India Expands Chakan MIDC Facility",
-    "excerpt": "To meet growing demand in the automotive sector, LK India is expanding its service and spare parts center in Pune.",
-    "date": "February 2026",
-    "location": "Pune, Maharashtra",
+    "title": "[Placeholder] Facility Update Announcement",
+    "excerpt": "This is a placeholder for a news announcement regarding LK Machinery India's facilities or operations.",
+    "date": "[Month Year]",
+    "location": "[City, State]",
     "readTime": "3 min read",
     "image": "/images/hero/hero.png",
     "body": [
       {
-        "heading": "Facility Expansion",
+        "heading": "Operational Update",
         "paragraphs": [
-          "LK Machinery India Pvt. Ltd. has announced a significant expansion of its Chakan MIDC facility. The expansion will add 20,000 sq ft of dedicated space for spare parts inventory and a new training center for customer operators.",
-          "\"This expansion reinforces our commitment to the Indian market and our 'Customer Proximity' philosophy,\" said the Managing Director of LK India. \"By holding more spare parts locally, we can further reduce lead times and ensure maximum uptime for our customers.\""
+          "This section will detail the latest operational developments at LK Machinery India. We continually invest in our service capabilities and spare parts availability to support our growing customer base.",
+          "[Insert quote from leadership regarding commitment to the Indian market and customer support.]"
         ]
       },
       {
-        "heading": "New Training Center",
+        "heading": "Customer Benefits",
         "paragraphs": [
-          "A key feature of the expansion is the new state-of-the-art training center. It will provide hands-on experience with the latest LK control systems, helping customers upskill their workforce and get the most out of their machine investments."
+          "Further details on how this update benefits our customers, such as improved lead times, enhanced training programs, or new support infrastructure."
         ]
       }
     ],
     "isExample": true
   },
   {
-    "slug": "lk-india-at-die-casting-expo-2025",
+    "slug": "sample-exhibition-recap",
     "type": "news",
-    "title": "LK Machinery Showcases Innovations at ALUCAST India",
-    "excerpt": "Highlights from our recent participation in India's premier die casting exhibition.",
-    "date": "December 2025",
-    "location": "Chennai, India",
+    "title": "[Placeholder] Event Participation Recap",
+    "excerpt": "This is a structural template for news regarding LK Machinery India's participation in industry exhibitions.",
+    "date": "[Month Year]",
+    "location": "[City, Country]",
     "readTime": "4 min read",
     "image": "/images/hero/hero.png",
     "body": [
       {
-        "heading": "A Successful Exhibition",
+        "heading": "Showcasing Innovation",
         "paragraphs": [
-          "The LK Machinery India team successfully concluded its participation at ALUCAST, showcasing our latest Impress Plus cold chamber series and the new Elettrica all-electric injection molding machine.",
-          "The booth saw record footfall, with keen interest from automotive tier-1 suppliers looking to upgrade their facilities for structural component manufacturing."
+          "LK Machinery India regularly participates in industry exhibitions across the country to showcase our latest die casting, injection molding, and CNC machining technologies.",
+          "At [Event Name], our team highlighted [Specific Machine Series], demonstrating its capabilities for [Specific Industry/Application]."
         ]
       }
     ],
