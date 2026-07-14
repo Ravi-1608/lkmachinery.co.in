@@ -73,6 +73,7 @@ export default function EnquiryForm({
             id="enquiry-phone"
             type="tel"
             name="phone"
+            required
             autoComplete="tel"
           />
         </div>
@@ -84,6 +85,7 @@ export default function EnquiryForm({
             id="enquiry-company"
             type="text"
             name="company"
+            required
             autoComplete="organization"
           />
         </div>
@@ -108,6 +110,7 @@ export default function EnquiryForm({
             id="enquiry-city"
             type="text"
             name="city"
+            required
             autoComplete="address-level2"
           />
         </div>
@@ -118,6 +121,7 @@ export default function EnquiryForm({
           <textarea
             id="enquiry-description"
             name="description"
+            required
             rows={4}
           />
         </div>
