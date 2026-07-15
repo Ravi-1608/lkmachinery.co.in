@@ -4,8 +4,7 @@ export function getOrganizationSchema() {
     "@type": "Organization",
     name: "L.K. Machinery India Pvt. Ltd.",
     url: "https://www.lkmachinery.co.in",
-    // FIXME: Add a real logo file to public/images/logo.png and reinstate this field
-    // logo: "https://www.lkmachinery.co.in/images/logo.png",
+    logo: "https://www.lkmachinery.co.in/images/logo.png",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+91-8888718587",
