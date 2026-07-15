@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import Hero from "@/components/home/Hero";
+import WelcomeSection from "@/components/home/WelcomeSection";
 import CategoryBand, { type CategoryBandProps } from "@/components/home/CategoryBand";
 import ApplicationsStrip from "@/components/home/ApplicationsStrip";
+import QuickLinks from "@/components/home/QuickLinks";
 import CtaBand from "@/components/home/CtaBand";
+import ClientLogos from "@/components/home/ClientLogos";
 
 import { getCategory, firstSentence } from "@/lib/products";
 
@@ -94,13 +97,24 @@ export default async function HomePage() {
   return (
     <>
       <Hero />
+      <WelcomeSection />
+
+      <section className="bg-brand-dark2 pt-16 pb-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading text-white text-3xl sm:text-4xl lg:text-5xl uppercase tracking-widest inline-block border-b-2 border-brand-red pb-2">
+            PROD<span className="text-brand-red">UCTS</span>
+          </h2>
+        </div>
+      </section>
 
       {CATEGORY_BANDS.map((band) => (
         <CategoryBand key={band.index} {...band} />
       ))}
 
       <ApplicationsStrip />
+      <QuickLinks />
       <CtaBand />
+      <ClientLogos />
     </>
   );
 }
