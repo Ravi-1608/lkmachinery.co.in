@@ -5,11 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 const NAV_LINKS = [
-  { label: "About Us",            href: "/about" },
-  { label: "Application",         href: "/applications" },
-  { label: "Products",            href: "/products" },
-  { label: "Investor Relations",  href: "/investor-relations" },
-  { label: "Blogs",               href: "/blogs" },
+  { label: "About Us", href: "/about" },
+  { label: "Application", href: "/applications" },
+  { label: "Products", href: "/products" },
+  { label: "Investor Relations", href: "/investor-relations" },
+  { label: "Blogs", href: "/blogs" },
 ] as const;
 
 const CTA_LINK = { label: "Contact Us", href: "/contact" };
@@ -18,12 +18,12 @@ const CTA_LINK = { label: "Contact Us", href: "/contact" };
 function LKLogo() {
   return (
     <Link href="/" className="flex items-center gap-3 group" aria-label="LK Group — home">
-      <Image 
-        src="/images/logo.png" 
-        alt="LK Group" 
-        width={56} 
-        height={56} 
-        className="object-contain" 
+      <Image
+        src="/images/logo.png"
+        alt="LK Machinery India Private Limited"
+        width={130}
+        height={130}
+        className="object-contain w-14 sm:w-16 md:w-20 lg:w-[130px] h-auto"
       />
     </Link>
   );

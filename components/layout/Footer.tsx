@@ -129,10 +129,10 @@ export default function Footer() {
             <div className="flex items-center gap-2.5 mb-5">
               <Image 
                 src="/images/logo.png" 
-                alt="LK Group" 
-                width={56} 
-                height={56} 
-                className="object-contain" 
+                alt="LK Machinery India Private Limited" 
+                width={100} 
+                height={100} 
+                className="object-contain w-14 sm:w-16 md:w-20 lg:w-[100px] h-auto" 
               />
             </div>
             <p className="text-sm text-brand-grey leading-relaxed font-body">
