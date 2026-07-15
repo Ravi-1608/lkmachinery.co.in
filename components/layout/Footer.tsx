@@ -130,11 +130,10 @@ export default function Footer() {
               <Image 
                 src="/images/logo.png" 
                 alt="LK Group" 
-                width={36} 
-                height={36} 
+                width={56} 
+                height={56} 
                 className="object-contain" 
               />
-              <span className="font-heading text-white text-lg tracking-wide">LK GROUP</span>
             </div>
             <p className="text-sm text-brand-grey leading-relaxed font-body">
               LK Machinery India Pvt. Ltd. — precision industrial equipment and

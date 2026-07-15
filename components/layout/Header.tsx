@@ -21,14 +21,10 @@ function LKLogo() {
       <Image 
         src="/images/logo.png" 
         alt="LK Group" 
-        width={40} 
-        height={40} 
+        width={56} 
+        height={56} 
         className="object-contain" 
       />
-      {/* Wordmark */}
-      <span className="font-heading text-white text-xl tracking-wide leading-none">
-        LK GROUP
-      </span>
     </Link>
   );
 }
