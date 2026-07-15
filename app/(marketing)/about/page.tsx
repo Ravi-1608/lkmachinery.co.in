@@ -67,7 +67,7 @@ export default function AboutPage() {
           <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-3">
             Company Profile
           </p>
-          <h1 className="font-heading text-white text-4xl sm:text-5xl lg:text-6xl mb-5 max-w-3xl">
+          <h1 className="font-heading font-bold text-white text-4xl sm:text-5xl lg:text-6xl mb-5 max-w-3xl">
             Engineering precision since 1979
           </h1>
           <p className="text-white/60 text-lg leading-relaxed max-w-2xl font-body">
@@ -88,7 +88,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
             {STATS.map(({ value, label }) => (
               <div key={label}>
-                <p className="font-heading text-white text-3xl lg:text-4xl">{value}</p>
+                <p className="font-heading font-bold text-white text-3xl lg:text-4xl">{value}</p>
                 <p className="text-white/70 text-xs font-body mt-1 leading-snug">{label}</p>
               </div>
             ))}
@@ -101,7 +101,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
             <div>
-              <h2 className="font-heading text-brand-dark text-3xl sm:text-4xl mb-6">
+              <h2 className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl mb-6">
                 Our Mission
               </h2>
               <p className="text-brand-dark/65 text-lg leading-relaxed font-body">
@@ -111,7 +111,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div>
-              <h2 className="font-heading text-brand-dark text-3xl sm:text-4xl mb-6">
+              <h2 className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl mb-6">
                 Our Vision
               </h2>
               <p className="text-brand-dark/65 text-lg leading-relaxed font-body">
@@ -127,7 +127,7 @@ export default function AboutPage() {
       {/* ── Global Journey timeline ──────────────────────────────────────── */}
       <section className="py-16 lg:py-24 bg-brand-dark" aria-labelledby="timeline-heading">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 id="timeline-heading" className="font-heading text-white text-3xl sm:text-4xl mb-12">
+          <h2 id="timeline-heading" className="font-heading font-bold text-white text-3xl sm:text-4xl mb-12">
             Our Global Journey
           </h2>
           <div className="relative">
@@ -149,7 +149,7 @@ export default function AboutPage() {
                   </div>
 
                   <div className="pt-2">
-                    <p className={`font-heading text-sm tracking-widest mb-1
+                    <p className={`font-heading font-bold text-sm tracking-widest mb-1
                       ${i === TIMELINE.length - 1 ? "text-brand-red" : "text-white/40"}`}>
                       {year}
                     </p>
@@ -170,7 +170,7 @@ export default function AboutPage() {
               <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-3">
                 India Operations
               </p>
-              <h2 className="font-heading text-brand-dark text-3xl sm:text-4xl mb-6">
+              <h2 className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl mb-6">
                 Rooted in Pune,<br />Serving All of India
               </h2>
               <p className="text-brand-dark/65 leading-relaxed font-body text-base mb-5">
@@ -207,7 +207,7 @@ export default function AboutPage() {
               ].map(([k, v]) => (
                 <div key={k} className="border-b border-white/10 pb-5 last:border-0 last:pb-0">
                   <p className="text-white/40 text-xs font-body uppercase tracking-widest mb-1">{k}</p>
-                  <p className="text-white font-heading text-lg">{v}</p>
+                  <p className="text-white font-heading font-bold text-lg">{v}</p>
                 </div>
               ))}
             </div>
@@ -222,7 +222,7 @@ export default function AboutPage() {
             <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-3">
               How We Work
             </p>
-            <h2 id="process-heading" className="font-heading text-white text-3xl sm:text-4xl">
+            <h2 id="process-heading" className="font-heading font-bold text-white text-3xl sm:text-4xl">
               From first call to full commissioning
             </h2>
           </div>
@@ -231,8 +231,8 @@ export default function AboutPage() {
               <div key={step}
                    className="p-7 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10
                               transition-colors duration-300">
-                <p className="font-heading text-brand-red text-4xl mb-4 opacity-60">{step}</p>
-                <h3 className="font-heading text-white text-xl mb-3">{title}</h3>
+                <p className="font-heading font-bold text-brand-red text-4xl mb-4 opacity-60">{step}</p>
+                <h3 className="font-heading font-bold text-white text-xl mb-3">{title}</h3>
                 <p className="text-white/55 text-sm leading-relaxed font-body">{desc}</p>
               </div>
             ))}

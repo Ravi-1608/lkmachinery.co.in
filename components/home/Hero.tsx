@@ -26,7 +26,7 @@ export default function Hero() {
         <div className="max-w-3xl pt-24 pb-16 lg:pt-32 lg:pb-24">
 
           {/* Headline */}
-          <h1 className="animate-fade-up animate-fade-up-d1 font-heading text-white text-4xl sm:text-5xl lg:text-6xl leading-[1.1] mb-6">
+          <h1 className="animate-fade-up animate-fade-up-d1 font-heading font-bold tracking-[0%] text-white text-4xl sm:text-5xl lg:text-6xl leading-[1.1] mb-6">
             LK, strives for <br />
             <span className="text-brand-red">your success</span>
           </h1>

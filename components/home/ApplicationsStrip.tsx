@@ -14,7 +14,7 @@ export default function ApplicationsStrip() {
 
         {/* Section header */}
         <div className="mb-10">
-          <h2 id="applications-heading" className="font-heading text-brand-dark text-3xl sm:text-4xl lg:text-5xl">
+          <h2 id="applications-heading" className="font-heading font-bold text-[40px] tracking-[6%] text-brand-dark">
             APPLIC<span className="text-brand-red">ATIONS</span>
           </h2>
         </div>
@@ -38,7 +38,7 @@ export default function ApplicationsStrip() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" aria-hidden="true" />
             
             <div className="relative z-10 p-6 lg:p-8">
-              <h3 className="text-white font-heading text-2xl sm:text-3xl tracking-widest uppercase mb-4">
+              <h3 className="text-white font-heading font-bold text-2xl sm:text-3xl tracking-widest uppercase mb-4">
                 {firstApp.name}
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -75,7 +75,7 @@ export default function ApplicationsStrip() {
               
               {/* Vertical Text on Desktop, Horizontal on Mobile */}
               <div className="absolute inset-0 flex items-center justify-center p-4">
-                <h3 className="text-white font-heading text-lg sm:text-xl tracking-widest uppercase lg:-rotate-90 whitespace-nowrap drop-shadow-md">
+                <h3 className="text-white font-heading font-bold text-lg sm:text-xl tracking-widest uppercase lg:-rotate-90 whitespace-nowrap drop-shadow-md">
                   {app.name}
                 </h3>
               </div>

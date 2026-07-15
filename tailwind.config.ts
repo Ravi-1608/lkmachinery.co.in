@@ -16,7 +16,7 @@
  *   --color-brand-offwhite: #F3F2F0
  *
  * Font families in globals.css:
- *   --font-heading: var(--font-archivo-black), sans-serif  → font-heading
+ *   --font-heading: Arial, Helvetica, sans-serif  → font-heading
  *   --font-body:    var(--font-inter), sans-serif          → font-body
  */
 
@@ -40,7 +40,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        heading: ["var(--font-archivo-black)", "sans-serif"],
+        heading: ["Arial", "Helvetica", "sans-serif"],
         body: ["var(--font-inter)", "sans-serif"],
       },
     },

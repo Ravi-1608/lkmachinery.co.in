@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="font-heading text-brand-dark text-2xl sm:text-3xl mb-6">{children}</h2>
+    <h2 className="font-heading font-bold text-brand-dark text-2xl sm:text-3xl mb-6">{children}</h2>
   );
 }
 
@@ -117,7 +117,7 @@ export default async function ProductModelPage({ params }: Props) {
                 </span>
               )}
 
-              <h1 className="font-heading text-white text-4xl sm:text-5xl lg:text-6xl mb-4">
+              <h1 className="font-heading font-bold text-white text-4xl sm:text-5xl lg:text-6xl mb-4">
                 {model.name}
               </h1>
 
@@ -173,7 +173,7 @@ export default async function ProductModelPage({ params }: Props) {
         <section className="py-16 bg-brand-dark" aria-labelledby="highlights-heading">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 id="highlights-heading"
-                className="font-heading text-white text-2xl sm:text-3xl mb-8">
+                className="font-heading font-bold text-white text-2xl sm:text-3xl mb-8">
               Key Highlights
             </h2>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -206,7 +206,7 @@ export default async function ProductModelPage({ params }: Props) {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2
               id="industries-model-heading"
-              className={`font-heading text-2xl sm:text-3xl mb-6
+              className={`font-heading font-bold text-2xl sm:text-3xl mb-6
                 ${hasHighlights ? "text-brand-dark" : "text-white"}`}
             >
               Applicable Industries
@@ -235,7 +235,7 @@ export default async function ProductModelPage({ params }: Props) {
                         items-center justify-between gap-6">
           <div>
             <p className="text-white/50 text-sm font-body mb-1">Looking for something else?</p>
-            <p className="text-white font-heading text-xl">
+            <p className="text-white font-heading font-bold text-xl">
               Explore all {cat.categoryName} models
             </p>
           </div>
@@ -261,7 +261,7 @@ export default async function ProductModelPage({ params }: Props) {
             <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-2">
               Request a Quote
             </p>
-            <h2 id="enquiry-model-heading" className="font-heading text-brand-dark text-3xl sm:text-4xl">
+            <h2 id="enquiry-model-heading" className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl">
               Enquire about the {model.name}
             </h2>
           </div>

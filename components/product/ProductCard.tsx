@@ -49,7 +49,7 @@ export default function ProductCard({ model, categorySlug, badge }: ProductCardP
 
       {/* Content */}
       <div className="flex flex-col flex-1 p-5">
-        <h3 className="font-heading text-brand-dark text-lg mb-2 group-hover:text-brand-red
+        <h3 className="font-heading font-bold text-brand-dark text-lg mb-2 group-hover:text-brand-red
                        transition-colors duration-200">
           {model.name}
         </h3>

@@ -83,7 +83,7 @@ export default async function ContentDetailPage({ params }: Props) {
           <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-4">
             {item.type}
           </p>
-          <h1 className="font-heading text-white text-4xl sm:text-5xl lg:text-6xl mb-6 leading-tight">
+          <h1 className="font-heading font-bold text-white text-4xl sm:text-5xl lg:text-6xl mb-6 leading-tight">
             {item.title}
           </h1>
 
@@ -125,7 +125,7 @@ export default async function ContentDetailPage({ params }: Props) {
             {item.body.map((section, idx) => (
               <section key={idx}>
                 {section.heading && (
-                  <h2 className="font-heading text-brand-dark text-2xl sm:text-3xl mb-6">
+                  <h2 className="font-heading font-bold text-brand-dark text-2xl sm:text-3xl mb-6">
                     {section.heading}
                   </h2>
                 )}
@@ -147,7 +147,7 @@ export default async function ContentDetailPage({ params }: Props) {
                 <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-2">
                   Featured Product
                 </p>
-                <h3 className="font-heading text-brand-dark text-2xl">
+                <h3 className="font-heading font-bold text-brand-dark text-2xl">
                   Explore the Machine
                 </h3>
               </div>
@@ -171,7 +171,7 @@ export default async function ContentDetailPage({ params }: Props) {
       {related.length > 0 && (
         <section className="py-16 bg-brand-dark" aria-labelledby="related-heading">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 id="related-heading" className="font-heading text-white text-3xl mb-10 capitalize">
+            <h2 id="related-heading" className="font-heading font-bold text-white text-3xl mb-10 capitalize">
               More {item.type}s
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -201,7 +201,7 @@ export default async function ContentDetailPage({ params }: Props) {
                         </>
                       )}
                     </p>
-                    <h3 className="font-heading text-white text-lg mb-3 group-hover:text-brand-red transition-colors duration-200 line-clamp-2">
+                    <h3 className="font-heading font-bold text-white text-lg mb-3 group-hover:text-brand-red transition-colors duration-200 line-clamp-2">
                       {relItem.title}
                     </h3>
                     <p className="mt-auto inline-flex items-center gap-1.5 text-brand-red text-sm font-semibold font-body">

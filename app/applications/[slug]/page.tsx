@@ -85,7 +85,7 @@ export default async function ApplicationPage({ params }: Props) {
           <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-3">
             Application
           </p>
-          <h1 className="font-heading text-white text-4xl sm:text-5xl lg:text-6xl mb-5">
+          <h1 className="font-heading font-bold text-white text-4xl sm:text-5xl lg:text-6xl mb-5">
             {app.name}
           </h1>
           <p className="text-white/65 text-lg leading-relaxed max-w-2xl font-body">
@@ -97,7 +97,7 @@ export default async function ApplicationPage({ params }: Props) {
       {/* ── Relevant product categories ──────────────────────────────────── */}
       <section className="py-16 lg:py-20 bg-brand-offwhite" aria-labelledby="relevant-cats">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 id="relevant-cats" className="font-heading text-brand-dark text-3xl sm:text-4xl mb-10">
+          <h2 id="relevant-cats" className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl mb-10">
             Recommended Machine Categories
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -115,7 +115,7 @@ export default async function ApplicationPage({ params }: Props) {
                                    text-xs font-semibold font-body">
                     {cat.label}
                   </span>
-                  <h3 className="font-heading text-brand-dark text-xl group-hover:text-brand-red
+                  <h3 className="font-heading font-bold text-brand-dark text-xl group-hover:text-brand-red
                                  transition-colors duration-200">
                     {cat.name}
                   </h3>
@@ -137,7 +137,7 @@ export default async function ApplicationPage({ params }: Props) {
       {/* ── Other applications ───────────────────────────────────────────── */}
       <section className="py-14 bg-brand-dark" aria-labelledby="other-apps">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 id="other-apps" className="font-heading text-white text-2xl mb-8">
+          <h2 id="other-apps" className="font-heading font-bold text-white text-2xl mb-8">
             Other Applications
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
@@ -150,7 +150,7 @@ export default async function ApplicationPage({ params }: Props) {
                 <Image src={a.image} alt={`${a.name} application`} fill
                        className="object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent" />
-                <span className="absolute bottom-4 left-4 font-heading text-white text-lg">
+                <span className="absolute bottom-4 left-4 font-heading font-bold text-white text-lg">
                   {a.name}
                 </span>
               </Link>
@@ -166,7 +166,7 @@ export default async function ApplicationPage({ params }: Props) {
             <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-2">
               Get in Touch
             </p>
-            <h2 id="enquiry-app-heading" className="font-heading text-brand-dark text-3xl sm:text-4xl">
+            <h2 id="enquiry-app-heading" className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl">
               Enquire about {app.name} solutions
             </h2>
           </div>

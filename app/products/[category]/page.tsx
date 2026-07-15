@@ -80,7 +80,7 @@ export default async function ProductCategoryPage({ params }: Props) {
           <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-3">
             {cat.categoryLabel}
           </p>
-          <h1 className="font-heading text-white text-4xl sm:text-5xl lg:text-6xl mb-4">
+          <h1 className="font-heading font-bold text-white text-4xl sm:text-5xl lg:text-6xl mb-4">
             {cat.categoryName}
           </h1>
           <p className="text-white/60 text-lg leading-relaxed max-w-2xl font-body">
@@ -92,7 +92,7 @@ export default async function ProductCategoryPage({ params }: Props) {
       {/* ── Products grid ────────────────────────────────────────────────── */}
       <section className="py-16 lg:py-24 bg-brand-offwhite" aria-labelledby="products-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 id="products-heading" className="font-heading text-brand-dark text-3xl sm:text-4xl mb-10">
+          <h2 id="products-heading" className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl mb-10">
             {isDcm ? "Die Casting Machine Models" : `${cat.categoryName} Models`}
           </h2>
 
@@ -119,7 +119,7 @@ export default async function ProductCategoryPage({ params }: Props) {
         return (
           <section className="py-14 bg-brand-dark" aria-labelledby="industries-heading">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 id="industries-heading" className="font-heading text-white text-2xl mb-8">
+              <h2 id="industries-heading" className="font-heading font-bold text-white text-2xl mb-8">
                 Applicable Industries
               </h2>
               <div className="flex flex-wrap gap-3">
@@ -145,7 +145,7 @@ export default async function ProductCategoryPage({ params }: Props) {
             <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-2">
               Get in Touch
             </p>
-            <h2 id="enquiry-cat-heading" className="font-heading text-brand-dark text-3xl sm:text-4xl">
+            <h2 id="enquiry-cat-heading" className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl">
               Enquire about {cat.categoryName}
             </h2>
           </div>

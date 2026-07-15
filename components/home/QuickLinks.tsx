@@ -66,7 +66,7 @@ export default function QuickLinks() {
               </div>
               
               {/* Label */}
-              <h3 className="font-heading text-brand-dark text-lg sm:text-xl uppercase tracking-widest text-center mt-4 mb-8 group-hover:text-white transition-colors duration-300">
+              <h3 className="font-heading font-bold text-brand-dark text-lg sm:text-xl uppercase tracking-widest text-center mt-4 mb-8 group-hover:text-white transition-colors duration-300">
                 {label}
               </h3>
               

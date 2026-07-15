@@ -101,7 +101,7 @@ export default async function HomePage() {
 
       <section className="bg-brand-dark2 pt-16 pb-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading text-white text-3xl sm:text-4xl lg:text-5xl uppercase tracking-widest inline-block border-b-2 border-brand-red pb-2">
+          <h2 className="font-heading font-bold text-white text-3xl sm:text-4xl lg:text-5xl uppercase tracking-widest inline-block border-b-2 border-brand-red pb-2">
             PROD<span className="text-brand-red">UCTS</span>
           </h2>
         </div>

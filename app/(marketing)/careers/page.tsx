@@ -40,7 +40,7 @@ export default function CareersPage() {
           <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-3">
             Join Our Team
           </p>
-          <h1 className="font-heading text-white text-4xl sm:text-5xl lg:text-6xl mb-5 max-w-2xl">
+          <h1 className="font-heading font-bold text-white text-4xl sm:text-5xl lg:text-6xl mb-5 max-w-2xl">
             Build the machines that build India
           </h1>
           <p className="text-white/60 text-lg leading-relaxed max-w-xl font-body mb-8">
@@ -59,7 +59,7 @@ export default function CareersPage() {
             <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-3">
               Our Culture
             </p>
-            <h2 id="culture-heading" className="font-heading text-brand-dark text-3xl sm:text-4xl">
+            <h2 id="culture-heading" className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl">
               What it&apos;s like to work here
             </h2>
           </div>
@@ -71,7 +71,7 @@ export default function CareersPage() {
                                 justify-center mb-5" aria-hidden="true">
                   <div className="w-3 h-3 rounded-full bg-brand-red" />
                 </div>
-                <h3 className="font-heading text-brand-dark text-lg mb-3">{title}</h3>
+                <h3 className="font-heading font-bold text-brand-dark text-lg mb-3">{title}</h3>
                 <p className="text-brand-dark/60 text-sm leading-relaxed font-body">{desc}</p>
               </div>
             ))}
@@ -85,7 +85,7 @@ export default function CareersPage() {
           <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-3">
             Open Roles
           </p>
-          <h2 id="apply-heading" className="font-heading text-white text-3xl sm:text-4xl mb-6">
+          <h2 id="apply-heading" className="font-heading font-bold text-white text-3xl sm:text-4xl mb-6">
             Ready to join us?
           </h2>
           <p className="text-white/60 font-body text-lg leading-relaxed mb-10 max-w-2xl mx-auto">

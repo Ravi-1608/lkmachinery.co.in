@@ -17,7 +17,7 @@ export default function CtaBand() {
           {/* Headline */}
           <h2
             id="cta-heading"
-            className="font-heading text-brand-dark text-3xl sm:text-4xl lg:text-5xl leading-tight mb-5"
+            className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl lg:text-5xl leading-tight mb-5"
           >
             Incredible stock. Flexible pricing
           </h2>

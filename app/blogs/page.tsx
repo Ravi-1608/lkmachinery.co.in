@@ -50,7 +50,7 @@ function ContentCard({ item }: { item: ContentItem }) {
             </>
           )}
         </div>
-        <h3 className="font-heading text-brand-dark text-xl mb-3 group-hover:text-brand-red
+        <h3 className="font-heading font-bold text-brand-dark text-xl mb-3 group-hover:text-brand-red
                        transition-colors duration-200 line-clamp-2">
           {item.title}
         </h3>
@@ -75,7 +75,7 @@ function Section({ title, items }: { title: string; items: ContentItem[] }) {
     <section className="py-12 lg:py-16 border-b border-brand-dark/10 last:border-0" aria-labelledby={`heading-${title.replace(/\s+/g, '-').toLowerCase()}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-8">
-          <h2 id={`heading-${title.replace(/\s+/g, '-').toLowerCase()}`} className="font-heading text-brand-dark text-3xl sm:text-4xl">
+          <h2 id={`heading-${title.replace(/\s+/g, '-').toLowerCase()}`} className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl">
             {title}
           </h2>
         </div>
@@ -106,7 +106,7 @@ export default function BlogsHubPage() {
           <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-3">
             Content Hub
           </p>
-          <h1 className="font-heading text-white text-4xl sm:text-5xl lg:text-6xl mb-5">
+          <h1 className="font-heading font-bold text-white text-4xl sm:text-5xl lg:text-6xl mb-5">
             News &amp; Insights
           </h1>
           <p className="text-white/60 text-lg leading-relaxed max-w-2xl font-body">

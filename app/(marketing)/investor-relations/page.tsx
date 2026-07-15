@@ -28,7 +28,7 @@ export default function InvestorRelationsPage() {
           <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-3">
             Corporate
           </p>
-          <h1 className="font-heading text-white text-4xl sm:text-5xl lg:text-6xl mb-5">
+          <h1 className="font-heading font-bold text-white text-4xl sm:text-5xl lg:text-6xl mb-5">
             Investor Relations
           </h1>
           <p className="text-white/60 text-lg leading-relaxed max-w-2xl font-body">
@@ -42,7 +42,7 @@ export default function InvestorRelationsPage() {
       {/* ── About the parent entity ──────────────────────────────────────── */}
       <section className="py-16 lg:py-20 bg-brand-offwhite">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading text-brand-dark text-3xl sm:text-4xl mb-8">
+          <h2 className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl mb-8">
             About LK Technology Holdings
           </h2>
 
@@ -93,7 +93,7 @@ export default function InvestorRelationsPage() {
                 className="group block p-6 rounded-2xl bg-white border border-brand-dark/10
                            hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
-                <h3 className="font-heading text-brand-dark text-lg mb-2
+                <h3 className="font-heading font-bold text-brand-dark text-lg mb-2
                                group-hover:text-brand-red transition-colors">
                   {title}
                 </h3>
@@ -108,7 +108,7 @@ export default function InvestorRelationsPage() {
       {/* ── Contact for investor queries ─────────────────────────────────── */}
       <section className="py-14 bg-brand-dark">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading text-white text-2xl sm:text-3xl mb-4">
+          <h2 className="font-heading font-bold text-white text-2xl sm:text-3xl mb-4">
             Investor &amp; Corporate Enquiries (India)
           </h2>
           <p className="text-white/60 font-body text-base leading-relaxed mb-8 max-w-lg">

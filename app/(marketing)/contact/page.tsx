@@ -89,7 +89,7 @@ export default function ContactPage() {
           <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-3">
             Get in Touch
           </p>
-          <h1 className="font-heading text-white text-4xl sm:text-5xl lg:text-6xl mb-5">
+          <h1 className="font-heading font-bold text-white text-4xl sm:text-5xl lg:text-6xl mb-5">
             Contact Us
           </h1>
           <p className="text-white/60 text-lg leading-relaxed max-w-xl font-body">
@@ -106,7 +106,7 @@ export default function ContactPage() {
 
             {/* Left: contact cards */}
             <div className="lg:col-span-2 flex flex-col gap-6">
-              <h2 className="font-heading text-brand-dark text-2xl sm:text-3xl mb-2">
+              <h2 className="font-heading font-bold text-brand-dark text-2xl sm:text-3xl mb-2">
                 Our Details
               </h2>
               {DETAILS.map(({ label, lines, href, hrefLabel, external, Icon }) => (
@@ -146,7 +146,7 @@ export default function ContactPage() {
 
             {/* Right: enquiry form */}
             <div className="lg:col-span-3">
-              <h2 className="font-heading text-brand-dark text-2xl sm:text-3xl mb-8">
+              <h2 className="font-heading font-bold text-brand-dark text-2xl sm:text-3xl mb-8">
                 Send us an Enquiry
               </h2>
               <div className="bg-white rounded-2xl p-8 shadow-md border border-brand-dark/8">

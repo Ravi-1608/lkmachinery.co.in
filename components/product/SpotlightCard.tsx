@@ -64,12 +64,11 @@ export default function SpotlightCard({
         )}
       </div>
 
-      {/* Content */}
       <div className="p-5">
-        <h4 className={`font-heading text-lg mb-2 ${isDark ? "text-white" : "text-brand-dark"}`}>
+        <h4 className={`font-body font-normal text-[24px] tracking-[14%] mb-2 ${isDark ? "text-white" : "text-brand-dark"}`}>
           {title}
         </h4>
-        <p className={`text-sm leading-relaxed mb-4 font-body line-clamp-3
+        <p className={`font-body font-normal text-[16px] tracking-[0%] leading-relaxed mb-4 line-clamp-3
           ${isDark ? "text-white/60" : "text-brand-dark/60"}`}>
           {description}
         </p>

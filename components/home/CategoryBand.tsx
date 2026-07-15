@@ -42,7 +42,7 @@ export default function CategoryBand({
           {/* ── Left column: copy ─────────────────────────────────────── */}
           <div>
             {/* Index label */}
-            <p className={`font-heading text-sm tracking-[0.25em] uppercase mb-4
+            <p className={`font-heading font-bold text-sm tracking-[0.25em] uppercase mb-4
               ${isDark ? "text-brand-red" : "text-brand-red"}`}>
               {index} — {subtitle}
             </p>
@@ -50,7 +50,7 @@ export default function CategoryBand({
             {/* Heading */}
             <h2
               id={`cat-${index}-heading`}
-              className={`font-heading text-3xl sm:text-4xl lg:text-5xl leading-tight mb-6
+              className={`font-heading font-bold tracking-[15%] text-5xl sm:text-6xl lg:text-[80px] leading-tight mb-6
                 ${isDark ? "text-white" : "text-brand-dark"}`}
             >
               {title}

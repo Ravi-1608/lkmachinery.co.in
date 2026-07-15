@@ -21,7 +21,7 @@ export default function WelcomeSection() {
           <div>
             <h2
               id="welcome-heading"
-              className="font-heading text-brand-dark text-3xl sm:text-4xl lg:text-5xl leading-tight mb-8"
+              className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl lg:text-5xl leading-tight mb-8"
             >
               <span className="text-brand-red text-xl sm:text-2xl block font-semibold mb-2 tracking-wide">Welcome to —</span>
               LK Machinery India Pvt Ltd
@@ -30,19 +30,19 @@ export default function WelcomeSection() {
             {/* 2x2 Stats Grid */}
             <div className="grid grid-cols-2 gap-y-8 gap-x-6 mb-10 pb-10 border-b border-brand-dark/10">
               <div>
-                <p className="font-heading text-brand-dark text-3xl lg:text-4xl mb-1">2012</p>
+                <p className="font-heading font-bold text-brand-dark text-3xl lg:text-4xl mb-1">2012</p>
                 <p className="text-brand-dark/60 text-xs font-body leading-tight">LK India was founded in Pune, Maharashtra</p>
               </div>
               <div>
-                <p className="font-heading text-brand-dark text-3xl lg:text-4xl mb-1">50+</p>
+                <p className="font-heading font-bold text-brand-dark text-3xl lg:text-4xl mb-1">50+</p>
                 <p className="text-brand-dark/60 text-xs font-body leading-tight">LK Chinese market share</p>
               </div>
               <div>
-                <p className="font-heading text-brand-dark text-3xl lg:text-4xl mb-1">30</p>
+                <p className="font-heading font-bold text-brand-dark text-3xl lg:text-4xl mb-1">30</p>
                 <p className="text-brand-dark/60 text-xs font-body leading-tight">Over 30 countries are using LK machines</p>
               </div>
               <div>
-                <p className="font-heading text-brand-dark text-3xl lg:text-4xl mb-1">300</p>
+                <p className="font-heading font-bold text-brand-dark text-3xl lg:text-4xl mb-1">300</p>
                 <p className="text-brand-dark/60 text-xs font-body leading-tight">Over 300 patents</p>
               </div>
             </div>

@@ -86,7 +86,7 @@ const SOCIAL_LINKS = [
 // ─── Sub-components ───────────────────────────────────────────────────────────
 function FooterHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="font-heading text-brand-dark text-sm font-bold uppercase tracking-widest mb-5">
+    <h3 className="font-heading font-bold text-[15px] leading-[24px] tracking-[0%] text-brand-dark uppercase mb-5">
       {children}
     </h3>
   );
@@ -141,7 +141,7 @@ export default function Footer() {
                 className="object-contain w-14 sm:w-16 md:w-20 lg:w-[100px] h-auto" 
               />
             </div>
-            <p className="font-heading font-bold text-lg text-brand-dark leading-snug">
+            <p className="font-body font-bold text-[15px] leading-[24px] tracking-[-1.5%] text-brand-dark">
               LK Machinery India Pvt Ltd
             </p>
           </div>

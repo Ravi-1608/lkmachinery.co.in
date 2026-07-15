@@ -17,7 +17,7 @@ export default function ClientLogos() {
   return (
     <section className="py-16 bg-white border-t border-brand-dark/5" aria-labelledby="clients-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 id="clients-heading" className="font-heading text-brand-dark text-2xl sm:text-3xl uppercase tracking-widest mb-12 text-center lg:text-left">
+        <h2 id="clients-heading" className="font-heading font-bold text-brand-dark text-2xl sm:text-3xl uppercase tracking-widest mb-12 text-center lg:text-left">
           OUR VALUABLE <span className="text-brand-red">CLIENTS</span>
         </h2>
 
