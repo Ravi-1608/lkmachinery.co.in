@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "About Us",            href: "/about" },
@@ -17,14 +18,13 @@ const CTA_LINK = { label: "Contact Us", href: "/contact" };
 function LKLogo() {
   return (
     <Link href="/" className="flex items-center gap-3 group" aria-label="LK Group — home">
-      {/* Red rounded-square mark */}
-      <span
-        className="flex items-center justify-center w-10 h-10 rounded-lg bg-brand-red text-white font-heading text-lg select-none
-                   group-hover:bg-brand-redDark transition-colors duration-200"
-        aria-hidden="true"
-      >
-        LK
-      </span>
+      <Image 
+        src="/images/logo.png" 
+        alt="LK Group" 
+        width={40} 
+        height={40} 
+        className="object-contain" 
+      />
       {/* Wordmark */}
       <span className="font-heading text-white text-xl tracking-wide leading-none">
         LK GROUP
@@ -35,26 +35,22 @@ function LKLogo() {
 
 // ─── Desktop Nav ────────────────────────────────────────────────────────────
 function DesktopNav() {
+  const allLinks = [...NAV_LINKS, CTA_LINK];
+
   return (
-    <nav aria-label="Primary navigation" className="hidden lg:flex items-center gap-1">
-      {NAV_LINKS.map(({ label, href }) => (
-        <Link
-          key={href}
-          href={href}
-          className="px-4 py-2 text-sm text-white/80 hover:text-white rounded-lg
-                     hover:bg-white/10 transition-all duration-200 font-body"
-        >
-          {label}
-        </Link>
-      ))}
-      {/* CTA pill */}
-      <Link
-        href={CTA_LINK.href}
-        className="ml-3 px-5 py-2 text-sm font-semibold text-white bg-brand-red rounded-full
-                   hover:bg-brand-redDark active:scale-95 transition-all duration-200 font-body"
-      >
-        {CTA_LINK.label}
-      </Link>
+    <nav aria-label="Primary navigation" className="hidden lg:flex items-center">
+      <div className="flex items-center gap-1 bg-white/10 backdrop-blur-md rounded-full px-2 py-1.5 border border-white/5">
+        {allLinks.map(({ label, href }) => (
+          <Link
+            key={href}
+            href={href}
+            className="px-4 py-2 text-[13px] text-white/80 hover:text-white rounded-full
+                       hover:bg-white/10 transition-all duration-200 font-body uppercase tracking-wider font-medium"
+          >
+            {label}
+          </Link>
+        ))}
+      </div>
     </nav>
   );
 }
@@ -121,29 +117,18 @@ function MobileDrawer({
         aria-label="Mobile navigation"
       >
         <nav className="flex flex-col gap-1">
-          {NAV_LINKS.map(({ label, href }) => (
+          {[...NAV_LINKS, CTA_LINK].map(({ label, href }) => (
             <Link
               key={href}
               href={href}
               onClick={onClose}
               className="px-4 py-3 text-base text-white/80 hover:text-white hover:bg-white/10
-                         rounded-lg transition-all duration-200 font-body"
+                         rounded-lg transition-all duration-200 font-body uppercase tracking-wider"
             >
               {label}
             </Link>
           ))}
         </nav>
-
-        <div className="mt-6 border-t border-white/10 pt-6">
-          <Link
-            href={CTA_LINK.href}
-            onClick={onClose}
-            className="block w-full text-center px-5 py-3 text-sm font-semibold text-white
-                       bg-brand-red rounded-full hover:bg-brand-redDark transition-all duration-200 font-body"
-          >
-            {CTA_LINK.label}
-          </Link>
-        </div>
       </div>
     </>
   );

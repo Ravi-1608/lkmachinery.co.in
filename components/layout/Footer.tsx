@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 // ─── Social icon SVGs (inline, no external dependency) ───────────────────────
 function LinkedInIcon() {
@@ -126,9 +127,13 @@ export default function Footer() {
           <div className="lg:col-span-1">
             {/* Logo mark */}
             <div className="flex items-center gap-2.5 mb-5">
-              <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-brand-red font-heading text-white text-base select-none">
-                LK
-              </span>
+              <Image 
+                src="/images/logo.png" 
+                alt="LK Group" 
+                width={36} 
+                height={36} 
+                className="object-contain" 
+              />
               <span className="font-heading text-white text-lg tracking-wide">LK GROUP</span>
             </div>
             <p className="text-sm text-brand-grey leading-relaxed font-body">
