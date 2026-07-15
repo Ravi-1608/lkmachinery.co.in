@@ -10,8 +10,6 @@ function LinkedInIcon() {
   );
 }
 
-
-
 function WhatsAppIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -40,18 +38,26 @@ function InstagramIcon() {
 
 // ─── Footer data ─────────────────────────────────────────────────────────────
 const ABOUT_LINKS = [
-  { label: "Our Story",         href: "/about" },
-  { label: "Investor Relations",href: "/investor-relations" },
-  { label: "Careers",           href: "/careers" },
-  { label: "Blog",              href: "/blogs" },
+  { label: "Profile",         href: "/about#profile" },
+  { label: "Global",          href: "/about#global" },
+  { label: "Company Overview",href: "/about#company-overview" },
+  { label: "Work Process",    href: "/about#work-process" },
 ];
 
 const APPLICATION_LINKS = [
-  { label: "All Applications",  href: "/applications" },
+  { label: "Transportation",        href: "/applications/transportation" },
+  { label: "Smart 3C",              href: "/applications/smart-3c" },
+  { label: "Daily Necessities",     href: "/applications/daily-necessities" },
+  { label: "Industrial Supplies",   href: "/applications/industrial-supplies" },
+  { label: "Household Appliances",  href: "/applications/household-appliances" },
+  { label: "Healthcare",            href: "/applications/healthcare" },
 ];
 
 const PRODUCT_LINKS = [
-  { label: "All Products",      href: "/products" },
+  { label: "DCM",        href: "/products/dcm" },
+  { label: "IMM",        href: "/products/imm" },
+  { label: "CNC",        href: "/products/cnc" },
+  { label: "Automation", href: "/products/automation" },
 ];
 
 const SOCIAL_LINKS = [
@@ -80,7 +86,7 @@ const SOCIAL_LINKS = [
 // ─── Sub-components ───────────────────────────────────────────────────────────
 function FooterHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="font-heading text-white text-sm uppercase tracking-widest mb-5">
+    <h3 className="font-heading text-brand-dark text-sm font-bold uppercase tracking-widest mb-5">
       {children}
     </h3>
   );
@@ -96,7 +102,7 @@ function FooterLink({
   external?: boolean;
 }) {
   const cls =
-    "block text-sm text-brand-grey hover:text-white transition-colors duration-200 mb-2.5 font-body";
+    "block text-sm text-brand-dark/70 hover:text-brand-red transition-colors duration-200 mb-2.5 font-body";
 
   if (external || href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("https://")) {
     return (
@@ -117,11 +123,11 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-brand-dark text-white mt-auto" aria-label="Site footer">
+    <footer className="bg-white border-t border-brand-dark/10" aria-label="Site footer">
 
       {/* Main grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-8">
 
           {/* Col 1 — Brand blurb */}
           <div className="lg:col-span-1">
@@ -135,9 +141,8 @@ export default function Footer() {
                 className="object-contain w-14 sm:w-16 md:w-20 lg:w-[100px] h-auto" 
               />
             </div>
-            <p className="text-sm text-brand-grey leading-relaxed font-body">
-              LK Machinery India Pvt. Ltd. — precision industrial equipment and
-              end-to-end engineering solutions trusted across industries.
+            <p className="font-heading font-bold text-lg text-brand-dark leading-snug">
+              LK Machinery India Pvt Ltd
             </p>
           </div>
 
@@ -165,7 +170,7 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Col 5 — Contact + Join */}
+          {/* Col 5 — Contact Us */}
           <div>
             <FooterHeading>Contact Us</FooterHeading>
             <FooterLink href="mailto:avinash@lkmachinery.co.in">
@@ -174,20 +179,22 @@ export default function Footer() {
             <FooterLink href="tel:+918888718587">
               +91 8888718587
             </FooterLink>
-
-            <div className="mt-6">
-              <FooterHeading>Join Our Team</FooterHeading>
-              <FooterLink href="/careers">View Open Positions</FooterLink>
-            </div>
           </div>
+
+          {/* Col 6 — Join Our Team */}
+          <div>
+            <FooterHeading>Join Our Team</FooterHeading>
+            <FooterLink href="/careers">View Open Positions</FooterLink>
+          </div>
+
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-brand-dark/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5
                         flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-brand-grey font-body">
+          <p className="text-xs text-brand-dark/60 font-body">
             &copy; {year} LK Machinery India Pvt. Ltd. All rights reserved.
           </p>
 
@@ -200,7 +207,7 @@ export default function Footer() {
                 aria-label={label}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg text-brand-grey hover:text-white hover:bg-white/10
+                className="p-2 rounded-lg text-brand-dark/60 hover:text-brand-red hover:bg-brand-red/10
                            transition-all duration-200"
               >
                 <Icon />
