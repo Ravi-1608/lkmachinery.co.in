@@ -52,9 +52,11 @@ export default async function HomePage() {
       tags: dcmTags.slice(0, 4),
       spotlightTitle: dcmSpotlight.name,
       spotlightDescription: firstSentence(dcmSpotlight.description),
+      spotlightImage: dcmSpotlight.image,
       spotlightBadge: dcmSpotlight.tonnage ? `Up to ${dcmSpotlight.tonnage}T` : undefined,
       ctaHref: "/products/dcm",
       variant: "dark",
+      zIndex: 1,
     },
     {
       index: "02",
@@ -64,9 +66,11 @@ export default async function HomePage() {
       tags: immTags.slice(0, 4),
       spotlightTitle: immSpotlight.name,
       spotlightDescription: firstSentence(immSpotlight.description),
+      spotlightImage: immSpotlight.image,
       spotlightBadge: immSpotlight.tonnage ? `Up to ${immSpotlight.tonnage}T` : undefined,
       ctaHref: "/products/imm",
       variant: "light",
+      zIndex: 2,
     },
     {
       index: "03",
@@ -76,9 +80,11 @@ export default async function HomePage() {
       tags: cncTags.slice(0, 4),
       spotlightTitle: cncSpotlight.name,
       spotlightDescription: firstSentence(cncSpotlight.description),
+      spotlightImage: cncSpotlight.image,
       spotlightBadge: undefined,
       ctaHref: "/products/cnc",
       variant: "dark",
+      zIndex: 3,
     },
     {
       index: "04",
@@ -88,9 +94,11 @@ export default async function HomePage() {
       tags: autoTags.slice(0, 4),
       spotlightTitle: autoSpotlight.name,
       spotlightDescription: firstSentence(autoSpotlight.description),
+      spotlightImage: autoSpotlight.image,
       spotlightBadge: undefined,
       ctaHref: "/products/automation",
       variant: "light",
+      zIndex: 4,
     },
   ];
 
@@ -99,7 +107,8 @@ export default async function HomePage() {
       <Hero />
       <WelcomeSection />
 
-      <section className="bg-brand-dark2 pt-16 pb-6">
+      {/* PRODUCTS header + sticky-stacked category bands */}
+      <section className="bg-brand-dark2 pt-16 pb-6" style={{ zIndex: 0, position: "relative" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-heading font-bold text-white text-3xl sm:text-4xl lg:text-5xl uppercase tracking-widest inline-block border-b-2 border-brand-red pb-2">
             PROD<span className="text-brand-red">UCTS</span>
@@ -107,9 +116,12 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {CATEGORY_BANDS.map((band) => (
-        <CategoryBand key={band.index} {...band} />
-      ))}
+      {/* Sticky-stacking wrapper — each band is position:sticky with increasing z-index */}
+      <div>
+        {CATEGORY_BANDS.map((band) => (
+          <CategoryBand key={band.index} {...band} />
+        ))}
+      </div>
 
       <ApplicationsStrip />
       <QuickLinks />

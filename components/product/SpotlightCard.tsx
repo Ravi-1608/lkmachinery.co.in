@@ -1,10 +1,12 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface SpotlightCardProps {
   title: string;
   description: string;
   ctaHref: string;
-  /** "dark" = card sits on a dark band, uses light card style; "light" = card on light band */
+  image: string;
+  /** "dark" = card sits on a dark band; "light" = card on light band */
   variant?: "dark" | "light";
   /** Optional stat badge e.g. "Up to 6,000T clamping force" */
   badge?: string;
@@ -14,6 +16,7 @@ export default function SpotlightCard({
   title,
   description,
   ctaHref,
+  image,
   variant = "dark",
   badge,
 }: SpotlightCardProps) {
@@ -28,31 +31,15 @@ export default function SpotlightCard({
           : "bg-white border-brand-dark/10 shadow-md"
         }`}
     >
-      {/* Image / placeholder area */}
-      <div className={`relative w-full aspect-[4/3] flex items-center justify-center
-        ${isDark ? "bg-white/5" : "bg-brand-offwhite"}`}>
-        {/* Styled placeholder — real images come in a later milestone */}
-        <div className="flex flex-col items-center gap-3 opacity-40">
-          {/* Machine silhouette placeholder */}
-          <svg
-            width="72"
-            height="72"
-            viewBox="0 0 72 72"
-            fill="none"
-            aria-hidden="true"
-            className={isDark ? "text-white" : "text-brand-dark"}
-          >
-            <rect x="8" y="28" width="56" height="32" rx="4" fill="currentColor" opacity="0.3"/>
-            <rect x="16" y="16" width="24" height="16" rx="2" fill="currentColor" opacity="0.5"/>
-            <rect x="44" y="20" width="12" height="12" rx="2" fill="currentColor" opacity="0.4"/>
-            <circle cx="20" cy="64" r="5" fill="currentColor" opacity="0.6"/>
-            <circle cx="52" cy="64" r="5" fill="currentColor" opacity="0.6"/>
-            <rect x="28" y="44" width="16" height="12" rx="2" fill="currentColor" opacity="0.7"/>
-          </svg>
-          <span className={`text-xs font-body ${isDark ? "text-white/50" : "text-brand-dark/50"}`}>
-            Product image coming soon
-          </span>
-        </div>
+      {/* Product image */}
+      <div className={`relative w-full aspect-[4/3] ${isDark ? "bg-white/5" : "bg-brand-offwhite"}`}>
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-contain p-4"
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
 
         {/* Badge overlay */}
         {badge && (
