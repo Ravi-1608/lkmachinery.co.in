@@ -5,7 +5,8 @@ interface SpotlightCardProps {
   title: string;
   description: string;
   ctaHref: string;
-  image: string;
+  /** Pass an image path to show the product image inside the card. Omit for text-only (e.g. homepage CategoryBand). */
+  image?: string;
   /** "dark" = card sits on a dark band; "light" = card on light band */
   variant?: "dark" | "light";
   /** Optional stat badge e.g. "Up to 6,000T clamping force" */
@@ -31,27 +32,37 @@ export default function SpotlightCard({
           : "bg-white border-brand-dark/10 shadow-md"
         }`}
     >
-      {/* Product image */}
-      <div className={`relative w-full aspect-[4/3] ${isDark ? "bg-white/5" : "bg-brand-offwhite"}`}>
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className="object-contain p-4"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
+      {/* Product image — only rendered when image prop is provided */}
+      {image && (
+        <div className={`relative w-full aspect-[4/3] ${isDark ? "bg-white/5" : "bg-brand-offwhite"}`}>
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-contain p-4"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
 
-        {/* Badge overlay */}
-        {badge && (
-          <div className="absolute top-3 left-3">
+          {/* Badge overlay */}
+          {badge && (
+            <div className="absolute top-3 left-3">
+              <span className="bg-brand-red text-white text-xs font-semibold px-3 py-1 rounded-full font-body">
+                {badge}
+              </span>
+            </div>
+          )}
+        </div>
+      )}
+
+      <div className="p-5">
+        {/* Badge — shown in text block when no image (text-only card) or always */}
+        {badge && !image && (
+          <div className="mb-3">
             <span className="bg-brand-red text-white text-xs font-semibold px-3 py-1 rounded-full font-body">
               {badge}
             </span>
           </div>
         )}
-      </div>
-
-      <div className="p-5">
         <h4 className={`font-body font-normal text-[24px] tracking-[14%] mb-2 ${isDark ? "text-white" : "text-brand-dark"}`}>
           {title}
         </h4>

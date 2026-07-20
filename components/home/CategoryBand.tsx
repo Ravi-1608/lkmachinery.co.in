@@ -132,7 +132,6 @@ export default function CategoryBand({
                   title={spotlightTitle}
                   description={spotlightDescription}
                   ctaHref={ctaHref}
-                  image={spotlightImage}
                   variant={isDark ? "dark" : "light"}
                   badge={spotlightBadge}
                 />
