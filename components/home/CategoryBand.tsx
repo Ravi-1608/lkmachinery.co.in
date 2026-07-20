@@ -8,7 +8,7 @@ export interface CategoryBandProps {
   title: string;          // "Die Casting Machines"
   subtitle: string;       // "DCM" — short category code
   description: string;
-  tags: string[];
+  tags: { label: string; href: string }[];
   spotlightTitle: string;
   spotlightDescription: string;
   spotlightImage: string; // real product image path from data/products.json
@@ -80,10 +80,10 @@ export default function CategoryBand({
                 {description}
               </p>
 
-              {/* Tag pills */}
+              {/* Tag pills — each links to its model page */}
               <div className="flex flex-wrap gap-2 mb-10">
-                {tags.map((tag) => (
-                  <TagPill key={tag} label={tag} variant={isDark ? "dark" : "light"} />
+                {tags.map(({ label, href }) => (
+                  <TagPill key={label} label={label} href={href} variant={isDark ? "dark" : "light"} />
                 ))}
               </div>
 

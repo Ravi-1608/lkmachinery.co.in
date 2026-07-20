@@ -38,10 +38,15 @@ export default async function HomePage() {
   const cncSpotlight = cnc.models.find(m => m.slug === "mcg5-series") || cnc.models[0];
   const autoSpotlight = auto.models.find(m => m.slug === "lr-100-dp") || auto.models[0];
 
-  const dcmTags = Array.from(new Set(dcm.models.map(m => m.chamberType).filter(Boolean))) as string[];
-  const immTags = Array.from(new Set(imm.models.map(m => m.machineType).filter(Boolean))) as string[];
-  const cncTags = Array.from(new Set(cnc.models.map(m => m.machineType).filter(Boolean))) as string[];
-  const autoTags = Array.from(new Set(auto.models.map(m => m.family).filter(Boolean))) as string[];
+  // ── Model-name tags (Figma shows individual model names as pills, not type labels)
+  // DCM: 4 tags — first 4 models: AVISS II, Classic V, D Series, IMPRESS III
+  const dcmTags = dcm.models.slice(0, 4).map(m => ({ label: m.name, href: `/products/dcm/${m.slug}` }));
+  // IMM: 3 tags — first 3 models: Potenza V, Potenza III, Potenza A
+  const immTags = imm.models.slice(0, 3).map(m => ({ label: m.name, href: `/products/imm/${m.slug}` }));
+  // CNC: 4 tags — first 4 models: MV Series, VM Series, VC Series, TC Series
+  const cncTags = cnc.models.slice(0, 4).map(m => ({ label: m.name, href: `/products/cnc/${m.slug}` }));
+  // Automation: 3 tags — all 3 models: LT04N, LR 100 DP, LR 50 D
+  const autoTags = auto.models.slice(0, 3).map(m => ({ label: m.name, href: `/products/automation/${m.slug}` }));
 
   const CATEGORY_BANDS: CategoryBandProps[] = [
     {
@@ -49,7 +54,7 @@ export default async function HomePage() {
       subtitle: dcm.categoryLabel,
       title: dcm.categoryName,
       description: dcm.categoryDescription,
-      tags: dcmTags.slice(0, 4),
+      tags: dcmTags,
       spotlightTitle: dcmSpotlight.name,
       spotlightDescription: firstSentence(dcmSpotlight.description),
       spotlightImage: dcmSpotlight.image,
@@ -63,7 +68,7 @@ export default async function HomePage() {
       subtitle: imm.categoryLabel,
       title: imm.categoryName,
       description: imm.categoryDescription,
-      tags: immTags.slice(0, 4),
+      tags: immTags,
       spotlightTitle: immSpotlight.name,
       spotlightDescription: firstSentence(immSpotlight.description),
       spotlightImage: immSpotlight.image,
@@ -77,7 +82,7 @@ export default async function HomePage() {
       subtitle: cnc.categoryLabel,
       title: cnc.categoryName,
       description: cnc.categoryDescription,
-      tags: cncTags.slice(0, 4),
+      tags: cncTags,
       spotlightTitle: cncSpotlight.name,
       spotlightDescription: firstSentence(cncSpotlight.description),
       spotlightImage: cncSpotlight.image,
@@ -91,7 +96,7 @@ export default async function HomePage() {
       subtitle: auto.categoryLabel,
       title: auto.categoryName,
       description: auto.categoryDescription,
-      tags: autoTags.slice(0, 4),
+      tags: autoTags,
       spotlightTitle: autoSpotlight.name,
       spotlightDescription: firstSentence(autoSpotlight.description),
       spotlightImage: autoSpotlight.image,
