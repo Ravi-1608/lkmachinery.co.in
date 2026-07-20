@@ -43,7 +43,7 @@ export default function CategoryBand({
       {/* The sticky card itself */}
       <section
         className={`sticky top-16 lg:top-[72px] min-h-screen flex flex-col justify-center
-          ${isDark ? "bg-brand-dark2" : "bg-brand-offwhite"}`}
+          ${isDark ? "bg-brand-dark2" : "bg-brand-grey"}`}
         style={{ zIndex }}
         aria-labelledby={`cat-${index}-heading`}
       >
@@ -62,7 +62,7 @@ export default function CategoryBand({
               {/* Big short-code heading — Bug 2 fix: was {title}, now {subtitle} */}
               <h2
                 id={`cat-${index}-heading`}
-                className={`font-heading font-bold tracking-[15%] text-5xl sm:text-6xl lg:text-[80px] leading-none mb-6
+                className={`font-heading font-bold tracking-[15%] text-5xl sm:text-6xl lg:text-[80px] leading-none mb-6 uppercase
                   ${isDark ? "text-white" : "text-brand-dark"}`}
               >
                 {subtitle}
@@ -70,13 +70,13 @@ export default function CategoryBand({
 
               {/* Full name as sub-label */}
               <p className={`text-sm font-body uppercase tracking-widest mb-4
-                ${isDark ? "text-white/40" : "text-brand-dark/40"}`}>
+                ${isDark ? "text-white/40" : "text-brand-dark/60"}`}>
                 {title}
               </p>
 
               {/* Description */}
               <p className={`text-base leading-relaxed max-w-lg mb-8 font-body
-                ${isDark ? "text-white/60" : "text-brand-dark/60"}`}>
+                ${isDark ? "text-white/60" : "text-brand-dark/80"}`}>
                 {description}
               </p>
 
