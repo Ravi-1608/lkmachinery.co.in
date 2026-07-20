@@ -38,15 +38,22 @@ export default async function HomePage() {
   const cncSpotlight = cnc.models.find(m => m.slug === "mcg5-series") || cnc.models[0];
   const autoSpotlight = auto.models.find(m => m.slug === "lr-100-dp") || auto.models[0];
 
-  // ── Model-name tags (Figma shows individual model names as pills, not type labels)
-  // DCM: 4 tags — first 4 models: AVISS II, Classic V, D Series, IMPRESS III
-  const dcmTags = dcm.models.slice(0, 4).map(m => ({ label: m.name, href: `/products/dcm/${m.slug}` }));
-  // IMM: 3 tags — first 3 models: Potenza V, Potenza III, Potenza A
-  const immTags = imm.models.slice(0, 3).map(m => ({ label: m.name, href: `/products/imm/${m.slug}` }));
-  // CNC: 4 tags — first 4 models: MV Series, VM Series, VC Series, TC Series
-  const cncTags = cnc.models.slice(0, 4).map(m => ({ label: m.name, href: `/products/cnc/${m.slug}` }));
-  // Automation: 3 tags — all 3 models: LT04N, LR 100 DP, LR 50 D
-  const autoTags = auto.models.slice(0, 3).map(m => ({ label: m.name, href: `/products/automation/${m.slug}` }));
+  // ── Model-name tags — explicit slug selection to match Figma curation exactly
+  // Helper: pick models by slug in the specified display order
+  const pick = (models: typeof dcm.models, slugs: string[], cat: string) =>
+    slugs.flatMap(slug => {
+      const m = models.find(x => x.slug === slug);
+      return m ? [{ label: m.name, href: `/products/${cat}/${m.slug}` }] : [];
+    });
+
+  // DCM (4): AVISS II, Classic V, D Series, IMPRESS III
+  const dcmTags = pick(dcm.models, ["aviss-ii", "classic-v", "d-series", "impress-iii"], "dcm");
+  // IMM (3): Potenza III, FORZA, Potenza A  (Figma — not first-3 in array)
+  const immTags = pick(imm.models, ["potenza-iii", "forza", "potenza-a"], "imm");
+  // CNC (4): LT Series, LTR Series, TC Series, VM Series  (Figma — not first-4 in array)
+  const cncTags = pick(cnc.models, ["lt-series", "ltr-series", "tc-series", "vm-series"], "cnc");
+  // Automation (3): LT04N, LR 100 DP, LR 50 D
+  const autoTags = pick(auto.models, ["lt04n", "lr-100-dp", "lr-50-d"], "automation");
 
   const CATEGORY_BANDS: CategoryBandProps[] = [
     {
