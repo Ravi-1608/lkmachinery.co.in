@@ -42,7 +42,7 @@ export default function CategoryBand({
     >
       {/* The sticky card itself */}
       <section
-        className={`sticky top-16 lg:top-[72px] min-h-screen flex flex-col justify-center
+        className={`sticky top-16 lg:top-[72px] min-h-screen flex flex-col justify-center rounded-t-[48px]
           ${isDark ? "bg-brand-dark2" : "bg-brand-grey"}`}
         style={{ zIndex }}
         aria-labelledby={`cat-${index}-heading`}
@@ -50,7 +50,7 @@ export default function CategoryBand({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 lg:py-24">
 
           {/* ── Two-column layout ─────────────────────────────────────── */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
 
             {/* ── Left column: text + tags + CTA ──────────────────────── */}
             <div>
