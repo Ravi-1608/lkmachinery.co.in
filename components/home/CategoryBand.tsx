@@ -38,7 +38,7 @@ export default function CategoryBand({
     // ── Sticky-wrapper: tall enough that each card stays pinned for a full scroll
     <div
       className="sticky-band-wrapper"
-      style={{ minHeight: "100vh" }}
+      style={{ minHeight: "180vh" }}
     >
       {/* The sticky card itself */}
       <section
