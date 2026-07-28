@@ -48,7 +48,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} antialiased overflow-x-clip`}
+      className={`${inter.variable} antialiased`}
     >
       <body className="min-h-screen flex flex-col font-body bg-brand-offwhite text-brand-dark">
         <Header />

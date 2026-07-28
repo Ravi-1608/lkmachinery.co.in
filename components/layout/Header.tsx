@@ -107,7 +107,7 @@ function MobileDrawer({
       <div
         className={`fixed top-0 right-0 z-50 h-full w-72 bg-brand-dark flex flex-col pt-20 pb-8 px-6
                     transform transition-transform duration-300 ease-in-out lg:hidden
-                    ${open ? "translate-x-0" : "translate-x-full"}`}
+                    ${open ? "translate-x-0" : "translate-x-full hidden"}`}
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
