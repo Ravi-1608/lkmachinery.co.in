@@ -47,23 +47,25 @@
         "slug": "impress-iii",
         "name": "IMPRESS III",
         "chamberType": "Cold Chamber",
-        "tonnage": "280-6000",
+        "tonnage": "130-900",
         "description": "The third-generation high-performance IMPRESS-III series cold chamber die casting machines are designed based on inheriting the traditional design advantages, rich manufacturing experience and mature application technology of LK die casting machines, incorporating the world's cutting-edge new technologies, new processes and new concepts. It is a new generation of die casting machines with faster speed, more stable performance, energy conservation and environmental protection.",
         "highlights": ["Stable response of pressure charging system", "High repeatability accuracy", "CAE optimized design", "Rapid integration of control system", "Dual proportional control"],
         "applicableIndustries": ["Household Appliance", "Transportation", "Smart 3C-5G Communication", "Daily Necessities"],
         "image": "/images/products/dcm/impress-iii.png",
-        "sourceVerified": "lk.world/en/product/detail/1176"
+        "sourceVerified": "lk.world/en/product/detail/1176",
+        "note": "CORRECTED 2026: previous value (280-6000T) was misread from the wrong source during an earlier pass. Real tonnage verified from the LK Machinery India-branded catalogue (CAT.NO. E21-05-17, models DCC130-DCC900, clamping force 1450-9000 kN) -- founder-confirmed this is the correct India-specific range, distinct from LK Group's global IMPRESS-III lineup which extends to DCC5000 (5000T) per a newer 2025 global catalogue. LK India specifically sells only up to 900T for this series."
       },
       {
         "slug": "impress-plus",
         "name": "IMPRESS PLUS",
         "chamberType": "Cold Chamber",
-        "tonnage": "6000-9000",
+        "tonnage": "130-6000",
         "description": "The IMPRESS-PLUS series die casting machines inherit the advantages of high yield, high efficiency, stability and durability of the IMPRESS-III series. Combined with new-era die casting process trends and production management requirements, it integrates intelligent injection control technology, casting quality control technology, efficient die closing transmission technology, intelligent die height adjustment technology and servo energy-saving technology.",
         "highlights": ["Intelligent die casting unit", "Servo energy-saving control system", "Platen surface hardening technology", "Rapid die change system", "LK-NET network management system", "Intelligent die height adjustment system"],
         "applicableIndustries": ["Household Appliance", "Transportation", "Smart 3C-5G Communication", "Daily Necessities"],
         "image": "/images/products/dcm/impress-plus.png",
-        "sourceVerified": "lk.world/en/product/detail/1179"
+        "sourceVerified": "lk.world/en/product/detail/1179",
+        "note": "CORRECTED 2026: previous value (6000-9000T) did not match either source catalogue at all (real max is 6000T, not 9000T). Real tonnage verified across two global LK Machinery International catalogues covering the full IMPRESS-PLUS line: 'small' (CAT.NO. E24-11-14, DCC130-DCC900, 1450-9000 kN) + 'big' (CAT.NO. E21-05-25, DCC1000-DCC6000, 10000-60000 kN). Founder-confirmed LK India sells the full 130-6000T range."
       }
     ]
   },
@@ -94,49 +96,49 @@
         "slug": "potenza-iii",
         "name": "Potenza III",
         "machineType": "Toggle Type",
-        "tonnage": "80-1480",
-        "description": "The POTENZA series, with production technologies developed and verified repeatedly over many years, has good stability and high precision. It offers clamping force ranging from 800 to 14,800 KN, and is an ideal basic equipment suitable for various injection molding technologies and process applications, creating higher value for customers.",
+        "tonnage": "80-1000",
+        "description": "The POTENZA series, with production technologies developed and verified repeatedly over many years, has good stability and high precision. It offers clamping force ranging from 800 to 10,000 KN, and is an ideal basic equipment suitable for various injection molding technologies and process applications, creating higher value for customers.",
         "highlights": ["International high-quality hardware configuration", "Wide application range", "High closed-loop control accuracy", "Informatization and digitalization"],
         "applicableIndustries": ["Transportation", "Smart 3C", "Household Appliance"],
         "image": "/images/products/imm/potenza-iii.png",
         "sourceVerified": "lk.world/en/product/detail/1195",
-        "note": "Figma's own hero mockup shows an erroneous Tonnage of 160-900 (leftover DCM placeholder). Real value 80-1480 verified live against lk.world, matches Figma's own body copy of 800-14,800 KN."
+        "note": "CORRECTED 2026: previous value (80-1480T) traced back to the body copy's own '800 to 14,800 KN' claim, which doesn't match any real model. Verified from manufacturer catalogue 'POTENZA-III Catalogue (E202405 v2)', cover headline '80T-1000T', spec table PT80III-PT1000III (800-10000 kN). Founder-confirmed. Description text corrected to match (10,000 KN, not 14,800 KN)."
       },
       {
         "slug": "potenza-a",
         "name": "Potenza A",
         "machineType": "Toggle Type",
-        "tonnage": "80-850",
+        "tonnage": "80-1000",
         "description": "The LK POTENZA-A servo injection molding machine incorporates new technologies, new processes and new concepts on the basis of inheriting LK's traditional design concepts, making the overall performance of the machine more advanced and perfect. The user-friendly appearance and safety design in line with national standards make the machine operation safer and more reliable; the professional injection molding machine computer control system has a fast response cycle and is easy to operate.",
         "highlights": ["High-Performance Clamping Unit", "High-Precision Injection Unit", "Intelligent Electronic Control Unit", "High-Efficiency Power Unit", "Cloud Injection Molding Networking Interface", "Brand-new Appearance and UI Design"],
         "applicableIndustries": ["Transportation", "Smart 3C", "Household Appliance"],
         "image": "/images/products/imm/potenza-a.png",
         "sourceVerified": "lk.world/en/product/detail/1189",
-        "note": "CORRECTED: Figma mockup showed erroneous Tonnage 6000-9000 (leftover placeholder data). Real value from lk.world is 80-850."
+        "note": "CORRECTED 2026: previous value (80-850T, itself an earlier correction of a Figma placeholder) undercounted the top end. Verified from manufacturer catalogue 'PTA20250325-EN.pdf' (PTA = internal code for Potenza-A), cover headline '(80-1000T)', spec table PTA80-PTA1000 (800-10000 kN), CAT.NO. E202503. Founder-confirmed."
       },
       {
         "slug": "forza",
         "name": "FORZA",
-        "machineType": "Two-platen",
-        "tonnage": "450-7000",
-        "description": "The FORZA series adopts a single-cylinder injection system, which has a fast response and high injection accuracy. The whole machine has a compact structure, a small floor area, a large mold space, and the clamping force ranges from 4500 to 70000 KN. It can excellently meet the requirements for components with high surface quality in the home appliance industry, high-precision parts in the automotive industry, garbage classification sanitation bins, pallets and turnover boxes in the logistics industry, and civilian industries.",
+        "machineType": "Two Platen",
+        "tonnage": "450-6000",
+        "description": "The FORZA series adopts a single-cylinder injection system, which has a fast response and high injection accuracy. The whole machine has a compact structure, a small floor area, a large mold space, and the clamping force ranges from 4500 to 60000 KN. It can excellently meet the requirements for components with high surface quality in the home appliance industry, high-precision parts in the automotive industry, garbage classification sanitation bins, pallets and turnover boxes in the logistics industry, and civilian industries.",
         "highlights": ["Unique single-cylinder injection system", "More stable and faster clamping unit", "Controlled by the European KEBA computer system", "Two-platen type compact space advantage", "Synchronous nut locking mechanism, uniform distribution of clamping force"],
         "applicableIndustries": ["Household Appliance", "Automotive", "Logistics (bins/pallets/crates)", "Civilian industries"],
         "image": "/images/products/imm/froza.png",
         "sourceVerified": "lk.world/en/product/detail/1192",
-        "note": "Spelling confirmed as 'FORZA' (not 'Froza' as in original Figma filename) per founder decision."
+        "note": "Spelling confirmed as 'FORZA' (not 'Froza' as in original Figma filename) per founder decision. CORRECTED 2026: tonnage was 450-7000T -- the 7000T figure was the marketing headline for LK's overall two-platen technology ceiling, not this catalogue's actual model lineup. Verified from 'Forza Catalogue (E202406)', spec table FA450-FA6000 (4500-60000 kN); 450T minimum was already correct. machineType also corrected from 'Two-platen' to 'Two Platen' -- the mismatched string (vs the category page's filter tab label) was silently hiding Forza from the IMM category page's Two Platen filter entirely, even though its own model page worked fine."
       },
       {
         "slug": "elettrica",
         "name": "Elettrica",
         "machineType": "Electric",
-        "tonnage": "100-550",
-        "description": "The ELETTRICA series adopts a brand-new high-drive system, combined with a professional control system, flexibly achieving precise and efficient injection molding. It has strong scalability, is equipped with a high-performance computer with an Intel X86 processor, and has an open international interface. The clamping force ranges from 1000 to 5500 KN.",
+        "tonnage": "60-350",
+        "description": "The ELETTRICA series adopts a brand-new high-drive system, combined with a professional control system, flexibly achieving precise and efficient injection molding. It has strong scalability, is equipped with a high-performance computer with an Intel X86 processor, and has an open international interface. The clamping force ranges from 600 to 3500 KN.",
         "highlights": ["Flexible modular design combination", "Linear guide rails, low energy consumption, and precise control", "Intelligent mold protection to ensure the safety of molds and people under special circumstances", "Automatic lubrication, special grease, in line with the requirements of clean workshops", "Special tie bars for injection molding machines"],
         "applicableIndustries": ["Electronic Communication", "Medical Consumables", "Auto Parts", "Packaging Products", "Toys"],
         "image": "/images/products/imm/electrica.png",
         "sourceVerified": "lk.world/en/product/detail/1177",
-        "note": "India sells base ELETTRICA only. ELETTRICA-E and ELETTRICA-S sub-series NOT offered in India (confirmed by founder)."
+        "note": "India sells base ELETTRICA only. ELETTRICA-E and ELETTRICA-S sub-series NOT offered in India (confirmed by founder). CORRECTED 2026: previous value (100-550T) contradicted both ends. Verified from 'Elettrica Catalogue (E202406)', spec table EL60-EL350 (600-3500 kN). Founder-confirmed; note only 14 of the source PDF's 48 pages were readable, so flagging lower confidence than the other IMM corrections in this pass."
       },
       {
         "slug": "lena",
