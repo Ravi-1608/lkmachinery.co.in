@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import "./SpotlightCard.css";
 
 interface SpotlightCardProps {
   title: string;
@@ -22,31 +23,25 @@ export default function SpotlightCard({
   badge,
 }: SpotlightCardProps) {
   const isDark = variant === "dark";
+  const variantClass = isDark ? "spotlight-card--dark" : "spotlight-card--light";
 
   return (
-    <div
-      className={`relative rounded-2xl overflow-hidden border transition-shadow duration-300
-        hover:shadow-2xl
-        ${isDark
-          ? "bg-white/5 border-white/10 hover:bg-white/8"
-          : "bg-white border-brand-dark/10 shadow-md"
-        }`}
-    >
+    <div className={`spotlight-card ${variantClass}`}>
       {/* Product image — only rendered when image prop is provided */}
       {image && (
-        <div className={`relative w-full aspect-[4/3] ${isDark ? "bg-white/5" : "bg-brand-offwhite"}`}>
+        <div className="spotlight-card__image-wrap">
           <Image
             src={image}
             alt={title}
             fill
-            className="object-contain p-4"
+            className="spotlight-card__image"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
 
           {/* Badge overlay */}
           {badge && (
-            <div className="absolute top-3 left-3">
-              <span className="bg-brand-red text-white text-xs font-semibold px-3 py-1 rounded-full font-body">
+            <div className="spotlight-card__badge-overlay">
+              <span className="spotlight-card__badge">
                 {badge}
               </span>
             </div>
@@ -54,31 +49,22 @@ export default function SpotlightCard({
         </div>
       )}
 
-      <div className="p-5">
+      <div className="spotlight-card__body">
         {/* Badge — shown in text block when no image (text-only card) or always */}
         {badge && !image && (
-          <div className="mb-3">
-            <span className="bg-brand-red text-white text-xs font-semibold px-3 py-1 rounded-full font-body">
+          <div className="spotlight-card__badge-standalone">
+            <span className="spotlight-card__badge">
               {badge}
             </span>
           </div>
         )}
-        <h4 className={`font-body font-normal text-[24px] tracking-[14%] mb-2 ${isDark ? "text-white" : "text-brand-dark"}`}>
+        <h3 className="spotlight-card__title">
           {title}
-        </h4>
-        <p className={`font-body font-normal text-[16px] tracking-[0%] leading-relaxed mb-4 line-clamp-3
-          ${isDark ? "text-white/60" : "text-brand-dark/60"}`}>
+        </h3>
+        <p className="spotlight-card__description">
           {description}
         </p>
-        <Link
-          href={ctaHref}
-          className={`inline-flex items-center gap-2 text-sm font-semibold font-body
-            transition-colors duration-200
-            ${isDark
-              ? "text-brand-red hover:text-white"
-              : "text-brand-red hover:text-brand-redDark"
-            }`}
-        >
+        <Link href={ctaHref} className="spotlight-card__link">
           Learn more
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5"

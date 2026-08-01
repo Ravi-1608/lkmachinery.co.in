@@ -21,7 +21,12 @@ export interface ContentItem {
   isExample?: boolean;
 }
 
-const data = contentData as ContentItem[];
+const allData = contentData as ContentItem[];
+
+// isExample entries are placeholder/sample content (bracketed placeholder text,
+// not real announcements) — never publicly listed, statically built, or directly
+// reachable. Exclude here so every helper below inherits the gate.
+const data = allData.filter((item) => !item.isExample);
 
 export function getAllContent(): ContentItem[] {
   return data;

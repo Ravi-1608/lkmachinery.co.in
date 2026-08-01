@@ -1,0 +1,57 @@
+.client-logos {
+  padding-block: 4rem;
+  background-color: white;
+  border-top: 1px solid color-mix(in srgb, var(--color-brand-dark) 5%, transparent);
+}
+
+.client-logos__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) { .client-logos__heading { font-size: 1.875rem; } }
+@media (min-width: 1024px) { .client-logos__heading { text-align: left; } }
+
+.client-logos__highlight {
+  color: var(--color-brand-red);
+}
+
+.client-logos__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  opacity: 0.8;
+  filter: grayscale(1);
+  transition: filter 0.5s, opacity 0.5s;
+}
+
+@media (min-width: 640px) { .client-logos__row { gap: 3rem; } }
+@media (min-width: 1024px) { .client-logos__row { justify-content: space-between; } }
+
+.client-logos__row:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.client-logos__logo {
+  position: relative;
+  height: 3rem;
+  width: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 640px) { .client-logos__logo { height: 4rem; width: 9rem; } }
+
+.client-logos__logo-image {
+  object-fit: contain;
+}

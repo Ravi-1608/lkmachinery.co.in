@@ -1,0 +1,316 @@
+/* ─── Hero (shared .marketing-hero base — see ../marketing-hero.css) ─────── */
+
+.careers-hero__title {
+  max-width: 42rem;
+}
+
+.careers-hero__subtitle {
+  max-width: 40rem;
+  margin-bottom: 2rem;
+}
+
+.careers-hero__highlight {
+  color: var(--color-brand-red);
+}
+
+/* ─── Why Work With ─────────────────────────────────────────────────────── */
+
+.careers-why {
+  padding-block: 4rem;
+  background-color: white;
+}
+
+@media (min-width: 1024px) { .careers-why { padding-block: 6rem; } }
+
+.careers-why__header {
+  text-align: center;
+  max-width: 40rem;
+  margin-inline: auto;
+  margin-bottom: 3rem;
+}
+
+.careers-why__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 640px) { .careers-why__heading { font-size: 1.875rem; } }
+
+.careers-why__highlight { color: var(--color-brand-red); }
+
+.careers-why__subtext {
+  color: color-mix(in srgb, var(--color-brand-dark) 60%, transparent);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.625;
+}
+
+.careers-why__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) { .careers-why__grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* Card: white rounded card with a black diagonal-cut wedge in the top-left
+   corner (icon sits on it) and a lighter grey wedge peeking out from behind
+   it, per Figma's "Why Work With" cards. Built with two clip-path layers
+   rather than an exported shape asset -- geometry is an approximation of
+   Figma's exact angles, not a traced vector, since this is a CSS reimplementation
+   of a visual treatment rather than content that needs pixel-exactness.
+   Colors use the verified brand-dark token (not pure black) per CLAUDE.md's
+   "don't guess new values" rule -- at this size the two are visually
+   indistinguishable anyway. */
+.careers-why__card {
+  position: relative;
+  background-color: white;
+  border-radius: 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--color-brand-dark) 10%, transparent);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  padding: 1.75rem 1.75rem 2rem;
+  min-height: 15rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.careers-why__shape-grey {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 34%;
+  background-color: var(--color-brand-grey);
+  clip-path: polygon(0 0, 55% 0, 8% 100%, 0 100%);
+}
+
+.careers-why__shape-black {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 42%;
+  height: 58%;
+  background-color: var(--color-brand-dark);
+  clip-path: polygon(0 0, 100% 0, 25% 100%, 0 100%);
+  display: flex;
+  align-items: flex-start;
+  padding: 1.5rem 0 0 1.5rem;
+}
+
+.careers-why__icon {
+  position: relative;
+  color: white;
+  display: inline-flex;
+}
+
+.careers-why__card-title {
+  position: relative;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-size: 1.125rem;
+  line-height: 1.3;
+  text-align: right;
+  margin-bottom: 1.5rem;
+  padding-top: 0.25rem;
+  padding-left: 44%;
+}
+
+.careers-why__card-desc {
+  position: relative;
+  color: color-mix(in srgb, var(--color-brand-dark) 70%, transparent);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.625;
+  text-align: center;
+  margin-top: auto;
+}
+
+/* ─── Job Openings (see components/careers/JobOpenings.css for card internals) */
+
+.careers-openings {
+  padding-block: 4rem;
+  background-color: var(--color-brand-grey);
+}
+
+@media (min-width: 1024px) { .careers-openings { padding-block: 5rem; } }
+
+.careers-openings__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 640px) { .careers-openings__heading { font-size: 1.875rem; } }
+
+.careers-openings__highlight { color: var(--color-brand-red); }
+
+/* ─── Our Work Culture ───────────────────────────────────────────────────── */
+
+.careers-culture {
+  padding-block: 4rem;
+  background-color: var(--color-brand-offwhite);
+}
+
+@media (min-width: 1024px) { .careers-culture { padding-block: 5rem; } }
+
+.careers-culture__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 640px) { .careers-culture__heading { font-size: 1.875rem; } }
+
+.careers-culture__highlight { color: var(--color-brand-red); }
+
+.careers-culture__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) { .careers-culture__grid { grid-template-columns: repeat(4, 1fr); } }
+
+.careers-culture__tile {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  text-align: center;
+  border: 1px solid color-mix(in srgb, var(--color-brand-dark) 8%, transparent);
+}
+
+.careers-culture__tile-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 999px;
+  background-color: color-mix(in srgb, var(--color-brand-red) 8%, transparent);
+  color: var(--color-brand-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.careers-culture__tile-label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-size: 1rem;
+}
+
+/* ─── Apply Now (inline form — see CareersApplyForm.css for field internals) */
+
+.careers-apply-now {
+  padding-block: 4rem 5rem;
+  background-color: var(--color-brand-dark2);
+}
+
+@media (min-width: 1024px) { .careers-apply-now { padding-block: 5rem 6rem; } }
+
+.careers-apply-now__inner {
+  max-width: 44rem;
+  margin-inline: auto;
+}
+
+.careers-apply-now__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 640px) { .careers-apply-now__heading { font-size: 1.875rem; } }
+
+.careers-apply-now__highlight { color: var(--color-brand-red); }
+
+.careers-apply-now__card {
+  background-color: white;
+  border-radius: 1.25rem;
+  padding: 2rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 640px) { .careers-apply-now__card { padding: 2.5rem; } }
+
+/* ─── Open Roles (LinkedIn CTA — kept as-is per founder instruction) ──────── */
+
+.careers-apply {
+  padding-block: 4rem;
+  background-color: var(--color-brand-dark);
+}
+
+@media (min-width: 1024px) { .careers-apply { padding-block: 6rem; } }
+
+.careers-apply__inner {
+  max-width: 48rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.careers-apply__eyebrow {
+  color: var(--color-brand-red);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+  margin-bottom: 0.75rem;
+}
+
+.careers-apply__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: white;
+  font-size: 1.875rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) { .careers-apply__heading { font-size: 2.25rem; } }
+
+.careers-apply__text {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.625;
+  margin-bottom: 2.5rem;
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+.careers-apply__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background-color: var(--color-brand-red);
+  color: white;
+  font-weight: 600;
+  border-radius: 999px;
+  transition: background-color 0.2s;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  box-shadow: 0 10px 15px -3px color-mix(in srgb, var(--color-brand-red) 20%, transparent);
+}
+
+.careers-apply__cta:hover {
+  background-color: var(--color-brand-redDark);
+}
+
+.careers-apply__cta:active {
+  transform: scale(0.95);
+}

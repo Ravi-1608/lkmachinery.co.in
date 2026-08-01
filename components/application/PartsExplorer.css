@@ -1,0 +1,157 @@
+/* ─── Toolbar: filter tabs + search ─────────────────────────────────────── */
+
+.parts-explorer__toolbar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .parts-explorer__toolbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+}
+
+.parts-explorer__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+
+.parts-explorer__tab {
+  padding: 0.625rem 1.25rem;
+  border-radius: 999px;
+  background-color: white;
+  color: var(--color-brand-dark);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s, font-weight 0.2s;
+}
+
+.parts-explorer__tab--active {
+  font-weight: 700;
+}
+
+.parts-explorer__tab:hover:not(.parts-explorer__tab--active) {
+  background-color: color-mix(in srgb, white 85%, var(--color-brand-dark));
+}
+
+.parts-explorer__search {
+  position: relative;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .parts-explorer__search { width: 220px; margin-left: 0.75rem; }
+}
+
+.parts-explorer__search-input {
+  width: 100%;
+  padding: 0.625rem 2.5rem 0.625rem 1.25rem;
+  border-radius: 999px;
+  background-color: white;
+  color: var(--color-brand-dark);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+}
+
+.parts-explorer__search-input::placeholder {
+  color: color-mix(in srgb, var(--color-brand-dark) 45%, transparent);
+}
+
+.parts-explorer__search-icon {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  color: color-mix(in srgb, var(--color-brand-dark) 55%, transparent);
+  pointer-events: none;
+}
+
+/* ─── Grid card ──────────────────────────────────────────────────────────── */
+
+.parts-explorer__card {
+  background-color: white;
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+}
+
+@media (min-width: 640px) { .parts-explorer__card { padding: 2rem; } }
+
+.parts-explorer__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .parts-explorer__grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+}
+
+.parts-explorer__tile {
+  display: flex;
+  flex-direction: column;
+}
+
+.parts-explorer__tile-placeholder {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: color-mix(in srgb, var(--color-brand-grey) 20%, white);
+  color: color-mix(in srgb, var(--color-brand-dark) 35%, transparent);
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.parts-explorer__tile-name {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-brand-dark);
+  line-height: 1.4;
+}
+
+.parts-explorer__empty {
+  font-family: var(--font-body);
+  color: color-mix(in srgb, var(--color-brand-dark) 60%, transparent);
+  text-align: center;
+  padding-block: 3rem;
+}
+
+/* ─── Pagination ─────────────────────────────────────────────────────────── */
+
+.parts-explorer__pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.625rem;
+  margin-top: 2rem;
+}
+
+.parts-explorer__page-btn {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  color: var(--color-brand-dark);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.parts-explorer__page-btn--active {
+  background-color: var(--color-brand-red);
+  color: white;
+}
+
+.parts-explorer__page-btn:hover:not(.parts-explorer__page-btn--active) {
+  background-color: color-mix(in srgb, white 80%, var(--color-brand-dark));
+}

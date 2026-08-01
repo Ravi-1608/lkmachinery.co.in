@@ -1,194 +1,226 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import AboutJourney from "@/components/about/AboutJourney";
+import { getBreadcrumbSchema } from "@/lib/seo";
+import "../marketing-hero.css";
+import "./about.css";
 
 export const metadata: Metadata = {
   title: "About Us",
+  // Deliberately India-specific for search relevance -- distinct from the
+  // visible hero copy above (Figma's global LK Group heritage line, kept
+  // as-is per that page's own design).
   description:
-    "LK Machinery India Pvt. Ltd. — part of LK Group, a global precision machinery leader founded in 1979 with 300+ patents, 60+ service centres, and 50%+ die-casting market share across Asia.",
+    "About LK Machinery India Pvt. Ltd. — Pune-based manufacturer and supplier of die casting, injection molding, and CNC machining equipment, part of the LK Group.",
   openGraph: { url: "/about" },
   alternates: { canonical: "/about" },
 };
 
+const jsonLd = getBreadcrumbSchema([
+  { name: "Home", item: "/" },
+  { name: "About Us", item: "/about" },
+]);
+
 // ─── Data ─────────────────────────────────────────────────────────────────
-// These stats describe the LK Group (parent), NOT LK India specifically.
-// Copy is written to be honest about this distinction.
+// These stats describe the LK Group (parent), NOT LK India specifically —
+// matches Figma's exact 7-stat "Company Overview" set and wording.
 const STATS = [
-  { value: "1979",  label: "LK Group Founded" },
-  { value: "300+",  label: "Patents" },
-  { value: "30+",   label: "Countries Served" },
-  { value: "60+",   label: "Service Centres" },
-  { value: "15",    label: "Production Plants" },
-  { value: "50%+",  label: "Die-Casting Market Share (Asia)" },
+  { value: "1979",  label: "Founded" },
+  { value: "300+",  label: "Patent Certificates obtained" },
+  { value: "30+",   label: "Countries where LK made machines that are in use" },
+  { value: "60+",   label: "Sales and Service Centers worldwide" },
+  { value: "15",    label: "Production Plants Worldwide" },
+  { value: "45",    label: "Years of experience in Die Casting Industry" },
+  { value: "50%+",  label: "Die-Casting industry market share" },
 ] as const;
 
-const TIMELINE = [
-  { year: "1979", event: "LK Group established in Hong Kong, begins manufacturing die casting machines." },
-  { year: "1994", event: "Launch of the AVIS hot-chamber series — now a global benchmark for quality." },
-  { year: "2006", event: "LK Group joins China's Top 500 Machinery Enterprises list (retained every year since)." },
-  { year: "2007", event: "LK die casting machines account for 50% of market sales in China, Brazil, and Southeast Asia." },
-  { year: "2015", event: "CNC division established in Taiwan; Apple supply-chain certification achieved." },
-  { year: "2012", event: "LK Machinery India Pvt. Ltd. incorporated — dedicated operations for the Indian subcontinent." },
-  { year: "Today", event: "27 machine models, 3 automation product lines, and a Chakan MIDC base serving customers across India." },
-] as const;
-
+// Figma shows icon + title only (lightbulb / megaphone / chat / document),
+// no description text -- JUDGMENT CALL: switched to matching icons for visual
+// fidelity, but kept the description copy since it's real, useful content
+// and dropping it purely for a pixel-match would be a net loss, not a fix.
 const PROCESS_STEPS = [
   {
-    step: "01",
     title: "Project Consultation",
     desc: "We start with a structured conversation about your production goals, part geometry, material, and cycle-time targets — not a brochure.",
+    icon: "lightbulb",
   },
   {
-    step: "02",
     title: "Research & Feasibility",
     desc: "Our application engineers analyse your requirements against our machine portfolio and prior case studies, identifying the optimal configuration.",
+    icon: "megaphone",
   },
   {
-    step: "03",
     title: "Solution Design",
     desc: "A detailed proposal: machine model, clamping force, automation layout, tooling considerations, and ROI estimate — presented for your review.",
+    icon: "chat",
   },
   {
-    step: "04",
     title: "Delivery & Implementation",
     desc: "Factory acceptance test, installation, commissioning, and operator training — followed by scheduled preventive maintenance from our Pune team.",
+    icon: "document",
   },
 ] as const;
+
+const PROCESS_ICONS: Record<string, React.ReactNode> = {
+  lightbulb: (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M9 18h6M10 22h4M12 2a6 6 0 0 0-4 10.5c.6.5 1 1.3 1 2.1V16h6v-1.4c0-.8.4-1.6 1-2.1A6 6 0 0 0 12 2Z"/>
+    </svg>
+  ),
+  megaphone: (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 11v2a2 2 0 0 0 2 2h1l3 5V4l-3 5H5a2 2 0 0 0-2 2Z"/>
+      <path d="M14 9a3 3 0 0 1 0 6M17 6a7 7 0 0 1 0 12"/>
+    </svg>
+  ),
+  chat: (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/>
+    </svg>
+  ),
+  document: (
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
+      <path d="M14 2v6h6M9 15l2 2 4-4"/>
+    </svg>
+  ),
+};
 
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ── Hero ───────────────────────────────────────────────────────── */}
-      <section className="relative bg-brand-dark overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-dark via-brand-dark2 to-black"
-             aria-hidden="true" />
-        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full
-                        bg-brand-red/10 blur-3xl" aria-hidden="true" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-          <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-3">
-            Company Profile
-          </p>
-          <h1 className="font-heading font-bold text-white text-4xl sm:text-5xl lg:text-6xl mb-5 max-w-3xl">
-            Engineering precision since 1979
+      <section className="marketing-hero">
+        <Image src="/images/hero/hero.png" alt="" fill priority className="marketing-hero__bg-image" sizes="100vw" aria-hidden="true" />
+        <div className="marketing-hero__bg-gradient" aria-hidden="true" />
+        <div className="marketing-hero__glow" aria-hidden="true" />
+        <div className="container marketing-hero__inner">
+          <h1 className="marketing-hero__title about-hero__title">
+            Precision Engineering at Global Scale
           </h1>
-          <p className="text-white/60 text-lg leading-relaxed max-w-2xl font-body">
-            LK Machinery India Pvt. Ltd. is the Indian subsidiary of{" "}
-            <strong className="text-white">LK Technology Holdings Ltd</strong> — a
-            Hong Kong-listed global machinery group with more than four decades of
-            precision manufacturing heritage.
+          <p className="marketing-hero__subtitle about-hero__subtitle">
+            Leading manufacturer of die-casting and injection molding machinery serving
+            industries worldwide with cutting-edge technology and unmatched reliability
+            since 1979.
           </p>
         </div>
       </section>
 
+      {/* ── Company Profile ──────────────────────────────────────────────── */}
+      <section className="about-profile" aria-labelledby="profile-heading">
+        <div className="container">
+          <h2 id="profile-heading" className="about-profile__heading">
+            Company <span className="about-profile__highlight">Profile</span>
+          </h2>
+          <div className="about-profile__grid">
+            <div>
+              <h3 className="about-profile__subheading">
+                About <span className="about-profile__highlight">LK Machinery</span>
+              </h3>
+              <p className="about-profile__text">
+                LK Technology Holdings Limited was founded in 1979 and listed on the Main
+                Board of the Hong Kong Stock Exchange in 2006. It is a major global
+                manufacturer of die casting machines, one of China&apos;s top five
+                manufacturers of injection molding machines, and a leading domestic
+                manufacturer of CNC machining centers. With CEO Mr. Liu Zhuo Ming at the
+                helm, LK has established 15 modern production plants — in Shenzhen,
+                Zhongshan, Ningbo, Shanghai, Kunshan, Anhui, Fuxin and Taiwan, as well as
+                Italy — and more than 60 sales and service centers worldwide.
+              </p>
+              <div className="about-profile__cards">
+                <div className="about-profile__card">
+                  <p className="about-profile__card-heading">Our Mission</p>
+                  <p className="about-profile__card-text">
+                    To empower manufacturers worldwide with innovative, reliable machinery
+                    solutions that optimize production efficiency and quality.
+                  </p>
+                </div>
+                <div className="about-profile__card">
+                  <p className="about-profile__card-heading">Our Vision</p>
+                  <p className="about-profile__card-text">
+                    To be the world&apos;s most trusted partner in advanced manufacturing
+                    technology, setting industry standards for innovation and
+                    sustainability.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="about-profile__image-wrap">
+              <Image
+                src="/images/company/welcome-building.png"
+                alt="LK Machinery precision manufacturing facility"
+                fill
+                className="about-profile__image"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Stats bar ──────────────────────────────────────────────────── */}
-      <section className="bg-brand-red py-10" aria-label="LK Group at a glance">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-white/70 text-xs font-semibold uppercase tracking-widest font-body mb-6">
-            LK Group — Global Figures
+      <section className="about-stats" aria-label="LK Group at a glance">
+        <div className="container">
+          <p className="about-stats__label">
+            Company <span className="about-stats__label-highlight">Overview</span>
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
+          <div className="about-stats__grid">
             {STATS.map(({ value, label }) => (
               <div key={label}>
-                <p className="font-heading font-bold text-white text-3xl lg:text-4xl">{value}</p>
-                <p className="text-white/70 text-xs font-body mt-1 leading-snug">{label}</p>
+                <p className="about-stats__value">{value}</p>
+                <p className="about-stats__caption">{label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Mission & Vision ─────────────────────────────────────────────── */}
-      <section className="py-16 lg:py-24 bg-brand-offwhite">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-            <div>
-              <h2 className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl mb-6">
-                Our Mission
-              </h2>
-              <p className="text-brand-dark/65 text-lg leading-relaxed font-body">
-                To provide Indian manufacturers with world-class precision machinery and
-                end-to-end application support — enabling them to compete globally through
-                superior part quality, faster cycle times, and lower total cost of ownership.
-              </p>
-            </div>
-            <div>
-              <h2 className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl mb-6">
-                Our Vision
-              </h2>
-              <p className="text-brand-dark/65 text-lg leading-relaxed font-body">
-                To be the most trusted name in industrial machinery across the Indian
-                subcontinent — a partner that customers call first, not a vendor they
-                evaluate last. We grow when our customers grow.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── Global Journey timeline ──────────────────────────────────────── */}
-      <section className="py-16 lg:py-24 bg-brand-dark" aria-labelledby="timeline-heading">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 id="timeline-heading" className="font-heading font-bold text-white text-3xl sm:text-4xl mb-12">
-            Our Global Journey
+      <section className="about-timeline" aria-labelledby="timeline-heading">
+        <div className="container about-timeline__container">
+          <h2 id="timeline-heading" className="about-timeline__heading">
+            Our Global <span className="about-timeline__highlight">Journey</span>
           </h2>
-          <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-[22px] top-2 bottom-2 w-0.5 bg-white/10"
-                 aria-hidden="true" />
-
-            <ol className="space-y-10">
-              {TIMELINE.map(({ year, event }, i) => (
-                <li key={year} className="relative flex gap-6 pl-12">
-                  {/* Node */}
-                  <div className={`absolute left-0 top-1 w-[46px] h-[46px] rounded-full flex
-                                  items-center justify-center flex-shrink-0 border-2
-                                  ${i === TIMELINE.length - 1
-                                    ? "bg-brand-red border-brand-red"
-                                    : "bg-brand-dark2 border-white/20"
-                                  }`}>
-                    <span className="text-white text-[9px] font-bold font-body">{year.slice(-2)}</span>
-                  </div>
-
-                  <div className="pt-2">
-                    <p className={`font-heading font-bold text-sm tracking-widest mb-1
-                      ${i === TIMELINE.length - 1 ? "text-brand-red" : "text-white/40"}`}>
-                      {year}
-                    </p>
-                    <p className="text-white/75 font-body text-base leading-relaxed">{event}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
+          <AboutJourney />
         </div>
       </section>
 
-      {/* ── India Presence ───────────────────────────────────────────────── */}
-      <section className="py-16 lg:py-20 bg-brand-offwhite">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* ── India Presence ───────────────────────────────────────────────────
+          JUDGMENT CALL: Figma shows an "LK INDIA" section with a multi-state
+          India map graphic (pins across ~12 states). We have no verified data
+          on which specific states LK India actually operates in beyond the
+          single confirmed Chakan, Pune facility -- inventing a multi-state
+          presence map would be fabrication under this project's no-invented-
+          content rule. Keeping the existing honest single-location + "Pan-
+          India sales & service" framing instead of a geographic map with
+          made-up markers. Revisit if the founder provides real state-level
+          coverage data. ───────────────────────────────────────────────────── */}
+      <section className="about-presence">
+        <div className="container">
+          <div className="about-presence__grid">
             <div>
-              <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-3">
+              <p className="about-presence__eyebrow">
                 India Operations
               </p>
-              <h2 className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl mb-6">
+              <h2 className="about-presence__heading">
                 Rooted in Pune,<br />Serving All of India
               </h2>
-              <p className="text-brand-dark/65 leading-relaxed font-body text-base mb-5">
+              <p className="about-presence__text">
                 Our Chakan MIDC facility in Pune houses sales, application engineering,
                 spare-parts inventory, and a trained service team — covering installation,
                 commissioning, and preventive maintenance across the country.
               </p>
-              <address className="not-italic text-brand-dark/60 font-body text-sm leading-relaxed mb-6">
+              <address className="about-presence__address">
                 L.K. Machinery India Pvt. Ltd.<br />
                 Plot No. PAP K-5 &amp; K-6, Chakan MIDC, Phase II<br />
                 Village-Khalumbre, Tal-Khed, Pune – 410501
               </address>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white
-                           font-semibold rounded-full hover:bg-brand-redDark active:scale-95
-                           transition-all duration-200 font-body text-sm"
-              >
+              <Link href="/contact" className="about-presence__cta">
                 Contact our Pune team
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5"
@@ -198,16 +230,16 @@ export default function AboutPage() {
             </div>
 
             {/* Stylised presence block */}
-            <div className="rounded-2xl bg-brand-dark p-10 flex flex-col gap-5">
+            <div className="about-presence__card">
               {[
                 ["Headquarters", "Pune, Maharashtra"],
                 ["Coverage", "Pan-India sales & service"],
                 ["Parent Company", "LK Technology Holdings (HK: 00558)"],
                 ["Incorporated", "2012"],
               ].map(([k, v]) => (
-                <div key={k} className="border-b border-white/10 pb-5 last:border-0 last:pb-0">
-                  <p className="text-white/40 text-xs font-body uppercase tracking-widest mb-1">{k}</p>
-                  <p className="text-white font-heading font-bold text-lg">{v}</p>
+                <div key={k} className="about-presence__row">
+                  <p className="about-presence__row-label">{k}</p>
+                  <p className="about-presence__row-value">{v}</p>
                 </div>
               ))}
             </div>
@@ -216,24 +248,24 @@ export default function AboutPage() {
       </section>
 
       {/* ── Work Process ─────────────────────────────────────────────────── */}
-      <section className="py-16 lg:py-24 bg-brand-dark2" aria-labelledby="process-heading">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
-            <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-3">
+      <section className="about-process" aria-labelledby="process-heading">
+        <div className="container">
+          <div className="about-process__header">
+            <p className="about-process__eyebrow">
               How We Work
             </p>
-            <h2 id="process-heading" className="font-heading font-bold text-white text-3xl sm:text-4xl">
+            <h2 id="process-heading" className="about-process__heading">
               From first call to full commissioning
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PROCESS_STEPS.map(({ step, title, desc }) => (
-              <div key={step}
-                   className="p-7 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10
-                              transition-colors duration-300">
-                <p className="font-heading font-bold text-brand-red text-4xl mb-4 opacity-60">{step}</p>
-                <h3 className="font-heading font-bold text-white text-xl mb-3">{title}</h3>
-                <p className="text-white/55 text-sm leading-relaxed font-body">{desc}</p>
+          <div className="about-process__grid">
+            {PROCESS_STEPS.map(({ title, desc, icon }) => (
+              <div key={title} className="about-process__card">
+                <div className="about-process__icon" aria-hidden="true">
+                  {PROCESS_ICONS[icon]}
+                </div>
+                <h3 className="about-process__title">{title}</h3>
+                <p className="about-process__desc">{desc}</p>
               </div>
             ))}
           </div>

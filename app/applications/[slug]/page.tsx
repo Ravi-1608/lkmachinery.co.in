@@ -9,6 +9,8 @@ import {
 } from "@/lib/applications";
 import { getBreadcrumbSchema } from "@/lib/seo";
 import EnquiryForm from "@/components/forms/EnquiryForm";
+import PartsExplorer from "@/components/application/PartsExplorer";
+import "./application.css";
 
 // ─── Static generation ─────────────────────────────────────────────────────
 export function generateStaticParams() {
@@ -34,21 +36,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-// ─── Category label map ────────────────────────────────────────────────────
-const CAT_LABELS: Record<string, { label: string; name: string }> = {
-  dcm:        { label: "DCM",        name: "Die Casting Machines" },
-  imm:        { label: "IMM",        name: "Injection Moulding Machines" },
-  cnc:        { label: "CNC",        name: "CNC Machining Centres" },
-  automation: { label: "Automation", name: "Robot Automation" },
-};
-
 export default async function ApplicationPage({ params }: Props) {
   const { slug } = await params;
   const app = getApplication(slug);
   if (!app) notFound();
 
+  // Fixed cross-nav order across all 6 application pages, per Figma's sidebar.
+  // Link labels use each entry's own `name` field (the single source of
+  // truth already used for headings/metadata) rather than re-typing Figma's
+  // sidebar text verbatim — Figma's sidebar reads "Industries Supplies" for
+  // that page (a typo vs. the page's own "INDUSTRIAL SUPPLIES" heading) and
+  // "Household Appliance" vs. the page heading's "HOUSEHOLD APPLIANCES";
+  // using `name` everywhere keeps the site internally consistent.
   const allApps = getAllApplications();
-  const relatedApps = allApps.filter((a) => a.slug !== slug).slice(0, 3);
 
   const jsonLd = getBreadcrumbSchema([
     { name: "Home", item: "/" },
@@ -62,115 +62,80 @@ export default async function ApplicationPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
       {/* ── Hero ───────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[55vh] flex items-end overflow-hidden bg-brand-dark">
+      <section className="app-hero">
         <Image
           src={app.image}
           alt={`${app.name} application`}
           fill
           priority
-          className="object-cover opacity-35"
+          className="app-hero__image"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent"
-             aria-hidden="true" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-16 pt-32">
-          <nav className="flex items-center gap-2 text-white/50 text-sm font-body mb-4"
-               aria-label="Breadcrumb">
-            <Link href="/applications" className="hover:text-white transition-colors">Applications</Link>
-            <span>/</span>
-            <span className="text-white">{app.name}</span>
-          </nav>
-          <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-3">
-            Application
-          </p>
-          <h1 className="font-heading font-bold text-white text-4xl sm:text-5xl lg:text-6xl mb-5">
-            {app.name}
-          </h1>
-          <p className="text-white/65 text-lg leading-relaxed max-w-2xl font-body">
-            {app.description}
-          </p>
+        {/* Decorative carousel arrow — Figma shows a prev-arrow chip, implying
+            a multi-image hero carousel. Only one verified real photo exists
+            per application in public/images/applications/, so there is
+            nothing real to carousel through yet; rendered inert/disabled
+            rather than wired to fake slides. */}
+        <button
+          type="button"
+          className="app-hero__arrow"
+          aria-label="Previous image (no additional images available yet)"
+          disabled
+        >
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+
+        {/* Torn-corner ribbon graphic — approximated with clip-path since no
+            ribbon image asset exists; matches Figma's white ribbon + point. */}
+        <div className="app-hero__ribbon">
+          <h1 className="app-hero__ribbon-text">{app.name}</h1>
         </div>
       </section>
 
-      {/* ── Relevant product categories ──────────────────────────────────── */}
-      <section className="py-16 lg:py-20 bg-brand-offwhite" aria-labelledby="relevant-cats">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 id="relevant-cats" className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl mb-10">
-            Recommended Machine Categories
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {app.relevantCategories.map((catSlug) => {
-              const cat = CAT_LABELS[catSlug];
-              if (!cat) return null;
-              return (
-                <Link
-                  key={catSlug}
-                  href={`/products/${catSlug}`}
-                  className="group flex flex-col gap-3 p-7 rounded-2xl bg-white border border-brand-dark/10
-                             hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-                >
-                  <span className="inline-block w-fit px-3 py-1 rounded-full bg-brand-red text-white
-                                   text-xs font-semibold font-body">
-                    {cat.label}
-                  </span>
-                  <h3 className="font-heading font-bold text-brand-dark text-xl group-hover:text-brand-red
-                                 transition-colors duration-200">
-                    {cat.name}
-                  </h3>
-                  <span className="mt-auto flex items-center gap-1.5 text-brand-red text-sm
-                                   font-semibold font-body">
-                    View machines
-                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5"
-                            strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      {/* ── Filter bar + sidebar + parts grid ────────────────────────────── */}
+      <section className="app-explorer" aria-labelledby="parts-heading">
+        <h2 id="parts-heading" className="sr-only">{app.name} parts catalog</h2>
 
-      {/* ── Other applications ───────────────────────────────────────────── */}
-      <section className="py-14 bg-brand-dark" aria-labelledby="other-apps">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 id="other-apps" className="font-heading font-bold text-white text-2xl mb-8">
-            Other Applications
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            {relatedApps.map((a) => (
+        <div className="container app-explorer__layout">
+          {/* Sidebar cross-nav */}
+          <nav className="app-explorer__sidebar" aria-label="Other applications">
+            {allApps.map((a) => (
               <Link
                 key={a.slug}
                 href={`/applications/${a.slug}`}
-                className="group relative rounded-xl overflow-hidden aspect-[3/2]"
+                className={`app-explorer__sidebar-link${a.slug === slug ? " app-explorer__sidebar-link--active" : ""}`}
+                aria-current={a.slug === slug ? "page" : undefined}
               >
-                <Image src={a.image} alt={`${a.name} application`} fill
-                       className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent" />
-                <span className="absolute bottom-4 left-4 font-heading font-bold text-white text-lg">
-                  {a.name}
-                </span>
+                {a.name}
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </Link>
             ))}
+          </nav>
+
+          {/* Filter tabs, search, and parts grid (client-interactive) */}
+          <div className="app-explorer__main">
+            <PartsExplorer parts={app.parts} filterTabs={app.filterTabs} />
           </div>
         </div>
       </section>
 
-      {/* ── Enquiry form ────────────────────────────────────────────────── */}
-      <section className="py-16 lg:py-20 bg-brand-offwhite" aria-labelledby="enquiry-app-heading">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-2">
-              Get in Touch
-            </p>
-            <h2 id="enquiry-app-heading" className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl">
-              Enquire about {app.name} solutions
-            </h2>
-          </div>
-          <div className="bg-white rounded-2xl p-8 shadow-md border border-brand-dark/8">
+      {/* ── Enquiry / Contact ────────────────────────────────────────────── */}
+      {/* Figma's photo background here (a hiker on a mountain) is an unrelated
+          stock placeholder reused identically across all 6 application
+          exports — not real LK content, so it is intentionally not
+          reproduced. The floating "Contact US" card is kept, backed by this
+          project's real EnquiryForm/vtiger wiring instead of a new form. */}
+      <section className="app-contact" aria-labelledby="app-contact-heading">
+        <div className="container app-contact__inner">
+          <div className="app-contact__card">
+            <h2 id="app-contact-heading" className="app-contact__heading">Contact US</h2>
             <EnquiryForm productInterested={`${app.name} Application`} />
           </div>
         </div>

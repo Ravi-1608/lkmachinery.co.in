@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import TagPill from "@/components/product/TagPill";
 import SpotlightCard from "@/components/product/SpotlightCard";
+import "./CategoryBand.css";
 
 export interface CategoryBandProps {
   index: string;          // "01", "02", …
@@ -36,67 +37,49 @@ export default function CategoryBand({
 
   return (
     // ── Sticky-wrapper: tall enough that each card stays pinned for a full scroll
-    <div
-      className="sticky-band-wrapper"
-      style={{ minHeight: "180vh" }}
-    >
+    <div className="category-band-wrapper">
       {/* The sticky card itself */}
       <section
-        className={`sticky top-16 lg:top-[72px] min-h-screen flex flex-col justify-center rounded-t-[48px]
-          ${isDark ? "bg-brand-dark2" : "bg-brand-grey"}`}
+        className={`category-band ${isDark ? "category-band--dark" : "category-band--light"}`}
         style={{ zIndex }}
         aria-labelledby={`cat-${index}-heading`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16 lg:py-24">
+        <div className="category-band__container">
 
           {/* ── Two-column layout ─────────────────────────────────────── */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+          <div className="category-band__grid">
 
             {/* ── Left column: text + tags + CTA ──────────────────────── */}
             <div>
               {/* Index label */}
-              <p className="font-heading font-bold text-sm tracking-[0.25em] uppercase mb-3 text-brand-red">
+              <p className="category-band__index">
                 {index} — {subtitle}
               </p>
 
               {/* Big short-code heading — Bug 2 fix: was {title}, now {subtitle} */}
-              <h2
-                id={`cat-${index}-heading`}
-                className={`font-heading font-bold tracking-[15%] text-5xl sm:text-6xl lg:text-[80px] leading-none mb-6 uppercase
-                  ${isDark ? "text-white" : "text-brand-dark"}`}
-              >
+              <h2 id={`cat-${index}-heading`} className="category-band__heading">
                 {subtitle}
               </h2>
 
               {/* Full name as sub-label */}
-              <p className={`text-sm font-body uppercase tracking-widest mb-4
-                ${isDark ? "text-white/40" : "text-brand-dark/60"}`}>
+              <p className="category-band__title">
                 {title}
               </p>
 
               {/* Description */}
-              <p className={`text-base leading-relaxed max-w-lg mb-8 font-body
-                ${isDark ? "text-white/60" : "text-brand-dark/80"}`}>
+              <p className="category-band__description">
                 {description}
               </p>
 
               {/* Tag pills — each links to its model page */}
-              <div className="flex flex-wrap gap-2 mb-10">
+              <div className="category-band__tags">
                 {tags.map(({ label, href }) => (
                   <TagPill key={label} label={label} href={href} variant={isDark ? "dark" : "light"} />
                 ))}
               </div>
 
               {/* CTA — outline pill style per Figma */}
-              <Link
-                href={ctaHref}
-                className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold font-body
-                           border-2 transition-all duration-200 active:scale-95
-                           ${isDark
-                             ? "border-white/30 text-white hover:border-white hover:bg-white/10"
-                             : "border-brand-dark/30 text-brand-dark hover:border-brand-dark hover:bg-brand-dark/10"
-                           }`}
-              >
+              <Link href={ctaHref} className="category-band__cta">
                 Learn More
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5"
@@ -106,28 +89,24 @@ export default function CategoryBand({
             </div>
 
             {/* ── Right column: circular glow + image + overlapping card ── */}
-            <div className="relative flex items-center justify-center min-h-[380px] lg:min-h-[500px]">
+            <div className="category-band__visual">
 
               {/* Radial glow behind image */}
-              <div
-                className={`absolute inset-0 rounded-full blur-3xl opacity-30 scale-90
-                  ${isDark ? "bg-brand-red" : "bg-brand-dark"}`}
-                aria-hidden="true"
-              />
+              <div className="category-band__glow" aria-hidden="true" />
 
               {/* Product image — centered */}
-              <div className="relative z-10 w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] lg:w-[380px] lg:h-[380px]">
+              <div className="category-band__image-wrap">
                 <Image
                   src={spotlightImage}
                   alt={`${spotlightTitle} — ${subtitle} machine`}
                   fill
-                  className="object-contain drop-shadow-2xl"
+                  className="category-band__image"
                   sizes="(max-width: 768px) 280px, (max-width: 1024px) 340px, 400px"
                 />
               </div>
 
               {/* SpotlightCard — absolutely positioned top-right, overlapping */}
-              <div className="absolute top-0 right-0 z-20 w-[220px] sm:w-[260px]">
+              <div className="category-band__spotlight-wrap">
                 <SpotlightCard
                   title={spotlightTitle}
                   description={spotlightDescription}

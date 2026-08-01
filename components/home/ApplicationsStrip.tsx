@@ -1,5 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import { getAllApplications } from "@/lib/applications";
+import "./ApplicationsStrip.css";
 
 export default function ApplicationsStrip() {
   const apps = getAllApplications();
@@ -9,79 +11,80 @@ export default function ApplicationsStrip() {
   const otherApps = apps.slice(1);
 
   return (
-    <section className="py-20 lg:py-28 bg-brand-offwhite" aria-labelledby="applications-heading">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="applications" aria-labelledby="applications-heading">
+      <div className="container">
 
         {/* Section header */}
-        <div className="mb-10">
-          <h2 id="applications-heading" className="font-heading font-bold text-[40px] tracking-[6%] text-brand-dark">
-            APPLIC<span className="text-brand-red">ATIONS</span>
+        <div className="applications__header">
+          <h2 id="applications-heading" className="applications__heading">
+            APPLIC<span className="applications__highlight">ATIONS</span>
           </h2>
         </div>
 
         {/* 6-panel strip */}
-        <div className="flex flex-col lg:flex-row gap-4 h-auto lg:h-[500px]">
-          
+        <div className="applications__strip">
+
           {/* First Panel (Widest) */}
-          <div className="relative flex flex-col justify-end lg:flex-[3] h-[300px] lg:h-full rounded-2xl overflow-hidden group">
+          <div className="applications__panel applications__panel--main">
             {firstApp.image ? (
-              <Image 
-                src={firstApp.image} 
-                alt={firstApp.name} 
-                fill 
-                className="object-cover transition-transform duration-700 group-hover:scale-105" 
+              <Image
+                src={firstApp.image}
+                alt={firstApp.name}
+                fill
+                className="applications__panel-image"
                 sizes="(max-width: 1024px) 100vw, 40vw"
               />
             ) : (
-              <div className="absolute inset-0 bg-brand-dark/20" />
+              <div className="applications__panel-fallback" />
             )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" aria-hidden="true" />
-            
-            <div className="relative z-10 p-6 lg:p-8">
-              <h3 className="text-white font-heading font-bold text-2xl sm:text-3xl tracking-widest uppercase mb-4">
+            <div className="applications__panel-gradient" aria-hidden="true" />
+
+            <div className="applications__panel-content">
+              <h3 className="applications__panel-title">
                 {firstApp.name}
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="applications__tags">
                 {["DCM", "IMM", "CNC", "AUTOMATION"].map(cat => (
-                  <span 
-                    key={cat} 
-                    className="px-3 py-1 border border-white/40 text-white text-[10px] sm:text-xs font-semibold tracking-wider rounded-sm backdrop-blur-sm bg-black/20"
-                  >
+                  <span key={cat} className="applications__tag">
                     {cat}
                   </span>
                 ))}
               </div>
+              <Link href={`/applications/${firstApp.slug}`} className="applications__panel-cta">
+                Learn More
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5"
+                        strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </Link>
             </div>
           </div>
-          
+
           {/* Remaining 5 Panels */}
           {otherApps.map(app => (
-            <div 
-              key={app.slug} 
-              className="relative flex lg:flex-[1.2] h-[120px] lg:h-full rounded-2xl overflow-hidden group"
-            >
+            <div key={app.slug} className="applications__panel applications__panel--sub">
               {app.image ? (
-                <Image 
-                  src={app.image} 
-                  alt={app.name} 
-                  fill 
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                <Image
+                  src={app.image}
+                  alt={app.name}
+                  fill
+                  className="applications__panel-image"
                   sizes="(max-width: 1024px) 100vw, 15vw"
                 />
               ) : (
-                <div className="absolute inset-0 bg-brand-dark/20" />
+                <div className="applications__panel-fallback" />
               )}
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300" aria-hidden="true" />
-              
+              <div className="applications__panel-overlay" aria-hidden="true" />
+
               {/* Vertical Text on Desktop, Horizontal on Mobile */}
-              <div className="absolute inset-0 flex items-center justify-center p-4">
-                <h3 className="text-white font-heading font-bold text-lg sm:text-xl tracking-widest uppercase lg:-rotate-90 whitespace-nowrap drop-shadow-md">
+              <div className="applications__panel-caption">
+                <h3 className="applications__panel-caption-text">
                   {app.name}
                 </h3>
               </div>
             </div>
           ))}
-          
+
         </div>
       </div>
     </section>

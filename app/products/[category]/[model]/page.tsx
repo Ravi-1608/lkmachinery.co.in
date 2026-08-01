@@ -9,6 +9,7 @@ import {
 } from "@/lib/products";
 import { getProductSchema, getBreadcrumbSchema } from "@/lib/seo";
 import EnquiryForm from "@/components/forms/EnquiryForm";
+import "./model.css";
 
 // ─── Static generation ────────────────────────────────────────────────────────
 export function generateStaticParams() {
@@ -27,14 +28,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!cat || !model) return {};
 
   const typeLabel = model.chamberType ?? model.machineType ?? model.family ?? cat.categoryLabel;
-  const title = `${model.name} — ${typeLabel} | LK Machinery`;
-  const description = model.description.slice(0, 155) + "…";
+  const title = `${model.name} — ${typeLabel}`;
+  const description =
+    model.description.length > 155
+      ? model.description.slice(0, model.description.lastIndexOf(" ", 155)) + "…"
+      : model.description;
 
   return {
     title,
     description,
     openGraph: {
-      title,
+      // root layout's title.template only applies to the plain `title` field
+      // above, not openGraph.title -- set explicitly so both match.
+      title: `${title} | LK Machinery`,
       description,
       url: `/products/${category}/${modelSlug}`,
       images: [{ url: model.image, alt: model.name }],
@@ -48,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="font-heading font-bold text-brand-dark text-2xl sm:text-3xl mb-6">{children}</h2>
+    <h2 className="model-section-heading">{children}</h2>
   );
 }
 
@@ -61,6 +67,13 @@ export default async function ProductModelPage({ params }: Props) {
 
   const typeLabel = model.chamberType ?? model.machineType ?? model.family;
   const hasHighlights = model.highlights && model.highlights.length > 0;
+
+  // Figma highlights the last word of the model name in red (e.g. "MV
+  // SERIES", "AVISS II", "POTENZA V") -- for single-word names (FORZA,
+  // ELETTRICA, LENA) there's no clear split point, so render those plain.
+  const nameParts = model.name.split(" ");
+  const nameMain = nameParts.length > 1 ? nameParts.slice(0, -1).join(" ") : model.name;
+  const nameHighlight = nameParts.length > 1 ? nameParts[nameParts.length - 1] : null;
 
   const jsonLd = [
     getProductSchema({
@@ -84,57 +97,57 @@ export default async function ProductModelPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative bg-brand-dark overflow-hidden">
+      <section className="model-hero">
         {/* Subtle background gradient accent */}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-dark via-brand-dark2 to-black"
-             aria-hidden="true" />
-        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full
-                        bg-brand-red/8 blur-3xl" aria-hidden="true" />
+        <div className="model-hero__gradient" aria-hidden="true" />
+        <div className="model-hero__glow" aria-hidden="true" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-24 lg:py-32">
+        <div className="container">
+          <div className="model-hero__grid">
 
             {/* Left: text */}
             <div>
               {/* Breadcrumb */}
-              <nav className="flex flex-wrap items-center gap-2 text-white/50 text-sm font-body mb-6"
-                   aria-label="Breadcrumb">
-                <Link href="/products" className="hover:text-white transition-colors">Products</Link>
+              <nav className="model-hero__breadcrumb" aria-label="Breadcrumb">
+                <Link href="/products">Products</Link>
                 <span>/</span>
-                <Link href={`/products/${category}`}
-                      className="hover:text-white transition-colors">
+                <Link href={`/products/${category}`}>
                   {cat.categoryLabel}
                 </Link>
                 <span>/</span>
-                <span className="text-white">{model.name}</span>
+                <span className="model-hero__breadcrumb-current">{model.name}</span>
               </nav>
 
               {/* Type badge */}
               {typeLabel && (
-                <span className="inline-block mb-4 px-3 py-1 rounded-full text-xs font-semibold
-                                 bg-brand-red text-white font-body">
+                <span className="model-hero__badge">
                   {typeLabel}
                 </span>
               )}
 
-              <h1 className="font-heading font-bold text-white text-4xl sm:text-5xl lg:text-6xl mb-4">
-                {model.name}
+              <h1 className="model-hero__title">
+                {nameMain}{nameHighlight && <> <span className="model-hero__highlight">{nameHighlight}</span></>}
               </h1>
 
               {/* Tonnage — only if present (absent for CNC & Automation) */}
               {model.tonnage && (
-                <p className="text-brand-grey text-lg font-body mb-6">
-                  Clamping Force:{" "}
-                  <span className="text-white font-semibold">{model.tonnage}T</span>
+                <p className="model-hero__tonnage">
+                  Tonnage:{" "}
+                  <span className="model-hero__tonnage-value">{model.tonnage}T</span>
                 </p>
               )}
 
+              {/* Primary CTA — Figma shows "Inquire Now" directly in the hero */}
+              <Link href="#enquiry-model-heading" className="model-hero__cta">
+                Inquire Now
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5"
+                        strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </Link>
+
               {/* Back to category */}
-              <Link
-                href={`/products/${category}`}
-                className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white
-                           transition-colors font-body"
-              >
+              <Link href={`/products/${category}`} className="model-hero__back-link">
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path d="M13 8H3M7 12l-4-4 4-4" stroke="currentColor" strokeWidth="1.5"
                         strokeLinecap="round" strokeLinejoin="round"/>
@@ -144,13 +157,13 @@ export default async function ProductModelPage({ params }: Props) {
             </div>
 
             {/* Right: product image */}
-            <div className="relative w-full aspect-square max-w-lg mx-auto lg:mx-0 lg:ml-auto">
+            <div className="model-hero__image-wrap">
               <Image
                 src={model.image}
                 alt={`${model.name} ${model.chamberType || model.machineType || model.family || ""} ${cat.categoryName}`.replace(/\s+/g, " ").trim()}
                 fill
                 priority
-                className="object-contain drop-shadow-2xl"
+                className="model-hero__image"
                 sizes="(max-width: 1024px) 80vw, 40vw"
               />
             </div>
@@ -159,10 +172,10 @@ export default async function ProductModelPage({ params }: Props) {
       </section>
 
       {/* ── Description ──────────────────────────────────────────────────── */}
-      <section className="py-16 lg:py-20 bg-brand-offwhite">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="model-description">
+        <div className="container model-description__container">
           <SectionHeading>About the {model.name}</SectionHeading>
-          <p className="text-brand-dark/70 text-lg leading-relaxed font-body">
+          <p className="model-description__text">
             {model.description}
           </p>
         </div>
@@ -170,26 +183,21 @@ export default async function ProductModelPage({ params }: Props) {
 
       {/* ── Highlights — only rendered when array is non-empty ───────────── */}
       {hasHighlights && (
-        <section className="py-16 bg-brand-dark" aria-labelledby="highlights-heading">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 id="highlights-heading"
-                className="font-heading font-bold text-white text-2xl sm:text-3xl mb-8">
-              Key Highlights
+        <section className="model-highlights" aria-labelledby="highlights-heading">
+          <div className="container model-highlights__container">
+            <h2 id="highlights-heading" className="model-highlights__heading">
+              Product <span className="model-highlights__highlight">Highlights</span>
             </h2>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <ul className="model-highlights__grid">
               {model.highlights!.map((h) => (
-                <li
-                  key={h}
-                  className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10"
-                >
-                  <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-brand-red
-                                   flex items-center justify-center" aria-hidden="true">
+                <li key={h} className="model-highlights__item">
+                  <span className="model-highlights__check" aria-hidden="true">
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                       <path d="M2 5l2 2 4-4" stroke="white" strokeWidth="1.5"
                             strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </span>
-                  <span className="text-white/80 text-sm font-body leading-relaxed">{h}</span>
+                  <span className="model-highlights__text">{h}</span>
                 </li>
               ))}
             </ul>
@@ -197,32 +205,31 @@ export default async function ProductModelPage({ params }: Props) {
         </section>
       )}
 
-      {/* ── Applicable Industries ─────────────────────────────────────────── */}
-      {model.applicableIndustries.length > 0 && (
-        <section
-          className={`py-14 ${hasHighlights ? "bg-brand-offwhite" : "bg-brand-dark"}`}
-          aria-labelledby="industries-model-heading"
-        >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2
-              id="industries-model-heading"
-              className={`font-heading font-bold text-2xl sm:text-3xl mb-6
-                ${hasHighlights ? "text-brand-dark" : "text-white"}`}
-            >
-              Applicable Industries
+      {/* ── Applicable Industries — fixed per-category tile set, matches the
+          category listing page (Figma shows the same tiles on every model
+          page in a category, not per-model industries) ─────────────────── */}
+      {cat.industryTiles && (
+        <section className="model-industries" aria-labelledby="industries-model-heading">
+          <div className="container model-industries__container">
+            <h2 id="industries-model-heading" className="model-industries__heading">
+              Applicable <span className="model-industries__highlight">Industries</span>
             </h2>
-            <div className="flex flex-wrap gap-3">
-              {model.applicableIndustries.map((ind) => (
-                <span
-                  key={ind}
-                  className={`px-4 py-2 rounded-full text-sm font-body font-medium border
-                    ${hasHighlights
-                      ? "bg-brand-dark/10 text-brand-dark border-brand-dark/15"
-                      : "bg-white/10 text-white/80 border-white/15"
-                    }`}
-                >
-                  {ind}
-                </span>
+            <div className="model-industries__grid">
+              {cat.industryTiles.map((tile, i) => (
+                <div key={i} className="model-industries__tile">
+                  <div className="model-industries__tile-image-wrap">
+                    <Image
+                      src={tile.image}
+                      alt={`${tile.industry} — ${tile.caption}`}
+                      fill
+                      className="model-industries__tile-image"
+                      sizes="(max-width: 640px) 50vw, 25vw"
+                    />
+                  </div>
+                  <p className="model-industries__tile-caption">
+                    {tile.industry}-{tile.caption}
+                  </p>
+                </div>
               ))}
             </div>
           </div>
@@ -230,21 +237,15 @@ export default async function ProductModelPage({ params }: Props) {
       )}
 
       {/* ── Explore other models in this category ─────────────────────────── */}
-      <section className="py-12 bg-brand-dark2">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row
-                        items-center justify-between gap-6">
+      <section className="model-explore">
+        <div className="container model-explore__container model-explore__inner">
           <div>
-            <p className="text-white/50 text-sm font-body mb-1">Looking for something else?</p>
-            <p className="text-white font-heading font-bold text-xl">
+            <p className="model-explore__prompt">Looking for something else?</p>
+            <p className="model-explore__category">
               Explore all {cat.categoryName} models
             </p>
           </div>
-          <Link
-            href={`/products/${category}`}
-            className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-brand-red
-                       text-white font-semibold rounded-full hover:bg-brand-redDark
-                       active:scale-95 transition-all duration-200 font-body"
-          >
+          <Link href={`/products/${category}`} className="model-explore__cta">
             View all {cat.categoryLabel} models
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5"
@@ -255,17 +256,17 @@ export default async function ProductModelPage({ params }: Props) {
       </section>
 
       {/* ── Enquiry form ─────────────────────────────────────────────────── */}
-      <section className="py-16 lg:py-20 bg-brand-offwhite" aria-labelledby="enquiry-model-heading">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-2">
+      <section className="model-enquiry" aria-labelledby="enquiry-model-heading">
+        <div className="container model-enquiry__container">
+          <div className="model-enquiry__header">
+            <p className="model-enquiry__eyebrow">
               Request a Quote
             </p>
-            <h2 id="enquiry-model-heading" className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl">
+            <h2 id="enquiry-model-heading" className="model-enquiry__heading">
               Enquire about the {model.name}
             </h2>
           </div>
-          <div className="bg-white rounded-2xl p-8 shadow-md border border-brand-dark/8">
+          <div className="model-enquiry__form-wrap">
             {/*
               productInterested uses model.name (the real display name, not slug):
               e.g. "AVISS II", "Potenza A", "LT04N"

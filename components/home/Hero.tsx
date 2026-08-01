@@ -1,49 +1,42 @@
 import Link from "next/link";
 import Image from "next/image";
+import "./Hero.css";
 
 export default function Hero() {
   return (
-    <section
-      className="relative min-h-screen flex items-center overflow-hidden bg-brand-dark"
-      aria-label="Hero"
-    >
+    <section className="hero" aria-label="Hero">
       {/* ── Background image ────────────────────────────────────────────── */}
-      <div className="absolute inset-0 z-0">
+      <div className="hero__bg">
         <Image
           src="/images/hero/hero.png"
           alt="LK Machinery Facility"
           fill
-          className="object-cover object-center opacity-75"
+          className="hero__bg-image"
           priority
           sizes="100vw"
         />
         {/* Gradient overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/70 via-brand-dark/30 to-transparent" aria-hidden="true" />
+        <div className="hero__overlay" aria-hidden="true" />
       </div>
 
       {/* ── Content ─────────────────────────────────────────────────────── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="max-w-3xl pt-24 pb-16 lg:pt-32 lg:pb-24">
+      <div className="container hero__content">
+        <div className="hero__inner">
 
           {/* Headline */}
-          <h1 className="animate-fade-up animate-fade-up-d1 font-heading font-bold tracking-[0%] text-white text-4xl sm:text-5xl lg:text-6xl leading-[1.1] mb-6">
+          <h1 className="animate-fade-up animate-fade-up-d1 hero__headline">
             LK, strives for <br />
-            <span className="text-brand-red">your success</span>
+            <span className="hero__highlight">your success</span>
           </h1>
 
           {/* Subtext */}
-          <p className="animate-fade-up animate-fade-up-d2 text-white/80 text-xl leading-relaxed max-w-xl font-body mb-10">
+          <p className="animate-fade-up animate-fade-up-d2 hero__subtext">
             Global Top One-stop Intelligent Solution Supplier for Material Forming Equipment
           </p>
 
           {/* CTAs */}
           <div className="animate-fade-up animate-fade-up-d3">
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-transparent text-white font-semibold
-                         rounded-full border-2 border-white hover:bg-white hover:text-brand-dark 
-                         active:scale-95 transition-all duration-300 font-body text-sm"
-            >
+            <Link href="/about" className="hero__cta">
               Learn More
             </Link>
           </div>

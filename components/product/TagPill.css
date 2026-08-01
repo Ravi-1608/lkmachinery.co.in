@@ -1,0 +1,32 @@
+.tag-pill {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  font-family: var(--font-body);
+  border: 1px solid transparent;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.tag-pill--dark {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.tag-pill--dark:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.tag-pill--light {
+  background-color: color-mix(in srgb, var(--color-brand-dark) 10%, transparent);
+  color: var(--color-brand-dark);
+  border-color: color-mix(in srgb, var(--color-brand-dark) 20%, transparent);
+}
+
+.tag-pill--light:hover {
+  background-color: color-mix(in srgb, var(--color-brand-dark) 20%, transparent);
+}

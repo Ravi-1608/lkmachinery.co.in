@@ -6,18 +6,24 @@ import ApplicationsStrip from "@/components/home/ApplicationsStrip";
 import QuickLinks from "@/components/home/QuickLinks";
 import CtaBand from "@/components/home/CtaBand";
 import ClientLogos from "@/components/home/ClientLogos";
+import "./page.css";
 
 import { getCategory, firstSentence } from "@/lib/products";
 
 // ─── Page-specific metadata ───────────────────────────────────────────────────
+// Descriptions here refer to "LK" / "LK Group" only for the parent's global
+// heritage (1979, patents, countries served) -- never to LK Machinery India
+// Pvt. Ltd. itself, which was incorporated in 2012 and serves India only.
+// Keeps the entity distinction CLAUDE.md requires and keeps this India-only
+// site's SEO copy from reading as a global-market page.
 export const metadata: Metadata = {
-  title: "LK Machinery — Industrial Equipment & Solutions",
+  title: "Die Casting, Injection Molding & CNC Machines Manufacturer in India",
   description:
-    "LK Machinery India Pvt. Ltd. delivers die casting, injection moulding, CNC machining, and automation solutions trusted by industry leaders across 60+ countries since 1979.",
+    "LK Machinery India Pvt. Ltd. — Pune-based manufacturer and supplier of die casting machines, injection molding machines, CNC machining centers, and industrial automation for customers across India.",
   openGraph: {
-    title: "LK Machinery — Industrial Equipment & Solutions",
+    title: "LK Machinery India — Industrial Equipment & Solutions",
     description:
-      "Precision industrial equipment — DCM, IMM, CNC, and Automation — engineered to perform.",
+      "Precision die casting, injection molding, CNC, and automation machinery — manufactured by LK and supplied across India by LK Machinery India Pvt. Ltd., Pune.",
     url: "/",
   },
   alternates: {
@@ -33,9 +39,11 @@ export default async function HomePage() {
   const cnc = getCategory("cnc")!;
   const auto = getCategory("automation")!;
 
-  const dcmSpotlight = dcm.models.find(m => m.slug === "impress-plus") || dcm.models[0];
-  const immSpotlight = imm.models.find(m => m.slug === "potenza-a") || imm.models[0];
-  const cncSpotlight = cnc.models.find(m => m.slug === "mcg5-series") || cnc.models[0];
+  // Spotlight picks match Figma's exact curation, not first-in-array — verified
+  // against Figma homepage export per-band spotlight card copy.
+  const dcmSpotlight = dcm.models.find(m => m.slug === "classic-v") || dcm.models[0];
+  const immSpotlight = imm.models.find(m => m.slug === "potenza-iii") || imm.models[0];
+  const cncSpotlight = cnc.models.find(m => m.slug === "lt-series") || cnc.models[0];
   const autoSpotlight = auto.models.find(m => m.slug === "lr-100-dp") || auto.models[0];
 
   // ── Model-name tags — explicit slug selection to match Figma curation exactly
@@ -46,8 +54,8 @@ export default async function HomePage() {
       return m ? [{ label: m.name, href: `/products/${cat}/${m.slug}` }] : [];
     });
 
-  // DCM (4): AVISS II, Classic V, D Series, IMPRESS III
-  const dcmTags = pick(dcm.models, ["aviss-ii", "classic-v", "d-series", "impress-iii"], "dcm");
+  // DCM (4): Classic V, D Series, IMPRESS III, AVISS II — Figma tag order
+  const dcmTags = pick(dcm.models, ["classic-v", "d-series", "impress-iii", "aviss-ii"], "dcm");
   // IMM (3): Potenza III, FORZA, Potenza A  (Figma — not first-3 in array)
   const immTags = pick(imm.models, ["potenza-iii", "forza", "potenza-a"], "imm");
   // CNC (4): LT Series, LTR Series, TC Series, VM Series  (Figma — not first-4 in array)
@@ -120,10 +128,10 @@ export default async function HomePage() {
       <WelcomeSection />
 
       {/* PRODUCTS header + sticky-stacked category bands */}
-      <section className="bg-brand-dark2 pt-16 pb-6" style={{ zIndex: 0, position: "relative" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading font-bold text-white text-3xl sm:text-4xl lg:text-5xl uppercase tracking-widest inline-block border-b-2 border-brand-red pb-2">
-            PROD<span className="text-brand-red">UCTS</span>
+      <section className="home-products-heading" style={{ zIndex: 0, position: "relative" }}>
+        <div className="container">
+          <h2 className="home-products-heading__title">
+            PROD<span className="home-products-heading__highlight">UCTS</span>
           </h2>
         </div>
       </section>

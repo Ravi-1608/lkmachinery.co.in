@@ -1,0 +1,221 @@
+/* ─── Sticky-stack scroll mechanism for the Products section ──────────────
+   Plain CSS by request (founder wants this section editable without
+   Tailwind knowledge).
+
+   With each band in its own sequential wrapper, band N's unpin point and
+   band N+1's viewport-entry point are ALWAYS the same scroll position --
+   that's a fixed identity of this layout (wrapper height cancels out of
+   the math), no matter how tall the wrappers are. That gives an edge-to-edge
+   handoff with zero gap, but never an overlap: band N+1 can't slide up and
+   visibly cover band N while band N is still pinned, because band N+1 only
+   enters the viewport at the exact instant band N lets go.
+
+   To get a real cover effect, band N+1's wrapper needs to start scrolling
+   BEFORE band N's wrapper would naturally end -- pulled up with a negative
+   margin. With wrapper height 200dvh (giving each band a 100dvh pin
+   duration) and a -100dvh margin on every band after the first, band N+1
+   now enters the viewport a full 100dvh (one screen height) of scroll
+   before band N unpins -- so band N+1 spends that whole scroll range
+   sliding up from off-screen to fully covering band N, which stays pinned
+   underneath it the entire time. Higher z-index (set inline per band, see
+   CategoryBand.tsx) keeps later bands painting on top during the overlap.
+   Verified live with a real scroll test (getBoundingClientRect sweep).
+   ─────────────────────────────────────────────────────────────────────── */
+
+.category-band-wrapper {
+  position: relative;
+  min-height: 200dvh;
+}
+
+.category-band-wrapper:not(:first-child) {
+  margin-top: -100dvh;
+}
+
+.category-band {
+  position: sticky;
+  top: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100dvh;
+  border-radius: 30px;
+}
+
+@media (min-width: 1024px) {
+  .category-band {
+    top: 72px;
+  }
+}
+
+.category-band--dark {
+  background-color: var(--color-brand-dark2);
+}
+
+.category-band--light {
+  background-color: var(--color-brand-grey);
+}
+
+/* ─── Content layout + variant color rules (dark/light) ────────────────── */
+
+.category-band__container {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  width: 100%;
+  padding-block: 4rem;
+}
+
+@media (min-width: 640px) {
+  .category-band__container { padding-inline: 1.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .category-band__container { padding-inline: 2rem; padding-block: 6rem; }
+}
+
+.category-band__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .category-band__grid { grid-template-columns: repeat(2, 1fr); gap: 4rem; }
+}
+
+.category-band__index {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  color: var(--color-brand-red);
+}
+
+.category-band__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+@media (min-width: 640px) { .category-band__heading { font-size: 3.75rem; } }
+@media (min-width: 1024px) { .category-band__heading { font-size: 80px; } }
+
+.category-band--dark .category-band__heading { color: white; }
+.category-band--light .category-band__heading { color: var(--color-brand-dark); }
+
+.category-band__title {
+  font-size: 0.875rem;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.category-band--dark .category-band__title { color: rgba(255, 255, 255, 0.4); }
+.category-band--light .category-band__title { color: color-mix(in srgb, var(--color-brand-dark) 60%, transparent); }
+
+.category-band__description {
+  font-size: 1rem;
+  line-height: 1.625;
+  max-width: 32rem;
+  margin-bottom: 2rem;
+  font-family: var(--font-body);
+}
+
+.category-band--dark .category-band__description { color: rgba(255, 255, 255, 0.6); }
+.category-band--light .category-band__description { color: color-mix(in srgb, var(--color-brand-dark) 80%, transparent); }
+
+.category-band__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.category-band__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  border-width: 2px;
+  border-style: solid;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.category-band__cta:active { transform: scale(0.95); }
+
+.category-band--dark .category-band__cta {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+.category-band--dark .category-band__cta:hover {
+  border-color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.category-band--light .category-band__cta {
+  border-color: color-mix(in srgb, var(--color-brand-dark) 30%, transparent);
+  color: var(--color-brand-dark);
+}
+.category-band--light .category-band__cta:hover {
+  border-color: var(--color-brand-dark);
+  background-color: color-mix(in srgb, var(--color-brand-dark) 10%, transparent);
+}
+
+.category-band__visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 380px;
+}
+
+@media (min-width: 1024px) { .category-band__visual { min-height: 500px; } }
+
+.category-band__glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  filter: blur(64px);
+  opacity: 0.3;
+  transform: scale(0.9);
+}
+
+.category-band--dark .category-band__glow { background-color: var(--color-brand-red); }
+.category-band--light .category-band__glow { background-color: var(--color-brand-dark); }
+
+.category-band__image-wrap {
+  position: relative;
+  z-index: 10;
+  width: 260px;
+  height: 260px;
+}
+
+@media (min-width: 640px) { .category-band__image-wrap { width: 320px; height: 320px; } }
+@media (min-width: 1024px) { .category-band__image-wrap { width: 380px; height: 380px; } }
+
+.category-band__image {
+  object-fit: contain;
+  filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+}
+
+.category-band__spotlight-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 20;
+  width: 220px;
+}
+
+@media (min-width: 640px) { .category-band__spotlight-wrap { width: 260px; } }

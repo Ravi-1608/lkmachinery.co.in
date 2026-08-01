@@ -1,0 +1,24 @@
+.home-products-heading {
+  background-color: var(--color-brand-dark2);
+  padding-top: 4rem;
+  padding-bottom: 1.5rem;
+}
+
+.home-products-heading__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: white;
+  font-size: 1.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: inline-block;
+  border-bottom: 2px solid var(--color-brand-red);
+  padding-bottom: 0.5rem;
+}
+
+@media (min-width: 640px) { .home-products-heading__title { font-size: 2.25rem; } }
+@media (min-width: 1024px) { .home-products-heading__title { font-size: 3rem; } }
+
+.home-products-heading__highlight {
+  color: var(--color-brand-red);
+}

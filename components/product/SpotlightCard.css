@@ -1,0 +1,104 @@
+.spotlight-card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid transparent;
+  transition: box-shadow 0.3s, background-color 0.3s;
+}
+
+.spotlight-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.spotlight-card--dark {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.spotlight-card--dark:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.spotlight-card--light {
+  background-color: white;
+  border-color: color-mix(in srgb, var(--color-brand-dark) 10%, transparent);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.spotlight-card__image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+.spotlight-card--dark .spotlight-card__image-wrap { background-color: rgba(255, 255, 255, 0.05); }
+.spotlight-card--light .spotlight-card__image-wrap { background-color: var(--color-brand-offwhite); }
+
+.spotlight-card__image {
+  object-fit: contain;
+  padding: 1rem;
+}
+
+.spotlight-card__badge-overlay {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+}
+
+.spotlight-card__badge {
+  background-color: var(--color-brand-red);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+}
+
+.spotlight-card__body {
+  padding: 1.25rem;
+}
+
+.spotlight-card__badge-standalone {
+  margin-bottom: 0.75rem;
+}
+
+.spotlight-card__title {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.5rem;
+}
+
+.spotlight-card--dark .spotlight-card__title { color: white; }
+.spotlight-card--light .spotlight-card__title { color: var(--color-brand-dark); }
+
+.spotlight-card__description {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.625;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.spotlight-card--dark .spotlight-card__description { color: rgba(255, 255, 255, 0.6); }
+.spotlight-card--light .spotlight-card__description { color: color-mix(in srgb, var(--color-brand-dark) 60%, transparent); }
+
+.spotlight-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  transition: color 0.2s;
+  color: var(--color-brand-red);
+}
+
+.spotlight-card--dark .spotlight-card__link:hover { color: white; }
+.spotlight-card--light .spotlight-card__link:hover { color: var(--color-brand-redDark); }

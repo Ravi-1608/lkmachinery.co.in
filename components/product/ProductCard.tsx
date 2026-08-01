@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ProductModel } from "@/lib/products";
 import { firstSentence } from "@/lib/products";
+import "./ProductCard.css";
 
 interface ProductCardProps {
   model: ProductModel;
@@ -17,46 +18,39 @@ export default function ProductCard({ model, categorySlug, badge }: ProductCardP
   const altText = `${model.name} ${model.chamberType || model.machineType || model.family || ""} ${categorySlug.toUpperCase()} machine`.replace(/\s+/g, " ").trim();
 
   return (
-    <Link
-      href={href}
-      className="group flex flex-col rounded-2xl overflow-hidden border border-brand-dark/10
-                 bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-    >
+    <Link href={href} className="product-card">
       {/* Image */}
-      <div className="relative w-full aspect-[4/3] bg-brand-offwhite overflow-hidden">
+      <div className="product-card__image-wrap">
         <Image
           src={model.image}
           alt={altText}
           fill
-          className="object-contain p-6 group-hover:scale-105 transition-transform duration-500"
+          className="product-card__image"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />
         {/* Type badge */}
         {typeBadge && (
-          <span className="absolute top-3 left-3 bg-brand-red text-white text-xs font-semibold
-                           px-2.5 py-1 rounded-full font-body">
+          <span className="product-card__badge-type">
             {typeBadge}
           </span>
         )}
         {/* Tonnage badge */}
         {model.tonnage && (
-          <span className="absolute bottom-3 right-3 bg-brand-dark/80 text-white text-xs
-                           font-semibold px-2.5 py-1 rounded-full font-body backdrop-blur-sm">
+          <span className="product-card__badge-tonnage">
             {model.tonnage}T
           </span>
         )}
       </div>
 
       {/* Content */}
-      <div className="flex flex-col flex-1 p-5">
-        <h3 className="font-heading font-bold text-brand-dark text-lg mb-2 group-hover:text-brand-red
-                       transition-colors duration-200">
+      <div className="product-card__body">
+        <h3 className="product-card__title">
           {model.name}
         </h3>
-        <p className="text-sm text-brand-dark/60 leading-relaxed font-body flex-1 line-clamp-3">
+        <p className="product-card__teaser">
           {teaser}
         </p>
-        <div className="mt-4 flex items-center gap-1.5 text-brand-red text-sm font-semibold font-body">
+        <div className="product-card__link">
           Learn more
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5"

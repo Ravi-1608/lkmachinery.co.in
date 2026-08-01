@@ -1,4 +1,5 @@
 import Link from "next/link";
+import "./TagPill.css";
 
 interface TagPillProps {
   label: string;
@@ -9,20 +10,15 @@ interface TagPillProps {
 }
 
 export default function TagPill({ label, href, variant = "dark" }: TagPillProps) {
-  const base = "inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-wide font-body border transition-colors duration-200";
-
-  const styles =
-    variant === "dark"
-      ? "bg-white/10 text-white/80 border-white/20 hover:bg-white/20 hover:text-white"
-      : "bg-brand-dark/10 text-brand-dark border-brand-dark/20 hover:bg-brand-dark/20";
+  const cls = `tag-pill ${variant === "dark" ? "tag-pill--dark" : "tag-pill--light"}`;
 
   if (href) {
     return (
-      <Link href={href} className={`${base} ${styles}`}>
+      <Link href={href} className={cls}>
         {label}
       </Link>
     );
   }
 
-  return <span className={`${base} ${styles}`}>{label}</span>;
+  return <span className={cls}>{label}</span>;
 }

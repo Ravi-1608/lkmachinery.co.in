@@ -1,0 +1,354 @@
+/* ─── Hero (shared .marketing-hero base — see ../marketing-hero.css) ─────── */
+
+.about-hero__title {
+  max-width: 48rem;
+}
+
+.about-hero__subtitle {
+  max-width: 42rem;
+}
+
+/* ─── Company Profile ───────────────────────────────────────────────────── */
+
+.about-profile {
+  padding-block: 4rem;
+  background-color: white;
+}
+
+@media (min-width: 1024px) { .about-profile { padding-block: 5rem; } }
+
+.about-profile__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 640px) { .about-profile__heading { font-size: 1.875rem; } }
+
+.about-profile__highlight { color: var(--color-brand-red); }
+
+.about-profile__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) { .about-profile__grid { grid-template-columns: 3fr 2fr; gap: 3rem; } }
+
+.about-profile__subheading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.about-profile__text {
+  color: color-mix(in srgb, var(--color-brand-dark) 70%, transparent);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+
+.about-profile__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) { .about-profile__cards { grid-template-columns: repeat(2, 1fr); } }
+
+.about-profile__card {
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  background-color: var(--color-brand-offwhite);
+  border: 1px solid color-mix(in srgb, var(--color-brand-dark) 8%, transparent);
+}
+
+.about-profile__card-heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-size: 0.9375rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-profile__card-text {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--color-brand-dark) 65%, transparent);
+}
+
+.about-profile__image-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.about-profile__image {
+  object-fit: cover;
+}
+
+/* ─── Stats bar ─────────────────────────────────────────────────────────── */
+
+.about-stats {
+  background-color: var(--color-brand-dark2);
+  padding-block: 2.5rem;
+}
+
+.about-stats__label {
+  color: white;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--font-heading);
+  margin-bottom: 1.5rem;
+}
+
+.about-stats__label-highlight { color: var(--color-brand-red); }
+
+.about-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+@media (min-width: 640px) { .about-stats__grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1024px) { .about-stats__grid { grid-template-columns: repeat(6, 1fr); } }
+
+.about-stats__value {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: white;
+  font-size: 1.875rem;
+}
+
+@media (min-width: 1024px) { .about-stats__value { font-size: 2.25rem; } }
+
+.about-stats__caption {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+  font-family: var(--font-body);
+  margin-top: 0.25rem;
+  line-height: 1.375;
+}
+
+/* ─── Global Journey timeline (see components/about/AboutJourney.css for the
+   interactive tab/panel styles) ─────────────────────────────────────────── */
+
+.about-timeline {
+  padding-block: 4rem;
+  background-color: var(--color-brand-dark);
+}
+
+@media (min-width: 1024px) { .about-timeline { padding-block: 6rem; } }
+
+.about-timeline__container {
+  max-width: 56rem;
+}
+
+.about-timeline__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: white;
+  font-size: 1.875rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 640px) { .about-timeline__heading { font-size: 2.25rem; } }
+
+.about-timeline__highlight { color: var(--color-brand-red); }
+
+/* ─── India Presence ────────────────────────────────────────────────────── */
+
+.about-presence {
+  padding-block: 4rem 5rem;
+  background-color: var(--color-brand-offwhite);
+}
+
+@media (min-width: 1024px) { .about-presence { padding-block: 5rem; } }
+
+.about-presence__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) { .about-presence__grid { grid-template-columns: repeat(2, 1fr); } }
+
+.about-presence__eyebrow {
+  color: var(--color-brand-red);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+  margin-bottom: 0.75rem;
+}
+
+.about-presence__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-size: 1.875rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) { .about-presence__heading { font-size: 2.25rem; } }
+
+.about-presence__text {
+  color: color-mix(in srgb, var(--color-brand-dark) 65%, transparent);
+  line-height: 1.625;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.about-presence__address {
+  font-style: normal;
+  color: color-mix(in srgb, var(--color-brand-dark) 60%, transparent);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.625;
+  margin-bottom: 1.5rem;
+}
+
+.about-presence__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-brand-red);
+  color: white;
+  font-weight: 600;
+  border-radius: 999px;
+  transition: background-color 0.2s;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+}
+
+.about-presence__cta:hover {
+  background-color: var(--color-brand-redDark);
+}
+
+.about-presence__cta:active {
+  transform: scale(0.95);
+}
+
+.about-presence__card {
+  border-radius: 1rem;
+  background-color: var(--color-brand-dark);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.about-presence__row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1.25rem;
+}
+
+.about-presence__row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.about-presence__row-label {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.75rem;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+
+.about-presence__row-value {
+  color: white;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+/* ─── Work Process ──────────────────────────────────────────────────────── */
+
+.about-process {
+  padding-block: 4rem;
+  background-color: var(--color-brand-dark2);
+}
+
+@media (min-width: 1024px) { .about-process { padding-block: 6rem; } }
+
+.about-process__header {
+  margin-bottom: 3rem;
+}
+
+.about-process__eyebrow {
+  color: var(--color-brand-red);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+  margin-bottom: 0.75rem;
+}
+
+.about-process__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: white;
+  font-size: 1.875rem;
+}
+
+@media (min-width: 640px) { .about-process__heading { font-size: 2.25rem; } }
+
+.about-process__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) { .about-process__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .about-process__grid { grid-template-columns: repeat(4, 1fr); } }
+
+.about-process__card {
+  padding: 1.75rem;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s;
+}
+
+.about-process__card:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.about-process__icon {
+  color: var(--color-brand-red);
+  margin-bottom: 1rem;
+}
+
+.about-process__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: white;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.about-process__desc {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.875rem;
+  line-height: 1.625;
+  font-family: var(--font-body);
+}

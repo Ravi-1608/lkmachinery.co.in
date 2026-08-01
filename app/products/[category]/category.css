@@ -1,0 +1,216 @@
+/* ─── Hero banner ───────────────────────────────────────────────────────── */
+
+.category-hero {
+  position: relative;
+  min-height: 50vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background-color: var(--color-brand-dark);
+}
+
+.category-hero__image {
+  object-fit: contain;
+  object-position: center;
+  opacity: 0.2;
+}
+
+.category-hero__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    var(--color-brand-dark),
+    color-mix(in srgb, var(--color-brand-dark) 70%, transparent),
+    color-mix(in srgb, var(--color-brand-dark) 20%, transparent)
+  );
+}
+
+.category-hero__inner {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding-bottom: 4rem;
+  padding-top: 8rem;
+}
+
+.category-hero__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: white;
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+.category-hero__highlight {
+  color: var(--color-brand-red);
+}
+
+@media (min-width: 640px) { .category-hero__title { font-size: 3rem; } }
+@media (min-width: 1024px) { .category-hero__title { font-size: 3.75rem; } }
+
+.category-hero__subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.125rem;
+  line-height: 1.625;
+  max-width: 42rem;
+  font-family: var(--font-body);
+}
+
+/* ─── Products grid ─────────────────────────────────────────────────────── */
+
+.category-products {
+  padding-block: 4rem;
+  background-color: var(--color-brand-offwhite);
+}
+
+@media (min-width: 1024px) { .category-products { padding-block: 6rem; } }
+
+.category-products__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-size: 1.875rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) { .category-products__heading { font-size: 2.25rem; } }
+
+.category-products__highlight {
+  color: var(--color-brand-red);
+}
+
+.category-products__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) { .category-products__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .category-products__grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1280px) { .category-products__grid { grid-template-columns: repeat(4, 1fr); } }
+
+/* ─── Industries strip ──────────────────────────────────────────────────── */
+
+.category-industries {
+  padding-block: 3.5rem;
+  background-color: color-mix(in srgb, var(--color-brand-grey) 12%, var(--color-brand-offwhite));
+  text-align: center;
+}
+
+.category-industries__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.category-industries__highlight {
+  color: var(--color-brand-red);
+}
+
+.category-industries__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+@media (min-width: 1024px) {
+  .category-industries__grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+}
+
+.category-industries__tile {
+  background-color: white;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.category-industries__tile-image-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background-color: color-mix(in srgb, var(--color-brand-grey) 15%, white);
+}
+
+.category-industries__tile-image {
+  object-fit: cover;
+}
+
+.category-industries__tile-caption {
+  padding: 0.75rem 1rem;
+  font-size: 0.8125rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-brand-dark);
+}
+
+.category-industries__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  border-radius: 999px;
+  border: 2px solid color-mix(in srgb, var(--color-brand-dark) 30%, transparent);
+  color: var(--color-brand-dark);
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.category-industries__cta:hover {
+  border-color: var(--color-brand-dark);
+  background-color: color-mix(in srgb, var(--color-brand-dark) 10%, transparent);
+}
+
+/* ─── Enquiry form ──────────────────────────────────────────────────────── */
+
+.category-enquiry {
+  padding-block: 4rem 5rem;
+  background-color: var(--color-brand-offwhite);
+}
+
+@media (min-width: 1024px) { .category-enquiry { padding-block: 5rem; } }
+
+.category-enquiry__container {
+  max-width: 48rem;
+}
+
+.category-enquiry__header {
+  margin-bottom: 2.5rem;
+}
+
+.category-enquiry__eyebrow {
+  color: var(--color-brand-red);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+  margin-bottom: 0.5rem;
+}
+
+.category-enquiry__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-size: 1.875rem;
+}
+
+@media (min-width: 640px) { .category-enquiry__heading { font-size: 2.25rem; } }
+
+.category-enquiry__highlight {
+  color: var(--color-brand-red);
+}
+
+.category-enquiry__form-wrap {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid color-mix(in srgb, var(--color-brand-dark) 8%, transparent);
+}

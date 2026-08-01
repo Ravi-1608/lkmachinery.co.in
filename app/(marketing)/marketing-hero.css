@@ -1,0 +1,81 @@
+/* ─── Shared hero pattern used by about/careers/investor-relations/contact ── */
+
+.marketing-hero {
+  position: relative;
+  background-color: var(--color-brand-dark);
+  overflow: hidden;
+}
+
+/* Figma's hero on these pages uses real photography behind the gradient.
+   We only have one real photo asset (public/images/hero/hero.png, the
+   homepage hero) -- not a distinct shot per page like Figma shows -- so this
+   reuses that one real image everywhere rather than inventing per-page stock
+   photography. JUDGMENT CALL: a real, consistent photo beats no photo at all,
+   but isn't full Figma fidelity; revisit if the founder supplies real
+   per-page photography. */
+.marketing-hero__bg-image {
+  object-fit: cover;
+  opacity: 0.5;
+}
+
+.marketing-hero__bg-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, var(--color-brand-dark), var(--color-brand-dark2), black);
+  opacity: 0.85;
+}
+
+.marketing-hero__glow {
+  position: absolute;
+  top: -160px;
+  right: -160px;
+  width: 600px;
+  height: 600px;
+  border-radius: 999px;
+  background-color: color-mix(in srgb, var(--color-brand-red) 10%, transparent);
+  filter: blur(64px);
+}
+
+.marketing-hero__glow--sm {
+  width: 500px;
+  height: 500px;
+  background-color: color-mix(in srgb, var(--color-brand-red) 8%, transparent);
+}
+
+.marketing-hero__inner {
+  position: relative;
+  z-index: 10;
+  padding-block: 8rem 5rem;
+}
+
+.marketing-hero__eyebrow {
+  color: var(--color-brand-red);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+  margin-bottom: 0.75rem;
+}
+
+.marketing-hero__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: white;
+  font-size: 2.25rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 640px) { .marketing-hero__title { font-size: 3rem; } }
+@media (min-width: 1024px) { .marketing-hero__title { font-size: 3.75rem; } }
+
+.marketing-hero__subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.125rem;
+  line-height: 1.625;
+  font-family: var(--font-body);
+}
+
+.marketing-hero__subtitle strong {
+  color: white;
+}

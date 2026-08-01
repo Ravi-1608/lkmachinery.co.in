@@ -1,0 +1,168 @@
+/* ─── Hero ──────────────────────────────────────────────────────────────── */
+
+.app-hero {
+  position: relative;
+  height: 60vh;
+  min-height: 420px;
+  overflow: hidden;
+  background-color: var(--color-brand-dark);
+}
+
+.app-hero__image {
+  object-fit: cover;
+}
+
+.app-hero__arrow {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 10;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: var(--color-brand-dark);
+}
+
+.app-hero__arrow:disabled {
+  cursor: default;
+  opacity: 0.85;
+}
+
+@media (min-width: 1024px) {
+  .app-hero__arrow { top: 2rem; left: 2rem; }
+}
+
+/* Torn-corner ribbon: white flag shape tapering to a point on the right,
+   per Figma. clip-path approximates the ribbon since no image asset exists. */
+.app-hero__ribbon {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: white;
+  padding: 1.25rem 3.5rem 1.25rem 2rem;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 32px) 100%, 0 100%);
+}
+
+@media (min-width: 640px) {
+  .app-hero__ribbon { padding: 1.5rem 5rem 1.5rem 3rem; }
+}
+
+.app-hero__ribbon-text {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) { .app-hero__ribbon-text { font-size: 2rem; } }
+
+/* ─── Filter bar + sidebar + parts grid ─────────────────────────────────── */
+
+.app-explorer {
+  position: relative;
+  padding-block: 3rem;
+  overflow: hidden;
+  /* Diagonal two-tone split per Figma — darker charcoal wedge upper-left,
+     lighter grey wedge lower-right. */
+  background:
+    linear-gradient(to bottom right, var(--color-brand-dark2) 0 46%, var(--color-brand-grey) 46% 100%);
+}
+
+@media (min-width: 1024px) { .app-explorer { padding-block: 4rem; } }
+
+.app-explorer__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .app-explorer__layout { grid-template-columns: 260px 1fr; gap: 2.5rem; align-items: start; }
+}
+
+/* ─── Sidebar ────────────────────────────────────────────────────────────── */
+
+.app-explorer__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.app-explorer__sidebar-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.875rem 1.25rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  color: var(--color-brand-dark);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.app-explorer__sidebar-link svg {
+  flex-shrink: 0;
+  color: color-mix(in srgb, var(--color-brand-dark) 45%, transparent);
+  transition: color 0.2s;
+}
+
+.app-explorer__sidebar-link:hover {
+  background-color: color-mix(in srgb, white 88%, var(--color-brand-red));
+}
+
+.app-explorer__sidebar-link--active {
+  background-color: var(--color-brand-red);
+  color: white;
+  font-weight: 700;
+}
+
+.app-explorer__sidebar-link--active svg {
+  color: white;
+}
+
+/* ─── Main column (PartsExplorer renders its own toolbar/grid/pagination) ── */
+
+.app-explorer__main {
+  min-width: 0;
+}
+
+/* ─── Contact / Enquiry ──────────────────────────────────────────────────── */
+
+.app-contact {
+  padding-block: 4rem 5rem;
+  background-color: var(--color-brand-offwhite);
+}
+
+@media (min-width: 1024px) { .app-contact { padding-block: 5rem; } }
+
+.app-contact__inner {
+  max-width: 40rem;
+}
+
+.app-contact__card {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid color-mix(in srgb, var(--color-brand-dark) 8%, transparent);
+}
+
+.app-contact__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}

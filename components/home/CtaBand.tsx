@@ -1,40 +1,34 @@
 import Link from "next/link";
+import "./CtaBand.css";
 
 export default function CtaBand() {
   return (
-    <section
-      className="relative py-20 lg:py-28 bg-brand-offwhite overflow-hidden"
-      aria-labelledby="cta-heading"
-    >
+    <section className="cta-band" aria-labelledby="cta-heading">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-2xl mx-auto">
+      <div className="container cta-band__inner">
+        <div className="cta-band__content">
           {/* Eyebrow */}
-          <p className="text-brand-dark/50 font-semibold text-sm tracking-[0.2em] uppercase font-body mb-4 hidden">
+          <p className="cta-band__eyebrow">
             Let&apos;s Work Together
           </p>
 
           {/* Headline */}
-          <h2
-            id="cta-heading"
-            className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl lg:text-5xl leading-tight mb-5"
-          >
+          <h2 id="cta-heading" className="cta-band__heading">
             Incredible stock. Flexible pricing
           </h2>
 
-          {/* Supporting copy */}
-          <p className="text-brand-dark/75 text-lg leading-relaxed font-body mb-10">
+          {/* Supporting copy — JUDGMENT CALL: kept over Figma's literal line
+              ("Buy credits or subscribe today.") because that text is
+              unedited SaaS-template boilerplate with no meaning for an
+              industrial machinery manufacturer (no credits/subscription
+              product exists) -- founder should confirm/revise. */}
+          <p className="cta-band__supporting">
             Reliable machines, transparent pricing, and a team that's with you from enquiry to installation.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-brand-dark
-                         font-semibold rounded-full border border-brand-dark/10 shadow-sm hover:shadow-md
-                         active:scale-95 transition-all duration-200 font-body"
-            >
+          <div className="cta-band__actions">
+            <Link href="/contact" className="cta-band__cta">
               Make Appointment
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5"

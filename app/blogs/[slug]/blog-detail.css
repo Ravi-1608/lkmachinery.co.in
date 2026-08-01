@@ -1,0 +1,592 @@
+/* ─── Banner header (shared across launch/news/article) ────────────────────
+   Figma shows a flat light blue-grey banner with dark text on all 3 detail
+   templates (not the full-bleed dark photo hero the old generic template
+   used). There's no separate "banner" token in CLAUDE.md's verified brand
+   tokens, so this is built from the existing --color-brand-grey token mixed
+   toward white -- a flat tint rather than model-hero's diagonal gradient,
+   matching the flatter look in the references. ─────────────────────────── */
+
+.blog-banner {
+  background-color: color-mix(in srgb, var(--color-brand-grey) 22%, white);
+  padding-top: 8rem;
+  padding-bottom: 3rem;
+}
+
+.blog-banner__inner {
+  max-width: 56rem;
+}
+
+.blog-banner__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-size: 2rem;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) { .blog-banner__title { font-size: 2.5rem; } }
+@media (min-width: 1024px) { .blog-banner__title { font-size: 3rem; } }
+
+.blog-banner__highlight {
+  color: var(--color-brand-red);
+}
+
+.blog-banner__subtitle {
+  color: color-mix(in srgb, var(--color-brand-dark) 70%, transparent);
+  font-size: 1.0625rem;
+  line-height: 1.625;
+  font-family: var(--font-body);
+  max-width: 48rem;
+  margin-bottom: 1rem;
+}
+
+.blog-banner__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  color: color-mix(in srgb, var(--color-brand-dark) 60%, transparent);
+  font-size: 0.875rem;
+  font-family: var(--font-body);
+}
+
+.blog-banner__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.blog-banner__dot {
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 999px;
+  background-color: color-mix(in srgb, var(--color-brand-dark) 30%, transparent);
+}
+
+/* Launch meta: plain "date | location" text, no icons -- verified against
+   the launch reference, distinct from news/article's icon rows. */
+.blog-banner__meta--plain {
+  gap: 0.625rem;
+}
+
+.blog-banner__meta-date {
+  color: var(--color-brand-red);
+  font-weight: 600;
+}
+
+.blog-banner__meta-sep {
+  color: color-mix(in srgb, var(--color-brand-dark) 30%, transparent);
+}
+
+/* ─── Shared "ALL CAPS" section heading with a red accent word ─────────────
+   Used by the launch template's OVERVIEW / PRODUCT HIGHLIGHTS / APPLICABLE
+   INDUSTRIES headings. */
+.launch-section-heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 640px) { .launch-section-heading { font-size: 1.875rem; } }
+
+.launch-section-heading__accent {
+  color: var(--color-brand-red);
+}
+
+/* ─── Launch: Overview ──────────────────────────────────────────────────── */
+
+.launch-overview {
+  padding-block: 4rem;
+  background-color: white;
+}
+
+.launch-overview__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 1024px) { .launch-overview__grid { grid-template-columns: 5fr 7fr; gap: 3rem; } }
+
+.launch-overview__image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background-color: color-mix(in srgb, var(--color-brand-grey) 15%, white);
+}
+
+.launch-overview__image {
+  object-fit: contain;
+  padding: 1rem;
+}
+
+.launch-overview__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.launch-overview__subheading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+}
+
+.launch-overview__paragraph {
+  color: color-mix(in srgb, var(--color-brand-dark) 75%, transparent);
+  font-size: 1rem;
+  line-height: 1.625;
+  font-family: var(--font-body);
+  margin-bottom: 1rem;
+}
+
+.launch-overview__checklist {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 640px) { .launch-overview__checklist { grid-template-columns: repeat(2, 1fr); } }
+
+.launch-overview__checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background-color: color-mix(in srgb, var(--color-brand-grey) 10%, white);
+  border: 1px solid color-mix(in srgb, var(--color-brand-dark) 8%, transparent);
+  color: color-mix(in srgb, var(--color-brand-dark) 80%, transparent);
+  font-size: 0.875rem;
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+.launch-overview__check {
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  background-color: var(--color-brand-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.launch-overview__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background-color: var(--color-brand-red);
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 999px;
+  transition: background-color 0.2s;
+  font-family: var(--font-body);
+}
+
+.launch-overview__cta:hover { background-color: var(--color-brand-redDark); }
+.launch-overview__cta:active { transform: scale(0.95); }
+
+/* ─── Launch: Product Highlights ────────────────────────────────────────── */
+
+.launch-highlights {
+  padding-block: 4rem;
+  background-color: var(--color-brand-offwhite);
+}
+
+.launch-highlights__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) { .launch-highlights__grid { grid-template-columns: repeat(3, 1fr); } }
+
+.launch-highlights__tile {
+  background-color: white;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.launch-highlights__image-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background-color: color-mix(in srgb, var(--color-brand-grey) 15%, white);
+}
+
+.launch-highlights__image {
+  object-fit: cover;
+}
+
+.launch-highlights__caption {
+  padding: 0.75rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  color: var(--color-brand-dark);
+  line-height: 1.4;
+}
+
+/* ─── Launch: Applicable Industries ─────────────────────────────────────── */
+
+.launch-industries {
+  padding-block: 3.5rem;
+  background-color: color-mix(in srgb, var(--color-brand-grey) 12%, var(--color-brand-offwhite));
+}
+
+.launch-industries__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) { .launch-industries__grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; } }
+
+.launch-industries__tile {
+  background-color: white;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.launch-industries__image-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background-color: color-mix(in srgb, var(--color-brand-grey) 15%, white);
+}
+
+.launch-industries__image {
+  object-fit: cover;
+}
+
+.launch-industries__caption {
+  padding: 0.75rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  color: var(--color-brand-dark);
+}
+
+/* ─── Launch: Explore other launches ────────────────────────────────────── */
+
+.launch-explore {
+  padding-block: 3.5rem;
+  background-color: white;
+  border-top: 1px solid color-mix(in srgb, var(--color-brand-dark) 8%, transparent);
+}
+
+.launch-explore__inner {
+  display: flex;
+  justify-content: center;
+}
+
+.launch-explore__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 1rem 2rem;
+  border: 1.5px solid color-mix(in srgb, var(--color-brand-dark) 25%, transparent);
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-brand-dark);
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.launch-explore__cta:hover {
+  border-color: var(--color-brand-red);
+  background-color: color-mix(in srgb, var(--color-brand-red) 6%, transparent);
+  color: var(--color-brand-red);
+}
+
+/* ─── News: hero photo ───────────────────────────────────────────────────── */
+
+.news-hero {
+  padding-block: 3rem;
+  background-color: white;
+}
+
+.news-hero__image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.news-hero__image {
+  object-fit: cover;
+}
+
+.news-hero__intro {
+  max-width: 48rem;
+  color: color-mix(in srgb, var(--color-brand-dark) 75%, transparent);
+  font-size: 1.0625rem;
+  line-height: 1.625;
+  font-family: var(--font-body);
+}
+
+/* ─── News: boxed callout sections ──────────────────────────────────────── */
+
+.news-callouts {
+  padding-block: 1rem 4rem;
+  background-color: white;
+}
+
+.news-callouts__container {
+  max-width: 48rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.news-callout {
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: color-mix(in srgb, var(--color-brand-grey) 12%, var(--color-brand-offwhite));
+}
+
+.news-callout__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.news-callout__accent {
+  color: var(--color-brand-red);
+}
+
+.news-callout__paragraph {
+  color: color-mix(in srgb, var(--color-brand-dark) 70%, transparent);
+  font-size: 1rem;
+  line-height: 1.625;
+  font-family: var(--font-body);
+  margin-bottom: 1rem;
+}
+
+.news-callout__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: color-mix(in srgb, var(--color-brand-dark) 75%, transparent);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: var(--font-body);
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+/* ─── Article: long-form body ───────────────────────────────────────────── */
+
+.article-body {
+  padding-block: 3rem 4rem;
+  background-color: white;
+}
+
+.article-body__container {
+  max-width: 48rem;
+}
+
+.article-body__intro {
+  font-size: 1.1875rem;
+  color: color-mix(in srgb, var(--color-brand-dark) 80%, transparent);
+  font-family: var(--font-body);
+  line-height: 1.625;
+  margin-bottom: 2.5rem;
+  font-style: italic;
+  border-left: 4px solid var(--color-brand-red);
+  padding: 0.5rem 0 0.5rem 1.5rem;
+}
+
+.article-section {
+  margin-bottom: 2.5rem;
+}
+
+.article-section__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-dark);
+  font-size: 1.375rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) { .article-section__heading { font-size: 1.625rem; } }
+
+.article-section__accent {
+  color: var(--color-brand-red);
+}
+
+.article-section__paragraph {
+  color: color-mix(in srgb, var(--color-brand-dark) 75%, transparent);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  font-family: var(--font-body);
+  margin-bottom: 1.25rem;
+}
+
+.article-section__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  color: color-mix(in srgb, var(--color-brand-dark) 78%, transparent);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  font-family: var(--font-body);
+  padding-left: 1.25rem;
+  list-style: disc;
+  margin-bottom: 1.25rem;
+}
+
+.article-section__image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  margin-top: 1.5rem;
+}
+
+.article-section__image {
+  object-fit: cover;
+}
+
+/* Conclusion is only visually distinguished when the real data actually
+   names a section that -- see ArticleTemplate's isConclusion check. */
+.article-section--conclusion {
+  padding: 1.75rem;
+  border-radius: 1rem;
+  background-color: color-mix(in srgb, var(--color-brand-grey) 10%, var(--color-brand-offwhite));
+}
+
+/* ─── Related content (news + article) ──────────────────────────────────── */
+
+.blog-related {
+  padding-block: 4rem;
+  background-color: var(--color-brand-dark);
+}
+
+.blog-related__heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: white;
+  font-size: 1.875rem;
+  margin-bottom: 2.5rem;
+}
+
+.blog-related__highlight {
+  color: var(--color-brand-red);
+}
+
+.blog-related__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) { .blog-related__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .blog-related__grid { grid-template-columns: repeat(3, 1fr); } }
+
+.blog-related__card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s;
+}
+
+.blog-related__card:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.blog-related__image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.blog-related__image {
+  object-fit: cover;
+  opacity: 0.8;
+  transition: transform 0.5s, opacity 0.3s;
+}
+
+.blog-related__card:hover .blog-related__image {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.blog-related__body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.blog-related__meta {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.75rem;
+  font-family: var(--font-body);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.blog-related__dot {
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.blog-related__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: white;
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+  transition: color 0.2s;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog-related__card:hover .blog-related__title {
+  color: var(--color-brand-red);
+}
+
+.blog-related__link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--color-brand-red);
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+}

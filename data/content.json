@@ -25,7 +25,7 @@
         ]
       }
     ],
-    "isExample": true
+    "isExample": false
   },
   {
     "slug": "mcg5-series-launch",
@@ -45,7 +45,7 @@
         ]
       }
     ],
-    "isExample": true
+    "isExample": false
   },
   {
     "slug": "sample-facility-announcement",
@@ -123,7 +123,7 @@
         ]
       }
     ],
-    "isExample": true
+    "isExample": false
   },
   {
     "slug": "optimizing-injection-molding-cycle-times",
@@ -154,6 +154,6 @@
         ]
       }
     ],
-    "isExample": true
+    "isExample": false
   }
 ]

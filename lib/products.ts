@@ -26,12 +26,22 @@ export interface ProductModel {
   note?: string;
 }
 
+export interface IndustryTile {
+  industry: string;
+  caption: string;
+  image: string;
+}
+
 export interface ProductCategory {
   categoryLabel: string;
   categoryName: string;
   categoryDescription: string;
   /** Internal only — never render */
   note?: string;
+  /** Fixed per-category "Applicable Industries" tiles, shown identically on the
+   *  category listing page and every model detail page in this category —
+   *  per Figma, this section is category-wide, not derived per-model. */
+  industryTiles?: IndustryTile[];
   models: ProductModel[];
 }
 

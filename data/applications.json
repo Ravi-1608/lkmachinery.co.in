@@ -3,42 +3,145 @@
     "slug": "transportation",
     "name": "Transportation",
     "description": "From structural body-in-white components and powertrain housings to EV battery trays and motor casings, LK machines deliver the precision and throughput that automotive and commercial vehicle manufacturers depend on. High-pressure die casting and five-axis machining are the backbone of modern vehicle lightweighting.",
-    "relevantCategories": ["dcm", "cnc", "automation"],
-    "image": "/images/applications/transportation.png"
+    "relevantCategories": ["dcm", "imm", "cnc", "automation"],
+    "filterTabs": ["All", "IMM", "CNC", "DCM", "AUTOMATION"],
+    "image": "/images/applications/transportation.png",
+    "parts": [
+      "Integrated Aluminium Rear Body",
+      "Rear Under Body",
+      "Motor Housing",
+      "Motor Housing",
+      "Motor End Cap",
+      "Motor Housing",
+      "Gullwing Door Frames",
+      "Shock Absorber Tower",
+      "Rear Side Member",
+      "Battery Tray",
+      "Battery Compartment End Plate",
+      "Heavy Duty Truck Transmission Housing"
+    ]
   },
   {
     "slug": "smart-3c",
     "name": "Smart 3C & 5G",
     "description": "Ultra-thin aluminium and magnesium alloy housings for smartphones, tablets, laptops, and 5G base-station components demand micron-level dimensional accuracy and Class A surface finish. LK hot-chamber die casting and high-speed machining centres are certified for Apple-supply-chain quality standards.",
-    "relevantCategories": ["dcm", "cnc"],
-    "image": "/images/applications/smart-3c.png"
+    "relevantCategories": ["dcm", "imm", "cnc", "automation"],
+    "filterTabs": ["All", "IMM", "CNC", "DCM"],
+    "image": "/images/applications/smart-3c.png",
+    "note": "Figma's own filter bar for this page omits an AUTOMATION tab even though products.json's automation models literally list 'Smart 3C' in applicableIndustries -- filterTabs below matches Figma exactly (design is authoritative per project ground rules), while relevantCategories above stays fully data-accurate against products.json. Flag for founder if this should be reconciled either direction.",
+    "parts": [
+      "Communication Box",
+      "Heat Dissipation Shell",
+      "Filter Chamber",
+      "Drone Bracket",
+      "Speaker Accessory",
+      "Mobile Phone Mid-plate",
+      "Computer Keyboard",
+      "Electronic Components",
+      "Earphone Accessories",
+      "Bluetooth Earphone",
+      "Electronic Precision Components",
+      "LED Display Screen Components",
+      "Watch Case",
+      "Monitor Case",
+      "Battery Status Indicator"
+    ]
   },
   {
     "slug": "daily-necessities",
     "name": "Daily Necessities",
-    "description": "High-volume, low-unit-cost production of consumer goods — from furniture hardware and lifestyle accessories to food-safe packaging components — requires machines that run three shifts without compromising dimensional consistency. LK injection moulding and automation lines deliver exactly that.",
-    "relevantCategories": ["imm", "automation"],
-    "image": "/images/applications/daily-necessities.png"
+    "description": "High-volume, low-unit-cost production of consumer goods — from furniture hardware and lifestyle accessories to food-safe packaging components — requires machines that run three shifts without compromising dimensional consistency. LK die casting and injection moulding lines deliver exactly that.",
+    "relevantCategories": ["dcm", "imm"],
+    "filterTabs": ["All", "IMM", "CNC", "DCM"],
+    "image": "/images/applications/daily-necessities.png",
+    "note": "Figma's filter bar shows a CNC tab here, but no CNC model in products.json lists Daily Necessities among its applicableIndustries -- filterTabs kept matching Figma exactly (design authoritative), relevantCategories kept data-accurate (dcm + imm only). Flag for founder.",
+    "parts": [
+      "Air Connector",
+      "Table Lamp",
+      "Street Light",
+      "Bathroom Accessories",
+      "Faucet",
+      "Shower",
+      "Soup Pot",
+      "Jewelry",
+      "Badge",
+      "Hatpin, Badge, Belt Buckle, Metal Accessory",
+      "Belt Buckle",
+      "Front Cover"
+    ]
   },
   {
     "slug": "industrial-supplies",
     "name": "Industrial Supplies",
-    "description": "Heavy-duty components for energy infrastructure, material handling, rail transit, and general engineering require machines built to the same exacting standards as the parts they produce. LK gantry machining centres and large-tonnage die casting machines handle ferrous and non-ferrous workpieces at scale.",
-    "relevantCategories": ["dcm", "cnc"],
-    "image": "/images/applications/industrial-supplies.png"
+    "description": "Heavy-duty components for energy infrastructure, material handling, rail transit, and general engineering require machines built to the same exacting standards as the parts they produce. LK injection moulding machines and gantry machining centres handle these workpieces at scale.",
+    "relevantCategories": ["imm", "cnc"],
+    "filterTabs": ["All", "IMM", "CNC", "DCM"],
+    "image": "/images/applications/industrial-supplies.png",
+    "note": "Figma's filter bar shows a DCM tab here, but no DCM model in products.json lists Industrial Supplies -- filterTabs kept matching Figma exactly, relevantCategories kept data-accurate (imm + cnc only, per Lena/IMM and GM-series/CNC). Flag for founder.",
+    "parts": [
+      "Air Connector",
+      "Bathroom Products",
+      "Photovoltaic Inverter Case",
+      "Pneumatic Tool Part",
+      "High-pressure Washer Pump Part",
+      "Electric Tool Part",
+      "Hollow Plastic Construction Template Frame",
+      "Hollow Plastic Construction Template Panel",
+      "Garbage Bin",
+      "Circulating Box",
+      "Tray",
+      "Large Base Plate for Automation Equipment",
+      "Door Handle",
+      "Desktop Electric Tool",
+      "Desktop Electric Tool"
+    ]
   },
   {
     "slug": "household-appliance",
     "name": "Household Appliance",
     "description": "Compressor shells, motor housings, decorative trim, and structural enclosures for white goods and kitchen appliances require consistent wall thickness, excellent surface quality, and repeatable production cycle times. LK die casting and injection moulding machines serve every major appliance OEM in Asia.",
-    "relevantCategories": ["dcm", "imm"],
-    "image": "/images/applications/household.png"
+    "relevantCategories": ["dcm", "imm", "cnc", "automation"],
+    "filterTabs": ["All", "IMM", "CNC", "DCM"],
+    "image": "/images/applications/household.png",
+    "note": "Figma's filter bar omits an AUTOMATION tab even though products.json's automation models list Household Appliance -- filterTabs matches Figma exactly, relevantCategories kept data-accurate. Flag for founder.",
+    "parts": [
+      "Humidifier",
+      "Furniture Accessories",
+      "Furniture Accessories",
+      "High-Pressure Aluminium Radiator",
+      "Kettle",
+      "Juicer",
+      "Electric Cooker",
+      "Air Purifier",
+      "Electric Steamer",
+      "Washing Machine Display",
+      "Washing Machine Impeller",
+      "Air Conditioner Shell",
+      "Rice Cooker",
+      "Refrigerator Box",
+      "Washing Machine Bearing Housing"
+    ]
   },
   {
     "slug": "healthcare",
     "name": "Healthcare",
-    "description": "Medical devices, diagnostic equipment housings, and single-use consumable components require cleanroom-compatible production, validated process control, and full material traceability. LK electric injection moulding machines (Elettrica series) and precision CNC centres are designed to meet these exacting standards.",
-    "relevantCategories": ["imm", "cnc"],
-    "image": "/images/applications/healthcare.png"
+    "description": "Medical devices, diagnostic equipment housings, and single-use consumable components require cleanroom-compatible production, validated process control, and full material traceability. LK electric injection moulding machines (Elettrica series) are designed to meet these exacting standards.",
+    "relevantCategories": ["imm"],
+    "filterTabs": ["All", "IMM"],
+    "image": "/images/applications/healthcare.png",
+    "parts": [
+      "Laboratory Test Tubes",
+      "Face Shield",
+      "Goggles",
+      "Oxygen Mask",
+      "Heart Rate Monitor",
+      "Syringe",
+      "Medical Syringe",
+      "Medical Bottle Stopper",
+      "Plastic Test Tube",
+      "Petri Dish",
+      "Medical Instrument",
+      "Stethoscope"
+    ]
   }
 ]

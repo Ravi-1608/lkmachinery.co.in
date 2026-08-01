@@ -1,0 +1,134 @@
+.job-openings__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .job-openings__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.job-openings__card {
+  background-color: white;
+  border-radius: 1.25rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.job-openings__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-brand-red);
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.job-openings__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.job-openings__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: color-mix(in srgb, var(--color-brand-dark) 60%, transparent);
+  font-size: 0.875rem;
+  font-family: var(--font-body);
+}
+
+.job-openings__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background-color: var(--color-brand-dark);
+  flex-shrink: 0;
+}
+
+.job-openings__desc {
+  color: color-mix(in srgb, var(--color-brand-dark) 75%, transparent);
+  font-size: 0.9375rem;
+  line-height: 1.625;
+  font-family: var(--font-body);
+  margin-bottom: 1.75rem;
+}
+
+.job-openings__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: white;
+  color: var(--color-brand-dark);
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-brand-dark);
+  transition: background-color 0.2s, color 0.2s;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+}
+
+.job-openings__cta:hover {
+  background-color: var(--color-brand-dark);
+  color: white;
+}
+
+.job-openings__cta:active {
+  transform: scale(0.96);
+}
+
+/* ─── Expanded state ────────────────────────────────────────────────────── */
+
+.job-openings__back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brand-dark);
+  margin-bottom: 1.25rem;
+}
+
+.job-openings__section-label {
+  color: var(--color-brand-red);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  margin-bottom: 0.875rem;
+}
+
+.job-openings__section-label:not(:first-of-type) {
+  margin-top: 1.75rem;
+}
+
+.job-openings__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.job-openings__list li {
+  position: relative;
+  padding-left: 1rem;
+  color: color-mix(in srgb, var(--color-brand-dark) 85%, transparent);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  font-family: var(--font-body);
+}
+
+.job-openings__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background-color: var(--color-brand-dark);
+}
+
+.job-openings__card--expanded .job-openings__cta {
+  margin-top: 1.75rem;
+}

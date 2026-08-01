@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import "./Footer.css";
 
 // ─── Social icon SVGs (inline, no external dependency) ───────────────────────
 function LinkedInIcon() {
@@ -49,7 +50,7 @@ const APPLICATION_LINKS = [
   { label: "Smart 3C",              href: "/applications/smart-3c" },
   { label: "Daily Necessities",     href: "/applications/daily-necessities" },
   { label: "Industrial Supplies",   href: "/applications/industrial-supplies" },
-  { label: "Household Appliances",  href: "/applications/household-appliances" },
+  { label: "Household Appliances",  href: "/applications/household-appliance" },
   { label: "Healthcare",            href: "/applications/healthcare" },
 ];
 
@@ -85,11 +86,7 @@ const SOCIAL_LINKS = [
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 function FooterHeading({ children }: { children: React.ReactNode }) {
-  return (
-    <h3 className="font-heading font-bold text-[15px] leading-[24px] tracking-[0%] text-brand-dark uppercase mb-5">
-      {children}
-    </h3>
-  );
+  return <h3 className="footer__heading">{children}</h3>;
 }
 
 function FooterLink({
@@ -101,8 +98,7 @@ function FooterLink({
   children: React.ReactNode;
   external?: boolean;
 }) {
-  const cls =
-    "block text-sm text-brand-dark/70 hover:text-brand-red transition-colors duration-200 mb-2.5 font-body";
+  const cls = "footer__link";
 
   if (external || href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("https://")) {
     return (
@@ -123,25 +119,25 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-white border-t border-brand-dark/10" aria-label="Site footer">
+    <footer className="footer" aria-label="Site footer">
 
       {/* Main grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-8">
+      <div className="container footer__main">
+        <div className="footer__grid">
 
           {/* Col 1 — Brand blurb */}
-          <div className="lg:col-span-1">
+          <div className="footer__col--brand">
             {/* Logo mark */}
-            <div className="flex items-center gap-2.5 mb-5">
-              <Image 
-                src="/images/logo.png" 
-                alt="LK Machinery India Private Limited" 
-                width={100} 
-                height={100} 
-                className="object-contain w-14 sm:w-16 md:w-20 lg:w-[100px] h-auto" 
+            <div className="footer__logo-row">
+              <Image
+                src="/images/logo.png"
+                alt="LK Machinery India Private Limited"
+                width={100}
+                height={100}
+                className="footer__logo-image"
               />
             </div>
-            <p className="font-body font-bold text-[15px] leading-[24px] tracking-[-1.5%] text-brand-dark">
+            <p className="footer__brand-name">
               LK Machinery India Pvt Ltd
             </p>
           </div>
@@ -191,15 +187,14 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-brand-dark/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5
-                        flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-brand-dark/60 font-body">
+      <div className="footer__bottom">
+        <div className="container footer__bottom-inner">
+          <p className="footer__copyright">
             &copy; {year} LK Machinery India Pvt. Ltd. All rights reserved.
           </p>
 
           {/* Social icons */}
-          <div className="flex items-center gap-3">
+          <div className="footer__social">
             {SOCIAL_LINKS.map(({ label, href, Icon }) => (
               <a
                 key={label}
@@ -207,8 +202,7 @@ export default function Footer() {
                 aria-label={label}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg text-brand-dark/60 hover:text-brand-red hover:bg-brand-red/10
-                           transition-all duration-200"
+                className="footer__social-link"
               >
                 <Icon />
               </a>

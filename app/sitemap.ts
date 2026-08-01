@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
     "/investor-relations",
     "/careers",
+    "/applications",
     "/products",
     "/products/dcm",
     "/products/imm",

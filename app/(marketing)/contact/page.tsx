@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Image from "next/image";
 import EnquiryForm from "@/components/forms/EnquiryForm";
+import { getBreadcrumbSchema } from "@/lib/seo";
+import "../marketing-hero.css";
+import "./contact.css";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -9,6 +12,11 @@ export const metadata: Metadata = {
   openGraph: { url: "/contact" },
   alternates: { canonical: "/contact" },
 };
+
+const jsonLd = getBreadcrumbSchema([
+  { name: "Home", item: "/" },
+  { name: "Contact Us", item: "/contact" },
+]);
 
 // ─── Contact detail cards ──────────────────────────────────────────────────
 const DETAILS = [
@@ -79,20 +87,23 @@ const DETAILS = [
 export default function ContactPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ── Hero ───────────────────────────────────────────────────────── */}
-      <section className="relative bg-brand-dark overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-dark via-brand-dark2 to-black"
-             aria-hidden="true" />
-        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full
-                        bg-brand-red/10 blur-3xl" aria-hidden="true" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-          <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-3">
+      <section className="marketing-hero">
+        <Image src="/images/hero/hero.png" alt="" fill priority className="marketing-hero__bg-image" sizes="100vw" aria-hidden="true" />
+        <div className="marketing-hero__bg-gradient" aria-hidden="true" />
+        <div className="marketing-hero__glow" aria-hidden="true" />
+        <div className="container marketing-hero__inner">
+          <p className="marketing-hero__eyebrow">
             Get in Touch
           </p>
-          <h1 className="font-heading font-bold text-white text-4xl sm:text-5xl lg:text-6xl mb-5">
+          <h1 className="marketing-hero__title">
             Contact Us
           </h1>
-          <p className="text-white/60 text-lg leading-relaxed max-w-xl font-body">
+          <p className="marketing-hero__subtitle contact-hero__subtitle">
             Our team in Pune is ready to help — whether you need a machine quote, technical
             support, or general information. We respond to all enquiries within one business day.
           </p>
@@ -100,37 +111,33 @@ export default function ContactPage() {
       </section>
 
       {/* ── Contact details + form ───────────────────────────────────────── */}
-      <section className="py-16 lg:py-24 bg-brand-offwhite">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+      <section className="contact-main">
+        <div className="container">
+          <div className="contact-main__grid">
 
             {/* Left: contact cards */}
-            <div className="lg:col-span-2 flex flex-col gap-6">
-              <h2 className="font-heading font-bold text-brand-dark text-2xl sm:text-3xl mb-2">
+            <div className="contact-main__details">
+              <h2 className="contact-main__details-heading">
                 Our Details
               </h2>
               {DETAILS.map(({ label, lines, href, hrefLabel, external, Icon }) => (
-                <div key={label}
-                     className="flex gap-4 p-5 rounded-2xl bg-white border border-brand-dark/10 shadow-sm">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-brand-red/10
-                                  text-brand-red flex items-center justify-center">
+                <div key={label} className="contact-card">
+                  <div className="contact-card__icon">
                     <Icon />
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-brand-grey uppercase tracking-widest
-                                  font-body mb-1.5">
+                    <p className="contact-card__label">
                       {label}
                     </p>
                     {lines.map((l) => (
-                      <p key={l} className="text-brand-dark text-sm font-body leading-relaxed">{l}</p>
+                      <p key={l} className="contact-card__line">{l}</p>
                     ))}
                     {href && hrefLabel && (
                       <a
                         href={href}
                         target={external ? "_blank" : undefined}
                         rel={external ? "noopener noreferrer" : undefined}
-                        className="inline-flex items-center gap-1 mt-2 text-brand-red text-xs
-                                   font-semibold font-body hover:text-brand-redDark transition-colors"
+                        className="contact-card__link"
                       >
                         {hrefLabel}
                         <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -145,11 +152,11 @@ export default function ContactPage() {
             </div>
 
             {/* Right: enquiry form */}
-            <div className="lg:col-span-3">
-              <h2 className="font-heading font-bold text-brand-dark text-2xl sm:text-3xl mb-8">
+            <div className="contact-main__form-col">
+              <h2 className="contact-main__form-heading">
                 Send us an Enquiry
               </h2>
-              <div className="bg-white rounded-2xl p-8 shadow-md border border-brand-dark/8">
+              <div className="contact-main__form-wrap">
                 {/*
                   productInterested is intentionally left as default ("Website General Enquiry")
                   — no product context on the contact page.

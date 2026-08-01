@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { getBreadcrumbSchema } from "@/lib/seo";
+import "../marketing-hero.css";
+import "./investor-relations.css";
 
 export const metadata: Metadata = {
   title: "Investor Relations",
@@ -8,6 +12,11 @@ export const metadata: Metadata = {
   openGraph: { url: "/investor-relations" },
   alternates: { canonical: "/investor-relations" },
 };
+
+const jsonLd = getBreadcrumbSchema([
+  { name: "Home", item: "/" },
+  { name: "Investor Relations", item: "/investor-relations" },
+]);
 
 // ─── No financial data is shown on this page. ─────────────────────────────
 // LK Technology Holdings (HK: 00558) is a real listed entity, but this is
@@ -18,38 +27,41 @@ export const metadata: Metadata = {
 export default function InvestorRelationsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* ── Hero ───────────────────────────────────────────────────────── */}
-      <section className="relative bg-brand-dark overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-dark via-brand-dark2 to-black"
-             aria-hidden="true" />
-        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full
-                        bg-brand-red/8 blur-3xl" aria-hidden="true" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-          <p className="text-brand-red font-semibold text-sm tracking-[0.2em] uppercase font-body mb-3">
+      <section className="marketing-hero">
+        <Image src="/images/hero/hero.png" alt="" fill priority className="marketing-hero__bg-image" sizes="100vw" aria-hidden="true" />
+        <div className="marketing-hero__bg-gradient" aria-hidden="true" />
+        <div className="marketing-hero__glow marketing-hero__glow--sm" aria-hidden="true" />
+        <div className="container marketing-hero__inner">
+          <p className="marketing-hero__eyebrow">
             Corporate
           </p>
-          <h1 className="font-heading font-bold text-white text-4xl sm:text-5xl lg:text-6xl mb-5">
+          <h1 className="marketing-hero__title">
             Investor Relations
           </h1>
-          <p className="text-white/60 text-lg leading-relaxed max-w-2xl font-body">
+          <p className="marketing-hero__subtitle ir-hero__subtitle">
             LK Machinery India Pvt. Ltd. is a wholly owned subsidiary of{" "}
-            <strong className="text-white">LK Technology Holdings Ltd</strong>, a
+            <strong>LK Technology Holdings Ltd</strong>, a
             precision machinery group listed on the Hong Kong Stock Exchange.
           </p>
         </div>
       </section>
 
       {/* ── About the parent entity ──────────────────────────────────────── */}
-      <section className="py-16 lg:py-20 bg-brand-offwhite">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading font-bold text-brand-dark text-3xl sm:text-4xl mb-8">
+      <section className="ir-about">
+        <div className="container ir-about__container">
+          <h2 className="ir-about__heading">
             About LK Technology Holdings
           </h2>
 
-          <div className="prose prose-lg max-w-none text-brand-dark/70 font-body space-y-5">
+          <div className="ir-about__prose">
             <p>
               LK Technology Holdings Ltd (stock code:{" "}
-              <strong className="text-brand-dark">HK: 00558</strong>) is the parent
+              <strong>HK: 00558</strong>) is the parent
               company of the LK Group — a global precision machinery manufacturer with
               operations spanning die casting, injection moulding, CNC machining, and
               industrial automation.
@@ -61,7 +73,7 @@ export default function InvestorRelationsPage() {
               distribution and service network covering more than 30 countries.
             </p>
             <p>
-              <strong className="text-brand-dark">LK Machinery India Pvt. Ltd.</strong>{" "}
+              <strong>LK Machinery India Pvt. Ltd.</strong>{" "}
               is the group&apos;s wholly owned subsidiary responsible for sales,
               application support, installation, and after-sales service across the
               Indian subcontinent. The India entity does not have separately listed
@@ -70,7 +82,7 @@ export default function InvestorRelationsPage() {
           </div>
 
           {/* External links to official investor resources */}
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="ir-about__links">
             {[
               {
                 title: "HKEx Disclosure Portal",
@@ -90,15 +102,13 @@ export default function InvestorRelationsPage() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block p-6 rounded-2xl bg-white border border-brand-dark/10
-                           hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="ir-about__link-card"
               >
-                <h3 className="font-heading font-bold text-brand-dark text-lg mb-2
-                               group-hover:text-brand-red transition-colors">
+                <h3 className="ir-about__link-title">
                   {title}
                 </h3>
-                <p className="text-sm text-brand-dark/60 font-body leading-relaxed mb-3">{desc}</p>
-                <span className="text-brand-red text-sm font-semibold font-body">{label}</span>
+                <p className="ir-about__link-desc">{desc}</p>
+                <span className="ir-about__link-label">{label}</span>
               </a>
             ))}
           </div>
@@ -106,30 +116,20 @@ export default function InvestorRelationsPage() {
       </section>
 
       {/* ── Contact for investor queries ─────────────────────────────────── */}
-      <section className="py-14 bg-brand-dark">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading font-bold text-white text-2xl sm:text-3xl mb-4">
+      <section className="ir-contact">
+        <div className="container ir-contact__container">
+          <h2 className="ir-contact__heading">
             Investor &amp; Corporate Enquiries (India)
           </h2>
-          <p className="text-white/60 font-body text-base leading-relaxed mb-8 max-w-lg">
+          <p className="ir-contact__text">
             For queries specific to LK Machinery India&apos;s operations, partnerships,
             or business development, please contact our office directly.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href="mailto:avinash@lkmachinery.co.in"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white
-                         font-semibold rounded-full hover:bg-brand-redDark transition-all
-                         duration-200 font-body active:scale-95"
-            >
+          <div className="ir-contact__actions">
+            <a href="mailto:avinash@lkmachinery.co.in" className="ir-contact__cta">
               Email Us
             </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-white
-                         font-semibold rounded-full border border-white/20 hover:bg-white/20
-                         transition-all duration-200 font-body active:scale-95"
-            >
+            <Link href="/contact" className="ir-contact__cta ir-contact__cta--outline">
               Contact Page
             </Link>
           </div>

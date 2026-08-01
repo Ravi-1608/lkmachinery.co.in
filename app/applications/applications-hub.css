@@ -1,0 +1,82 @@
+.applications-hub {
+  padding-block: 4rem 5rem;
+  background-color: var(--color-brand-offwhite);
+}
+
+@media (min-width: 1024px) { .applications-hub { padding-block: 5rem; } }
+
+.applications-hub__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) { .applications-hub__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .applications-hub__grid { grid-template-columns: repeat(3, 1fr); } }
+
+.applications-hub__card {
+  display: block;
+  background-color: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s;
+}
+
+.applications-hub__card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.applications-hub__image-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background-color: color-mix(in srgb, var(--color-brand-grey) 15%, white);
+}
+
+.applications-hub__image {
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.applications-hub__card:hover .applications-hub__image {
+  transform: scale(1.05);
+}
+
+.applications-hub__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent 60%);
+}
+
+.applications-hub__card-title {
+  position: absolute;
+  left: 1.25rem;
+  bottom: 1rem;
+  color: white;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.applications-hub__card-desc {
+  padding: 1.25rem 1.25rem 0;
+  color: color-mix(in srgb, var(--color-brand-dark) 65%, transparent);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.applications-hub__card-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 1.25rem 1.25rem;
+  color: var(--color-brand-red);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+}

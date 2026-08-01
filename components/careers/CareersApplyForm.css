@@ -1,0 +1,105 @@
+.careers-apply-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.careers-apply-form__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .careers-apply-form__row { grid-template-columns: repeat(2, 1fr); }
+}
+
+.careers-apply-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.careers-apply-form__label {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-brand-dark);
+  font-family: var(--font-body);
+}
+
+.careers-apply-form__optional {
+  font-weight: 400;
+  color: color-mix(in srgb, var(--color-brand-dark) 50%, transparent);
+}
+
+.careers-apply-form__input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--color-brand-dark) 20%, transparent);
+  background-color: white;
+  color: var(--color-brand-dark);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.careers-apply-form__input::placeholder {
+  color: color-mix(in srgb, var(--color-brand-dark) 40%, transparent);
+}
+
+.careers-apply-form__input:focus {
+  outline: none;
+  border-color: var(--color-brand-red);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand-red) 15%, transparent);
+}
+
+textarea.careers-apply-form__input {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.careers-apply-form__submit {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2.5rem;
+  background-color: white;
+  color: var(--color-brand-dark);
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-brand-dark);
+  transition: background-color 0.2s, color 0.2s;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.careers-apply-form__submit:hover {
+  background-color: var(--color-brand-dark);
+  color: white;
+}
+
+.careers-apply-form__submit:active {
+  transform: scale(0.97);
+}
+
+.careers-apply-form__success {
+  text-align: center;
+  padding: 2.5rem 1rem;
+}
+
+.careers-apply-form__success p {
+  font-family: var(--font-body);
+  color: var(--color-brand-dark);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.careers-apply-form__success-note {
+  margin-top: 0.5rem;
+  font-size: 0.9375rem !important;
+  font-weight: 400 !important;
+  color: color-mix(in srgb, var(--color-brand-dark) 65%, transparent) !important;
+}
