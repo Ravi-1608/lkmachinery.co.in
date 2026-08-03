@@ -112,6 +112,8 @@ button, [role="button"] {
 }
 
 body {
+  margin: 0; /* un-reset UA default (8px) was insetting every full-bleed
+                section from the viewport edge on all four sides */
   min-height: 100vh;
   display: flex;
   flex-direction: column;

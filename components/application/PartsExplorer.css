@@ -14,6 +14,14 @@
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
+    /* Without this, the toolbar's default flex-shrink squeezes the tabs
+       group narrower than its content needs at viewports just past the
+       1024px breakpoint (e.g. 1024-1130px), forcing tabs to wrap onto a
+       second internal row while the search box stays vertically centered
+       against the whole 2-row block -- a visible misalignment on the
+       5-tab Transportation page. Wrapping the toolbar itself instead drops
+       the search box cleanly below a full, unwrapped tab row. */
+    flex-wrap: wrap;
   }
 }
 
@@ -21,6 +29,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.625rem;
+  flex-shrink: 0;
 }
 
 .parts-explorer__tab {
@@ -48,7 +57,7 @@
 }
 
 @media (min-width: 1024px) {
-  .parts-explorer__search { width: 220px; margin-left: 0.75rem; }
+  .parts-explorer__search { width: 220px; margin-left: 0.75rem; flex-shrink: 0; }
 }
 
 .parts-explorer__search-input {

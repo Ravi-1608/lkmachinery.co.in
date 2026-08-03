@@ -88,24 +88,13 @@ export default function CategoryBand({
               </Link>
             </div>
 
-            {/* ── Right column: circular glow + image + overlapping card ── */}
+            {/* ── Right column: circular glow behind, card stacked above image ── */}
             <div className="category-band__visual">
 
-              {/* Radial glow behind image */}
+              {/* Radial glow behind everything */}
               <div className="category-band__glow" aria-hidden="true" />
 
-              {/* Product image — centered */}
-              <div className="category-band__image-wrap">
-                <Image
-                  src={spotlightImage}
-                  alt={`${spotlightTitle} — ${subtitle} machine`}
-                  fill
-                  className="category-band__image"
-                  sizes="(max-width: 768px) 280px, (max-width: 1024px) 340px, 400px"
-                />
-              </div>
-
-              {/* SpotlightCard — absolutely positioned top-right, overlapping */}
+              {/* SpotlightCard — sits above the image with real spacing, per Figma */}
               <div className="category-band__spotlight-wrap">
                 <SpotlightCard
                   title={spotlightTitle}
@@ -113,6 +102,17 @@ export default function CategoryBand({
                   ctaHref={ctaHref}
                   variant={isDark ? "dark" : "light"}
                   badge={spotlightBadge}
+                />
+              </div>
+
+              {/* Product image — below the card */}
+              <div className="category-band__image-wrap">
+                <Image
+                  src={spotlightImage}
+                  alt={`${spotlightTitle} — ${subtitle} machine`}
+                  fill
+                  className="category-band__image"
+                  sizes="(max-width: 768px) 280px, (max-width: 1024px) 340px, 400px"
                 />
               </div>
             </div>
