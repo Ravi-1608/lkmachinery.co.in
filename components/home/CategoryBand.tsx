@@ -61,15 +61,11 @@ export default function CategoryBand({
                 {subtitle}
               </h2>
 
-              {/* Full name as sub-label */}
-              <p className="category-band__title">
-                {title}
-              </p>
-
-              {/* Description */}
-              <p className="category-band__description">
-                {description}
-              </p>
+              {/* Figma's homepage teaser is minimal: heading + tags only, no
+                  subtitle/description -- that longer content belongs on the
+                  full /products/[category] page, not this summary. title and
+                  description are still accepted as props (harmless if a
+                  caller passes them) but intentionally not rendered here. */}
 
               {/* Tag pills — each links to its model page */}
               <div className="category-band__tags">
