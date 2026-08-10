@@ -22,6 +22,16 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
+      {
+        source: "/industries.html",
+        destination: "/applications",
+        permanent: true,
+      },
+      {
+        source: "/about-us.html",
+        destination: "/about",
+        permanent: true,
+      },
     ];
   },
 };
