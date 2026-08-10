@@ -32,6 +32,41 @@ const nextConfig: NextConfig = {
         destination: "/about",
         permanent: true,
       },
+      {
+        source: "/crankcase.html",
+        destination: "/applications/transportation",
+        permanent: true,
+      },
+      {
+        source: "/heat-radiator.html",
+        destination: "/applications/transportation",
+        permanent: true,
+      },
+      {
+        source: "/telecom-infrastructure.html",
+        destination: "/applications/smart-3c",
+        permanent: true,
+      },
+      {
+        source: "/interior.html",
+        destination: "/applications/transportation",
+        permanent: true,
+      },
+      {
+        source: "/aluminum-pressure-die-casting-machine.html",
+        destination: "/products/dcm",
+        permanent: true,
+      },
+      {
+        source: "/houseware.html",
+        destination: "/applications/household-appliance",
+        permanent: true,
+      },
+      {
+        source: "/door-and-windows-components.html",
+        destination: "/applications/industrial-supplies",
+        permanent: true,
+      },
     ];
   },
 };
