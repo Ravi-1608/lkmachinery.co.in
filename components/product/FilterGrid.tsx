@@ -17,8 +17,6 @@ interface FilterGridProps {
 export default function FilterGrid({ models, categorySlug, filterField, filters }: FilterGridProps) {
   const [active, setActive] = useState<string>(filters[0]);
 
-  const filtered = models.filter((m) => m[filterField] === active);
-
   return (
     <div>
       {/* Filter tabs */}
@@ -36,10 +34,17 @@ export default function FilterGrid({ models, categorySlug, filterField, filters 
         ))}
       </div>
 
-      {/* Grid */}
+      {/* Grid — every model renders here always (so every model page has a
+          real crawlable link in the actual HTML, not just whichever tab
+          happens to be active), hidden via the `hidden` attribute rather
+          than left out of the DOM. `hidden` still lets crawlers see and
+          follow the underlying href; only the active tab's cards are
+          visible to a visitor. */}
       <div className="filter-grid__grid">
-        {filtered.map((model) => (
-          <ProductCard key={model.slug} model={model} categorySlug={categorySlug} />
+        {models.map((model) => (
+          <div key={model.slug} hidden={model[filterField] !== active}>
+            <ProductCard model={model} categorySlug={categorySlug} />
+          </div>
         ))}
       </div>
     </div>
