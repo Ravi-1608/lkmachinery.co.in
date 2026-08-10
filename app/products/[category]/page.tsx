@@ -103,12 +103,14 @@ export default async function ProductCategoryPage({ params }: Props) {
       />
       {/* ── Hero banner ─────────────────────────────────────────────────── */}
       <section className="category-hero">
-        {/* Background image */}
+        {/* Background image -- was alt="" aria-hidden (purely decorative),
+            which Bing's quality checker flags as missing alt text on every
+            category page. Given a real descriptive alt like every other
+            image on the site, built from the same category data. */}
         {heroImage && (
           <Image
             src={heroImage}
-            alt=""
-            aria-hidden="true"
+            alt={`${cat.categoryName} (${cat.categoryLabel}) — LK Machinery India`}
             fill
             className="category-hero__image"
             priority

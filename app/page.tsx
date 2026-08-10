@@ -18,8 +18,10 @@ import { getCategory, firstSentence } from "@/lib/products";
 // site's SEO copy from reading as a global-market page.
 export const metadata: Metadata = {
   title: "Die Casting, Injection Molding & CNC Machines Manufacturer in India",
+  // Trimmed from 197 to 143 chars -- Bing Webmaster Tools flagged the prior
+  // version as "too long" against its ~70-160 char recommendation.
   description:
-    "LK Machinery India Pvt. Ltd. — Pune-based manufacturer and supplier of die casting machines, injection molding machines, CNC machining centers, and industrial automation for customers across India.",
+    "LK Machinery India Pvt. Ltd. — Pune-based manufacturer of die casting, injection molding, CNC machining, and automation equipment across India.",
   openGraph: {
     title: "LK Machinery India — Industrial Equipment & Solutions",
     description:
